@@ -1,0 +1,55 @@
+services:
+  nginx:
+    image: nginx:1.28
+    container_name: stnginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${WWW_DIR}:/www/:rw
+      - ./nginx/ssl:/ssl:rw
+      - ./nginx/conf.d:/etc/nginx/conf.d/:rw
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # - ./nginx/fastcgi-php.conf:/etc/nginx/fastcgi-php.conf:ro
+      # - ./nginx/fastcgi_params:/etc/nginx/fastcgi_params:ro
+      - ./logs/nginx:/var/log/nginx/:rw
+    environment:
+      TZ: "$TZ"
+    restart: always
+    networks:
+      stnet:
+        aliases:
+          - nginxnet
+
+  prestashop:
+    image: prestashop/prestashop:8.2.1
+    container_name: prestashop
+    ports:
+      - "8000:80"
+    volumes:
+      - ${WWW_DIR}/prestashop:/var/www/html:rw
+    restart: always
+    networks:
+      stnet:
+        aliases:
+          - prestashopnet
+
+  mysql:
+    image: mysql:5.7
+    container_name: santic-mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+      - ./mysql/var/lib/mysql:/var/lib/mysql/:rw
+    restart: always
+    networks:
+      stnet:
+        aliases:
+          - mysqlnet
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      TZ: "$TZ"
+
+networks:
+  stnet:
