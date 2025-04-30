@@ -16,6 +16,8 @@
     - set_dns.bat: DNS一键设置工具
   - docker: **容器技术**
   - git: **Git代码管理工具**
+    - conf.sh: 常用Git配置
+    - gitflow.md: Gitflow标准工作流
   - other: **其他**
   - ssl: **证书和自动续期**
   - weixin: **微信相关**
