@@ -156,6 +156,12 @@ git branch -d myname
 ```
 # 查看提交状态
 git status
+
+# 查看本地分支
+git branch
+
+# 查看本地和远程的所有分支
+git branch -a
 ```
 
 ## 新建和切换分支
@@ -163,18 +169,32 @@ git status
 - https://git-scm.com/docs/git-branch/zh_HANS-CN
 - https://git-scm.com/docs/git-switch/zh_HANS-CN
 
+
+新建分支：
+
+```
+# 基于本地当前分支，创建新分支feature1，并切换过去
+git checkout -b feature1
+
+# 基于origin远程库，在本地创建同名分支，并切换过去
+git checkout -b feature1 origin/feature1 
+
+# 拉取远程17.0分支到本地
+git fetch origin 17.0:17.0
+# 切换到17.0分支
+git checkout 17.0
+
+```
+
+
+切换分支：
+
 ```
 # 切换到本地分支feature1
 git checkout feature1
 
-# 基于本地当前分支，创建新分支feature1
-git checkout -b feature1
-
-# 基于origin远程库，在本地创建同名分支
-git checkout -b feature1 origin/feature1
-
 # 创建全新的空白分支 git version < 2.23
-git checkout --orphan <branch>
+git checkout --orphan <new_branch_name>
 
 # 创建全新的空白分支 git version >= 2.23
 git switch --orphan <new_branch_name>
@@ -185,6 +205,9 @@ git switch --orphan <new_branch_name>
 ```
 # 克隆包含仓库的全部提交历史
 git clone https://github.com/odoo/odoo.git
+
+# 克隆17.0分支
+git clone -b 17.0 https://github.com/odoo/odoo.git odoo17
 
 # 克隆仓库包含最近3次提交历史
 git clone --depth 3 -b 17.0 --single-branch https://github.com/odoo/odoo.git odoo17
