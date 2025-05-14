@@ -1,0 +1,46 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+    "profiles": {
+        "defaults": {
+            "font": { "face": "Cascadia Mono", "size": 12 },
+            "hidden": false,
+            "historySize": 9001
+        },
+        "list": [
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "命令提示符"
+            },
+            {
+                "commandline": "cmd.exe /k \"D:\\projects\\python\\odoo\\odoovenv\\Scripts\\activate.bat && python odoo-bin -c myodoo.conf\"",
+                "guid": "{f657b879-8e81-4ffb-9eb8-571d17d92eba}",
+                "name": "StartOdoo",
+                "startingDirectory": "D:\\projects\\python\\odoo"
+            },
+            {
+                "commandline": "cmd.exe /k \"D:\\projects\\python\\odoo\\odoovenv\\Scripts\\python.exe\" odoo-bin shell -c myodoo.conf",
+                "guid": "{0ca58f89-c8a5-4687-9965-7b02493d2e3c}",
+                "name": "StartOdooShell",
+                "startingDirectory": "D:\\projects\\python\\odoo"
+            },
+            {
+                "commandline": "cmd.exe /k \"D:\\projects\\python\\odoo\\odoovenv\\Scripts\\activate.bat\"",
+                "guid": "{227a4983-a71d-4630-8585-39240bf3750d}",
+                "name": "PyVenvOdoo",
+                "startingDirectory": "D:\\projects\\python\\odoo"
+            },
+            {
+                "commandline": "\"C:/Program Files/Git/bin/bash.exe\" -i -l -c \"ssh myserver; exec bash\"",
+                "guid": "{5adc5e9d-087e-43a6-a429-f944c12628c1}",
+                "icon": "C:/Program Files/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "LoginMyServer",
+                "startingDirectory": "%USERPROFILE%"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": []
+}
