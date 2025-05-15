@@ -31,18 +31,14 @@ if [ -z "${NOTIFY_TITLE}" ]; then
     NOTIFY_TITLE="通知内容。支持MARKDOWN格式"
 fi
 
-echo "----------变量准备----------
-WEBHOOK_KEY: ${WEBHOOK_KEY}---
-NOTIFY_TYPE: ${NOTIFY_TYPE}---GIT_BRANCH: ${GIT_BRANCH}---
-DEPLOY_URL: ${DEPLOY_URL}---
-NOTIFY_TITLE: ${NOTIFY_TITLE}-----"
-
 SEND_DATA='{
   "msgtype": "markdown",
   "markdown": {
     "content": "<font color=\"info\">持续集成通知：</font> \n >集成类型: <font color=\"comment\">'${NOTIFY_TYPE}'</font> \n >目标分支: <font>'${GIT_BRANCH}'</font> \n >部署地址: <font>'${DEPLOY_URL}'</font> \n >集成内容: <font>'${NOTIFY_TITLE}'</font>"
   }
 }'
+
+echo "-------POST--DATA--json(${SEND_DATA})---"
 
 # 执行curl命令
 curl -X POST "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${WEBHOOK_KEY}" \
