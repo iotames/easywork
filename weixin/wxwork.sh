@@ -4,11 +4,11 @@
 
 # WEBHOOK_KEY=""
 # NOTIFY_TYPE="代码合并"
-# DEPLOY_URL="http://127.0.0.1:8080"
 # NOTIFY_TITLE="[客户关系管理：新增商机功能](http://127.0.0.1:8929/yourgroup/yourproject/-/merge_requests?scope=all&state=merged)"
 
 if [ -z "${WEBHOOK_KEY}" ]; then
-    WEBHOOK_KEY=""
+    echo "错误: WEBHOOK_KEY 变量未设置"
+    exit 1
 fi
 
 # 集成类型
@@ -40,7 +40,7 @@ NOTIFY_TITLE: ${NOTIFY_TITLE}-----"
 SEND_DATA='{
   "msgtype": "markdown",
   "markdown": {
-    "content": "<font color=\"info\">持续集成和部署通知：</font> \n >集成类型: <font color=\"comment\">'${NOTIFY_TYPE}'</font> \n >目标分支: <font>'${GIT_BRANCH}'</font> \n >部署地址: <font>'${DEPLOY_URL}'</font> \n >集成内容: <font>'${NOTIFY_TITLE}'</font>"
+    "content": "<font color=\"info\">持续集成通知：</font> \n >集成类型: <font color=\"comment\">'${NOTIFY_TYPE}'</font> \n >目标分支: <font>'${GIT_BRANCH}'</font> \n >部署地址: <font>'${DEPLOY_URL}'</font> \n >集成内容: <font>'${NOTIFY_TITLE}'</font>"
   }
 }'
 

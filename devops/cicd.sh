@@ -2,20 +2,15 @@
 
 # . "$HOME/.env"
 cd "$HOME"
-RUN_FILE="$HOME/odoorun/run.sh"
+RUN_SCRIPT="$HOME/odoorun/run.sh"
+NOTIFY_SCRIPT="$HOME/bin/wxwork.sh"
 LOG_PATH="$HOME/logs"
 JOB_STAGE=$1
 NOW_TIME=$(date "+%Y-%m-%d %H:%M:%S")
 
-# # 检查执行文件的目录是否存在
-# if [ ! -d "$RUN_FILE_DIR" ]; then
-#     echo "错误: $RUN_FILE_DIR 目录不存在"
-#     exit 1
-# fi
-
 # 检查运行脚本是否存在
-if [ ! -f "$RUN_FILE" ]; then
-    echo "错误: $RUN_FILE 文件不存在"
+if [ ! -f "$RUN_SCRIPT" ]; then
+    echo "错误: $RUN_SCRIPT 文件不存在"
     exit 1
 fi
 
@@ -24,16 +19,46 @@ if [ ! -d "$LOG_PATH" ]; then
     mkdir -p "$LOG_PATH"
 fi
 
-echo "-----------BIGIN---CICD---[${NOW_TIME}]-----${JOB_STAGE}------" >> "$LOG_PATH/ci.log"
+echo "-----------BIGIN---CICD---[${NOW_TIME}]-----${JOB_STAGE}------" >> "$LOG_PATH/cicd.log"
 # deploy_merge
 if [ "$JOB_STAGE" == "deploy_merge" ]; then
     # ${REMOTE_SCRIPT_FILE} deploy_merge "$CI_COMMIT_BRANCH" "$CI_COMMIT_TITLE" "$CI_COMMIT_MESSAGE"
     CI_COMMIT_BRANCH=$2
     CI_COMMIT_TITLE=$3
     CI_COMMIT_MESSAGE=$4
-    DEBUG_MSG="deploy_merge ${CI_COMMIT_BRANCH} ${CI_COMMIT_TITLE} ${CI_COMMIT_MESSAGE}"
-    "${RUN_FILE}" update
-    echo $DEBUG_MSG >> "$LOG_PATH/ci.log"
+    DEBUG_MSG="---deploy_merge--(${CI_COMMIT_BRANCH})--(${CI_COMMIT_TITLE})--(${CI_COMMIT_MESSAGE})"
+    
+    "${RUN_SCRIPT}" update
+    
+    # 检查消息通知脚本是否存在
+    if [ ! -f "$NOTIFY_SCRIPT" ]; then
+        echo "错误: $NOTIFY_SCRIPT 文件不存在"
+        exit 1
+    fi
+    # 消息通知
+    # DEPLOY_URL, WEBHOOK_KEY 从环境变量中获取 
+    export NOTIFY_TYPE="代码合并"
+    export GIT_BRANCH="${CI_COMMIT_BRANCH}"
+    # 从CI_COMMIT_MESSAGE中提取实际的更新内容
+    NOTIFY_TITLE=$(echo "${CI_COMMIT_MESSAGE}" | \
+        sed "s|${CI_COMMIT_TITLE}||" | \
+        sed 's/See merge request.*$//' | \
+        sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' | \
+        tr -d '\n')
+    
+    # 如果没有提取到内容，则使用默认的CI_COMMIT_TITLE
+    if [ -z "$NOTIFY_TITLE" ]; then
+        NOTIFY_TITLE="${CI_COMMIT_TITLE}"
+    fi
+
+    # 如果有设置MERGED_LOG_URL变量，则将NOTIFY_TITLE格式化为Markdown链接格式
+    if [ -n "$MERGED_LOG_URL" ]; then
+        NOTIFY_TITLE="[${NOTIFY_TITLE}](${MERGED_LOG_URL})"
+    fi
+
+    export NOTIFY_TITLE
+    "${NOTIFY_SCRIPT}"
+    echo $DEBUG_MSG >> "$LOG_PATH/cicd.log"
 fi
 
 # deploy_tag
@@ -43,5 +68,5 @@ if [ "$JOB_STAGE" == "deploy_tag" ]; then
     CI_COMMIT_TAG_MESSAGE=$3
     CI_COMMIT_AUTHOR=$4
     DEBUG_MSG="deploy_tag ${CI_COMMIT_TAG} ${CI_COMMIT_TAG_MESSAGE} ${CI_COMMIT_AUTHOR}"
-    echo $DEBUG_MSG >> "$LOG_PATH/ci.log"
+    echo $DEBUG_MSG >> "$LOG_PATH/cicd.log"
 fi
