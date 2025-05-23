@@ -7,11 +7,22 @@ ENV_FILE=`pwd`/env.sample
 echo $ENV_FILE
 . $ENV_FILE
 
+echo "TZ: ${TZ}"
+echo "WWW_DIR: ${WWW_DIR}"
+echo "MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}"
 echo "POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}"
 
-docker run -d --restart always --name postgres \
-  --env-file $ENV_FILE \
+docker run -d --restart=always --name postgres \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=$DB_PASSWORD \
   -v ./postgres/data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:17.4-bookworm
 
+docker run -d --restart always --name mysql \
+  --network yourproject-net \
+  -e MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} \
+  -v ./mysql/data:/var/lib/mysql \
+  -v ./mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf \
+  -p 3307:3306 \
+  mysql:5.7
