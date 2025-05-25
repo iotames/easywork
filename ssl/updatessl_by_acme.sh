@@ -26,8 +26,8 @@ fi
 # 定义域名与网站根目录的映射关系
 # 假设要新增 c.site.com 做自动续期。应分2个步骤
 # 1. 打开网站的NGINX配置文件，更改原先的SSL证书文件路径。每行末尾记得加;引号。如：/usr/local/nginx/conf/vhost/c.site.com.conf
-# ssl_certificate      /root/ssl/certificates/c.site.com.fullchain.cert;
-# ssl_certificate_key  /root/ssl/certificates/c.site.com.key;
+# ssl_certificate      /ssl/certificates/c.site.com.fullchain.cert;
+# ssl_certificate_key  /ssl/certificates/c.site.com.key;
 # 2. 在 updatessl.sh 文件下面，declare -A dmap 这一行下面，新增一行：dmap["c.site.com"]="/home/wwwroot/c.site.com/public"
 # 完成以上操作后，新增的网站，每周都会检查或执行SSL证书更新。如果想立即生效。请手动执行 sh updatessl.sh
 declare -A dmap
@@ -42,6 +42,7 @@ keyfile=${CERT_PATH}/${dm}.key
 crtfile=${CERT_PATH}/${dm}.fullchain.cert
 echo "ssl_certificate_key $keyfile"
 echo "ssl_certificate $crtfile"
+# 可选参数：--force --debug
 runargs="--install-cert -d ${dm} --key-file ${keyfile} --fullchain-file ${crtfile} -w ${webroot}"
 if [ ! -f ${keyfile} ]; then
 sysKeyfile="/root/.acme.sh/${dm}_ecc/${dm}.key"

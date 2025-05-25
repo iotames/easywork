@@ -1,0 +1,110 @@
+services:
+  nginx:
+    image: nginx:1.28
+    container_name: stnginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${WWW_DIR}:/www/:rw
+      - ./nginx/ssl:/ssl:rw
+      - ./nginx/conf.d:/etc/nginx/conf.d/:rw
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      # - ./nginx/fastcgi-php.conf:/etc/nginx/fastcgi-php.conf:ro
+      # - ./nginx/fastcgi_params:/etc/nginx/fastcgi_params:ro
+      - ./logs/nginx:/var/log/nginx/:rw
+    environment:
+      TZ: "$TZ"
+    restart: always
+    networks:
+      - stnet
+      - nocobase
+
+  prestashop:
+    image: prestashop/prestashop:8.2.1
+    container_name: prestashop
+    environment:
+      - DB_SERVER=mysql
+#     DB_SERVER=santic-mysql
+    ports:
+      - "8000:80"
+    volumes:
+      - ${WWW_DIR}/prestashop:/var/www/html:rw
+    restart: always
+    networks:
+      - stnet
+
+  mysql:
+    image: mysql:5.7
+    container_name: santic-mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+      - ./mysql/var/lib/mysql:/var/lib/mysql/:rw
+    restart: always
+    networks:
+      - stnet
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      TZ: "$TZ"
+
+  app:
+    image: nocobase/nocobase:1.6.33
+    restart: always
+    networks:
+      - nocobase
+    depends_on:
+      - mysql8
+    environment:
+      # The application's secret key, used to generate user tokens, etc.
+      # If APP_KEY is changed, old tokens will also become invalid.
+      # It can be any random string, and make sure it is not exposed.
+      - APP_KEY=your-secret-key
+      # Database type, supports postgres, mysql, mariadb
+      - DB_DIALECT=mysql
+      # Database host, can be replaced with the IP of an existing database server
+      - DB_HOST=mysql8
+      # Database port
+      - DB_PORT=3306
+      # Database name
+      - DB_DATABASE=nocobase
+      # Database user
+      - DB_USER=root
+      # Database password
+      - DB_PASSWORD=nocobase
+      # Whether to convert table and field names to snake case
+      - DB_UNDERSCORED=true
+      # Timezone
+      # - TZ=UTC
+      - TZ=Asia/Shanghai
+      # Service platform username and password,
+      # used for automatically downloading and updating plugins.
+      - NOCOBASE_PKG_USERNAME=
+      - NOCOBASE_PKG_PASSWORD=
+    volumes:
+      - ./nocobase:/app/nocobase
+    ports:
+      - '13000:80'
+    # init: true
+
+  # If using an existing database server, mysql service can be omitted
+  mysql8:
+    image: mysql:8
+    environment:
+      MYSQL_DATABASE: nocobase
+      MYSQL_USER: nocobase
+      MYSQL_PASSWORD: nocobase
+      MYSQL_ROOT_PASSWORD: nocobase
+    restart: always
+    volumes:
+      - ./nocobase/storage/db/mysql:/var/lib/mysql
+    ports:
+      - '3308:3306'
+    networks:
+      - nocobase
+
+networks:
+  stnet:
+  nocobase:
+    driver: bridge
