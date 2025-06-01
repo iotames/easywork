@@ -32,6 +32,7 @@
     - mysql: [MySQL相关](docker/mysql/)
     - nginx: [Nginx主题](docker/nginx/)
     - docker_run.sh: [Docker运行脚本实例](docker/docker_run.sh)
+    - volumes.md: [Docker卷的使用](docker/volumes.md)
   - git: [Git代码管理工具](git/)
     - conf.sh: [常用Git配置](git/conf.sh)
     - gitflow.md: [Gitflow标准工作流](git/gitflow.md)

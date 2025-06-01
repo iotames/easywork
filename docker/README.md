@@ -2,6 +2,8 @@
 
 - 配置文件：`/etc/docker/daemon.json`
 - 私有镜像仓库地址配置：`{ "insecure-registries": ["172.16.160.33:9000"] }`
+- docker镜像和容器等工作文件所在目录：`/var/lib/docker/`
+- 更改数据目录（也可以使用软连接指向 `/var/lib/docker`）：`{ "data-root": "/data/docker" }`
 
 
 重载进程或docker使配置立即生效：
@@ -11,90 +13,79 @@ systemctl daemon-reload
 systemctl restart docker.service
 ```
 
-
 ## 镜像仓库
 
+- registry.md: [Docker镜像仓库的使用](registry.md)
 
-### 私有镜像仓库
+## 常用命令
 
-```
-# 服务端
+### 系统服务命令
 
-# 1. 下载registry镜像：固定版本标签3.0.0。不使用标签则默认为latest
-docker pull registry:3.0.0
+- 重载    `systemctl daemon-reload`
+- 重启    `systemctl restart docker`
+- 开机启动 `systemctl enable docker`
+- 停止服务 `systemctl stop docker`
 
-# 2. 使用前面下载好的镜像，启动容器实例。
-docker run -d -v /opt/images/registry:/var/lib/registry \
--p 5000:5000 \
---restart=always \
---name myregistry registry:3.0.0
+### Docker管理命令
 
-# 客户端
-
-# 3. 定义私有仓库地址
-vim /etc/docker/daemon.json
-{ "insecure-registries":["172.16.160.33:9000"] }
-
-# 4. 重载配置。使上面的配置立即生效
-# systemctl restart docker.service
-systemctl daemon-reload
-
-# 5. 在本地标记待上传的镜像。两个镜像标签最好保持一致，也就是冒号:后面的部分。
-docker tag postgres:17.4-bookworm 172.16.160.33:9000/library/postgres:17.4-bookworm
-
-# 6. 上传做标记的镜像
-docker push 172.16.160.33:9000/library/postgres:17.4-bookworm
-
-# 7. 拉取镜像
-docker pull 172.16.160.33:9000/library/postgres:17.4-bookworm
-```
-
-- `-v` 选项可以将本地仓库目录挂载到容器内的 `/var/lib/registry` 下使用，这样就不会容器被删除后镜像也会随之消失。
-- [使用Harbor搭建企业私有容器镜像仓库](harbor/README.md)
-
-
-### 公共镜像仓库
-
-
-1. 进入 `Docker Hub` 首先注册一个账号：https://hub.docker.com
-2. 本地登录绑定Docker Hub账号：`docker login`
-3. 登录容器变更实例：`docker run -it yourcontainer bash`
-4. 前面一波操作更改容器后，通过容器ID创建新镜像：`docker commit b3f9427a5039 hankin/mypy:v2`
-5. 查看镜像信息：`docker inspect hankin/mypy:v2`
-6. 将镜像推送至Docker Hub：`docker push hankin/mypy:v2`
-7. 退出登录：`docker logout`
-
-
-- 登录Harbor或其他仓库地址：
+- Docker系统管理
 
 ```
-docker login registry.tencent.com
-docker login 172.16.160.33:9000
-docker login --username=hi34201496@aliyun.com registry.cn-hangzhou.aliyuncs.com
+# 查看网络列表
+docker network ls
+# 查看数据卷列表
+docker volume ls
+
+# 查看Docker磁盘使用情况
+docker system df
+
+# 删除所有（本地）没有被容器使用的volume. 常用
+docker volume prune
+
+# 命令可以用于清理磁盘，删除关闭的容器、无用的数据卷和网络，以及dangling镜像(即无tag的镜像)。
+docker system prune
 ```
 
-- 从ID为 `b3f9427a5039` 的容器创建镜像 `hankin/mypy:v2`
+- 镜像管理
 
 ```
-docker commit -m="some update" --author="hankin" b3f9427a5039 hankin/mypy:v2
+# 查看本地所有镜像：
+docker images
+
+# 拉取下载远程镜像到本地
+docker pull mysql:5.7
+docker pull nginx
+
+# 根据ID查看镜像详情
+docker inspect imageId
+
+# 根据关键词，从远程仓库查找镜像
+docker search keywords
+
+# 镜像删除。可以用镜像标签或镜像ID。
+# 当image有多个tag标签时，此命令只删除指定tag镜像标签，不会删除其他镜像tag。而当只有一个tag标签时，使用docker rmi 会彻底删除该镜像，包括该镜像的所有的AUFS层文件。
+docker rmi centos:prod
+
+# 删除所有镜像：
+docker rmi $(docker images -q -a)
 ```
 
-- 使用 `tag` 命令变更ID为 `37bb9c63c8b2` 的镜像标签，然后推送到新的私有地址
+- 容器实例管理
 
 ```
-docker tag 37bb9c63c8b2 172.16.160.33:9000/hankin/mypy:v2
-docker push 172.16.160.33:9000/hankin/mypy:v2
-```
+# 显示状态为运行（Up）的容器
+docker ps
+# 显示所有容器,包括运行中（Up）的和退出的(Exited)
+docker ps -a
 
-- 使用 `docker images` 查看所有镜像。可获取镜像名，镜像标签，镜像ID等信息。
-- `REPOSITORY`: 镜像名。包含镜像仓库地址和镜像在仓库中的路径。镜像仓库地址可以是域名或IP。如果省略地址，则默认为官方镜像仓库。
-- `TAG`: 镜像标签。镜像内容有变更，使用镜像标签，标记新版本。
-- `IMAGE ID`: 镜像ID。同一个镜像，传送到不同地址的镜像仓库，它们的镜像ID是一样的。
-
-```
-REPOSITORY                                            TAG             IMAGE ID       CREATED         SIZE
-ubuntu                                                jammy           cc934a90cd99   7 weeks ago     77.9MB
-registry                                              3.0.0           3dec7d02aaea   7 weeks ago     57.7MB
-192.168.2.101:6000/library/postgres                   17.4-bookworm   f49abb9855df   3 months ago    438MB
-postgres                                              17.4-bookworm   f49abb9855df   3 months ago    438MB
+# 创建并启动一个容器
+docker run
+# 停止容器运行
+docker stop
+# 启动已停止的容器
+docker start
+# 重启容器
+docker restart
+# 删除已停止的容器
+docker rm
 ```
