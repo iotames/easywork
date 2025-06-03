@@ -26,3 +26,19 @@ docker run -d --restart always --name mysql \
   -v ./mysql/mysql.cnf:/etc/mysql/conf.d/mysql.cnf \
   -p 3307:3306 \
   mysql:5.7
+
+docker run -d \
+ --name n8n \
+ --network host \
+ -p 5678:5678 \
+ -e DB_TYPE=postgresdb \
+ -e DB_POSTGRESDB_DATABASE=n8n \
+ -e DB_POSTGRESDB_HOST=127.0.0.1 \
+ -e DB_POSTGRESDB_PORT=5432 \
+ -e DB_POSTGRESDB_USER=postgres \
+ -e DB_POSTGRESDB_SCHEMA=public \
+ -e DB_POSTGRESDB_PASSWORD=postgres \
+ -e GENERIC_TIMEZONE="Asia/Shanghai" \
+ -e N8N_SECURE_COOKIE=false \
+ -v ./n8n_data:/home/node/.n8n \
+ n8nio/n8n:1.95.2

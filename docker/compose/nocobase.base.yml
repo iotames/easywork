@@ -40,7 +40,7 @@ services:
       - NOCOBASE_PKG_PASSWORD=
 
     volumes:
-      - ./storage:/app/nocobase/storage
+      - ./nocobase:/app/nocobase
     ports:
       - '13000:80'
     # init: true
