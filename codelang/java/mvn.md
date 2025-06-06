@@ -1,9 +1,13 @@
-## 安装Maven
-
-Maven 是 Java 的项目管理工具，可以对 Java 项目进行自动化的构建和依赖管理。
+## Maven官方资源
 
 - 下载：[https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi)
 - 安装：[https://maven.apache.org/install.html](https://maven.apache.org/install.html)
+- 使用：[https://maven.apache.org/run.html](https://maven.apache.org/run.html)
+
+
+## 安装Maven
+
+Maven 是 Java 的项目管理工具，可以对 Java 项目进行自动化的构建和依赖管理。
 
 ```
 wget -c https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
@@ -20,7 +24,7 @@ wget -c https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9
 2. `mvn compile`: 编译项目源代码。
 3. `mvn test`: 运行项目测试
 4. `mvn package`: 打包项目到 `target` 目录下。包括: `jar`, `war`, `class` 文件。
-5. `mvn install`: 在前面打包项目完成后，复制一份打包成果，到 `本地仓库`。默认是： `~/.m2/repository`。
+5. `mvn install`: 在前面打包项目完成后，复制一份打包成果，到 `本地仓库`。默认是： `~/.m2/repository`。这样该项目包，就可以用作其他本地项目的依赖。
 6. `mvn deploy`: 将项目打包并部署到远程Maven仓库，适用于发布发布版本。
 
 ### 依赖管理命令
@@ -28,7 +32,7 @@ wget -c https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9
 - ​mvn dependency:list
 - mvn dependency:tree​
 - mvn dependency:get
-- mvn dependency:purge-local-repository
+- mvn dependency:purge-local-repository: 清空本地仓库中的所有依赖。会清空本地仓库的所有内容，强制重新从远程仓库下载依赖，并将它们安装到本地仓库。建议在使用之前备份本地仓库的重要内容。
 
 
 ## 常见命令组合
@@ -69,7 +73,7 @@ mvn clean install -U -Dmaven.test.skip=true
 ## Maven配置
 
 - `全局配置`： 在 `Maven安装目录` 下的 `conf/settings.xml` 文件，是全局的配置文件。
-- `局部配置`：新建或编辑 `用户目录` 的 `.m2/settings.xml` 文件，会覆盖全局配置。
+- `局部配置`：新建或编辑 `用户目录` 的 `.m2/settings.xml` 文件，会覆盖全局配置。更改后实时生效，不用重启命令窗口。
 
 
 ## Maven仓库
@@ -130,3 +134,4 @@ mvn clean install -U -Dmaven.test.skip=true
 > Maven 常用命令详解 https://juejin.cn/post/7454109435877867539
 > Maven使用教程 https://blog.csdn.net/weixin_48958956/article/details/147802899
 > Maven基础 https://liaoxuefeng.com/books/java/maven/index.html
+> Maven构建生命周期 https://blog.csdn.net/m0_62574889/article/details/130640329
