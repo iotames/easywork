@@ -4,21 +4,28 @@
 2. Kettle文件夹和环境变量
 3. 资源库配置
 
-
 ```bash
 export KETTLE_HOME=/opt/pentaho/data-integration
 export PATH=$PATH:$KETTLE_HOME
 ```
 
-- 将图形界面保存的 `.kjb/.ktr` 文件存放至统一目录（如/data/etl_jobs）
+### 资源库的配置和使用
 
-```
-<!-- repositories.xml配置示例 -->
-<repository>
-  <id>file_repo</id>
-  <base_directory>/data/etl_repository</base_directory>
-</repository>
-```
+
+将图形界面保存的 `.kjb/.ktr` 文件，存放至统一目录
+
+- 首次启动 `Spoon`，如已有文件资源库，则如下配置：
+
+点击右上角 `​​Connect`​​ → ​​​`Other Repositories`​​ → ​​选择 ​`​File Repository`​​ → 点击 `​​Get Started​​` → 输入资源库名称和路径
+
+- 已配置好资源库的情况下，可以再添加新资源库：
+
+`​​Connect` → `Repository Manager​​` → `Add` → `Other Repositories` → ​选择 `​​File Repository` → `​​Get Started​​` → 输入资源库名称和路径
+
+- 使用资源库：
+
+方法一：左上角菜单下有个快捷操作栏，图标从左到右依次是：`新建`、`打开`、`浏览`、`保存`、`另存为`。可以直接点击 `打开` 图标，选择要打开的文件。
+方法二：点击左上角菜单 `工具` → `资源库` → `探索资源库` → 点击选项卡 `浏览` → 双击想要打开的 `Jon文件`  →  双击右下角 `Close` 按钮。就可看见已经打开了一个Job了。
 
 
 ## 常用命令
@@ -87,6 +94,41 @@ spoon.sh --headless --execute=/etl/data_migration.ktr
 
 
 ## 配置与监控
+
+在 `用户主目录` (即Linux的 `$HOME` 或Windows的 `%HOME%` )的 `.kettle` 和 `.pentaho` 目录。
+
+- 密码加密: 执行kettle目录的 `Encr.bat` (Linux则使用 `encr.sh`)文件
+
+```
+# 得到加密后的密码字符串，复制到.kettle/kettle.properties文件的密码变量中
+Encr.bat -kettle 待加密密码字符串
+```
+
+- 变量配置文件: `.kettle/kettle.properties`
+
+```
+# kettle可以直接使用变量代替数据库主机名，用户名，密码等。
+pg_local_host=127.0.0.1
+pg_local_port=5432
+pg_local_dbnm=postgres
+pg_local_user=postgres
+pg_local_pwd=Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9
+```
+
+- 资源库配置文件: `.kettle/repositories.xml`。 
+
+```.kettle/repositories.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories>
+  <repository>    <id>KettleFileRepository</id>
+    <name>santicdc</name>
+    <description>File repository</description>
+    <is_default>true</is_default>
+    <base_directory>C:\projects\kettleresp</base_directory>
+    <read_only>N</read_only>
+    <hides_hidden_files>N</hides_hidden_files>
+  </repository>  </repositories>
+```
 
 1. 资源库 vs 文件系统：作业/转换建议保存为文件（.kjb/.ktr），而非数据库资源库——避免连接依赖，更易版本化管理310
 2. 参数化设计：使用 `-param:KEY=VALUE` 传递动态变量（如日期、环境标识），提升脚本复用率

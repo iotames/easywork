@@ -1,8 +1,16 @@
 ## 官方资源
 
 - 官方文档：https://help.pentaho.com/ -> https://docs.hitachivantara.com/p/pentaho-dia
-- [Pentaho Data Integration介绍](https://docs.hitachivantara.com/r/en-us/pentaho-data-integration-and-analytics/10.2.x/mk-95pdia003)
-- [安装和配置](https://docs.hitachivantara.com/r/en-us/pentaho-data-integration-and-analytics/10.2.x/mk-95pdia001)
+- Pentaho Data Integration介绍：https://docs.hitachivantara.com/r/en-us/pentaho-data-integration-and-analytics/10.2.x/mk-95pdia003
+- 安装和配置：https://docs.hitachivantara.com/r/en-us/pentaho-data-integration-and-analytics/10.2.x/mk-95pdia001
+
+Kettle官方下载需要账户密码登录或填写表单：
+
+- https://support.pentaho.com/
+- https://community.hitachivantara.com/
+- https://www.hitachivantara.com/en-us/products/pentaho-platform/data-integration-analytics/pentaho-community-edition.html
+
+第三方SourceForge的下载地址，也删除了 `Data Integration`，只留了个pdf文件： https://sourceforge.net/projects/pentaho/files/
 
 
 ## 安装方式
