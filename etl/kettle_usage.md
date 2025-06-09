@@ -95,6 +95,12 @@ spoon.sh --headless --execute=/etl/data_migration.ktr
 ```
 
 
+## 数据库驱动
+
+- 数据库驱动目录：Kettle 主程序下的 `lib` 目录。
+- MySQL 驱动：`mysql-connector-j-9.2.0.jar`。https://downloads.mysql.com/archives/c-j/。下拉框选择：`Platform Independent` ->  选择 `Platform Independent (Architecture Independent), ZIP Archive` 
+
+
 ## 配置与监控
 
 在 `用户主目录` (即Linux的 `$HOME` 或Windows的 `%HOME%` )的 `.kettle` 和 `.pentaho` 目录。

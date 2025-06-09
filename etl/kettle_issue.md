@@ -23,3 +23,20 @@ str..replace("\u0000", "").replace("\\u0000", ""));
 ```SQL
 SELECT replace(review_content, char(0), '') as 评论内容 [FROM reviews_table]
 ```
+
+## 数据库驱动错误
+
+```
+Driver class 'org.gjt.mm.mysql.Driver' could not be found, make sure the 'MySQL' driver (jar file) is installed.
+org.gjt.mm.mysql.Driver
+```
+
+缺少MySQL驱动。
+
+### 解决方法
+
+进入：https://downloads.mysql.com/archives/c-j/ -> 下拉框选择：`Platform Independent` ->  选择 `Platform Independent (Architecture Independent), ZIP Archive` 下载.
+
+- 例： 下载 https://cdn.mysql.com/archives/mysql-connector-java-9.2/mysql-connector-j-9.2.0.zip 然后解压缩，复制文件 `mysql-connector-j-9.2.0.jar` 到 Kettle 的 `lib` 目录下。然后重启 Kettle。
+
+
