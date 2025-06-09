@@ -22,6 +22,8 @@ export PATH=$PATH:$KETTLE_HOME
 
 `​​Connect` → `Repository Manager​​` → `Add` → `Other Repositories` → ​选择 `​​File Repository` → `​​Get Started​​` → 输入资源库名称和路径
 
+若找不到 `Connect`​​按钮，请检查 `jdk版本` 与当前 `Kettle版本` 是否匹配。如：`kettle 9.3` 需要使用 `jdk11`
+
 - 使用资源库：
 
 方法一：左上角菜单下有个快捷操作栏，图标从左到右依次是：`新建`、`打开`、`浏览`、`保存`、`另存为`。可以直接点击 `打开` 图标，选择要打开的文件。
