@@ -28,7 +28,7 @@ JRE是运行Java字节码的虚拟机。但要从Java源码，编译成Java字�
 注：最新的官方教程，没把 `CLASSPATH` 变量设置为必须。1.5后不用再设置classpath，但建议继续设置以保证后兼容。
 
 1. `JAVA_HOME`: JDK的安装目录。
-2. `PATH`: 把`JAVA_HOME`的`bin`目录, (还有JER的bin目录)添加到`系统环境变量` `PATH上`。
+2. `PATH`: 把`JAVA_HOME`的`bin`目录, (还有JRE的bin目录)添加到`系统环境变量` `PATH上`。
 3. `CLASSPATH`: JDK的lib下的`tools.jar` 和 `dt.jar`，连同当前路径`.`，加入`CLASSPATH`环境变量。
 
 ```
