@@ -12,6 +12,10 @@ echo "WWW_DIR: ${WWW_DIR}"
 echo "MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}"
 echo "POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}"
 
+# https://zhuanlan.zhihu.com/p/16194434502
+# -p 80:80
+docker run -d --network host --name nginx -v /mnt/www:/mnt/www -v ~/vhost:/etc/nginx/conf.d
+
 docker run -d --restart=always --name postgres \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=$DB_PASSWORD \
