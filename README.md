@@ -8,10 +8,9 @@
 - easywork
   - backup: [数据备份](backup/)
     - rsync.sh: [从远程服务器进行增量备份](backup/rsync.sh)
-  - codelang: [编程语言](codelang/)
-    - go: [Go语言相关](codelang/go/)
-    - java: [Java相关](codelang/java/)
-    - nodejs: [NodeJS相关](codelang/nodejs/)
+  - golang: [Go语言相关](golang/)
+  - java: [Java相关](java/)
+  - nodejs: [NodeJS相关](nodejs/)
   - config: [配置相关](config/)
     - vimrc.conf: [.vimrc配置文件](config/vimrc.conf)
   - desktop: [桌面工具](desktop/)
