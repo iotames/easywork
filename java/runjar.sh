@@ -14,3 +14,5 @@ export DB_PASSWORD=123456
 mvn clean install -Dmaven.test.skip=true
 
 java -jar /path/xxx/target/yourapp.jar
+
+nohup java -jar yourapp.jar --spring.config.additional-location=file:/etc/yourapp/application.prod.yml > yourapp.prod.log 2>&1 &

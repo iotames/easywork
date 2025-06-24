@@ -33,6 +33,9 @@ java -jar app.jar --spring.config.location=file:/conf/
 
 # 加载 /conf/ + 默认配置
 java -jar app.jar --spring.config.additional-location=file:/conf/
+
+# 指定配置文件
+java -jar app.jar --spring.config.additional-location=file:/conf/application.prod.yml
 ```
 
 - `--spring.config.location`: 覆盖默认配置路径；
