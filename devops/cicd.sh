@@ -3,9 +3,22 @@
 # 如字符串有类似 !55 这种符号。在bash环境，会和历史扩展的功能冲突。
 # 可使用sh环境，或运行set +H命令禁用。执行set -H命令可恢复。
 
-if [ -f "${HOME}/.env" ]; then
-    echo "-----发现${HOME}/.env文件"
-    . "${HOME}/.env"
+if [ "$1" = "reload" ]; then
+    echo "----TODO--cicd.sh--(reload)---"
+fi
+
+# 检查环境变量 ENV_FILE 是否已设置
+# 如果未设置，则将 ENV_FILE 设置为默认的 ~/.env 文件路径
+if [ -z "${ENV_FILE}" ]; then
+    ENV_FILE="${HOME}/.env"
+fi
+
+# 检查环境变量文件是否存在，如果存在则加载该文件
+# - ${ENV_FILE}: 环境变量文件的路径
+# - 如果文件存在，输出提示信息，并使用点号命令（.）加载环境变量
+if [ -f "${ENV_FILE}" ]; then
+    echo "-----发现${ENV_FILE}文件"
+    . "${ENV_FILE}"
 fi
 
 cd "$HOME"

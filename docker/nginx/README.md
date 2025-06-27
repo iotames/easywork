@@ -17,3 +17,7 @@ Nginx的虚拟主机配置文件中，`location` 语句块的 `proxy_pass` 配�
     proxy_pass http://prestashopnet:80;
   }
 ```
+
+## Location语句块
+
+- [Location表达式](location.md)
