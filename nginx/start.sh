@@ -7,7 +7,6 @@ docker run --network host --name nginx \
 -v ./nginx.conf:/etc/nginx/nginx.conf \
 -v ./ssl:/ssl \
 -v ./logs:/var/log/nginx \
-
 nginx:1.28
 
 # ports:
