@@ -198,6 +198,42 @@ gitlab_rails['databases']['ci']['enable'] = false
 sudo docker restart gitlab
 ```
 
+
+## 日志配置
+
+GitLab Omnibus 包已经内置了强大的 logrotate 配置。主要修改 `/etc/gitlab/gitlab.rb` 文件。
+
+Logrotate 核心配置：
+
+```
+# 启用并配置 logrotate
+logging['logrotate_enabled'] = true
+
+# 设置轮转周期：'daily' (默认), 'weekly', 'monthly'
+logging['logrotate_frequency'] = "daily"
+
+# 保留多少个轮转后的归档日志文件 (默认 30 个)
+logging['logrotate_rotate'] = 7  # 强烈建议减少，例如保留 7 天。这是控制磁盘占用的关键！
+
+# 轮转前旧日志的最大大小（可选，但建议设置）。例如 100MB。达到此大小即使没到轮转时间也触发轮转。
+logging['logrotate_size'] = "100M"
+
+# 轮转后立即压缩旧日志 (默认 true)
+logging['logrotate_compress'] = true
+
+# 使用日期作为轮转文件的后缀 (如 production.log-20230703.gz) (默认 true)
+logging['logrotate_dateformat'] = true
+```
+
+使配置立即生效
+```
+sudo gitlab-ctl reconfigure  # 应用 gitlab.rb 中的配置更改，会重新生成 logrotate 规则
+sudo gitlab-ctl restart      # 重启所有 GitLab 组件 (有时 reconfigure 后重启更保险)
+# 强制 logrotate 立即执行一次轮转（即使未达到 size/time 条件）
+sudo /opt/gitlab/embedded/sbin/logrotate -fv /var/opt/gitlab/logrotate/logrotate.conf
+```
+
+
 ## 系统邮箱配置
 
 1. 修改配置文件：`/etc/gitlab/gitlab.rb`

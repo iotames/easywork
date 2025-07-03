@@ -13,6 +13,45 @@ systemctl daemon-reload
 systemctl restart docker.service
 ```
 
+## 日志配置
+
+容器默认使用 json-file 日志驱动，其日志文件（如 37cf0f6b...-json.log）无自动轮转策略，很可能导致磁盘爆炸。
+
+- 如果已有容器内，已经有庞大的日志文件，可先删除。重启后会新建日志文件。然后限定日志大小。
+
+```
+rm -rf /var/lib/docker/containers/37cf0f6b2bd911feba7a99be9f8082e968e3573830459ca17d529ef1ed687757/37cf0f6b2bd911feba7a99be9f8082e968e3573830459ca17d529ef1ed687757-json.log
+```
+
+- 针对所有容器：修改配置文件 `/etc/docker/daemon.json`
+
+```json
+// /etc/docker/daemon.json
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m",
+    "max-file": "3"
+  }
+}
+```
+
+重启容器服务，使配置生效：
+```
+systemctl daemon-reload
+systemctl restart docker
+```
+
+- 针对单个运行容器
+
+```bash
+docker run -d \
+  --log-driver=json-file \
+  --log-opt max-size=100m \
+  --log-opt max-file=3 \
+  gitlab/gitlab-ee:latest
+```
+
 ## 镜像仓库
 
 - registry.md: [Docker镜像仓库的使用](registry.md)
