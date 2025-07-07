@@ -113,7 +113,12 @@ services:
       - kestra-data:/app/storage
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/kestra-wd:/tmp/kestra-wd
+    # 可以直接指定环境变量文件。环境变量名记得以 `ENV_` 开头。如 `ENV_MY_HOST`,在流程中通过 `{{ envs.my_host }}` 访问。
+    env_file:
+      - ./.env
     environment:
+    # 名为 `ENV_MY_VARIABLE` 的环境变量可以通过 `{{ envs.my_variable }}` 访问。
+      ENV_MY_VARIABLE: extra variable value
       KESTRA_CONFIGURATION: |
         datasources:
           postgres:

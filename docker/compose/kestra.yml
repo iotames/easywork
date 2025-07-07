@@ -13,7 +13,11 @@ services:
       - ./secrets:/app/secrets
       - /var/run/docker.sock:/var/run/docker.sock
       - ./tmp/kestra-wd:/tmp/kestra-wd
+    env_file:
+      - ./.env
     environment:
+    # 名为 `ENV_MY_VARIABLE` 的环境变量可以通过 `{{ envs.my_variable }}` 访问。
+      ENV_MY_VARIABLE: extra variable value
       KESTRA_CONFIGURATION: |
         datasources:
           postgres:

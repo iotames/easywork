@@ -13,6 +13,21 @@ systemctl daemon-reload
 systemctl restart docker.service
 ```
 
+## 环境变量
+
+```bash
+docker run -d --env-file ./env.list your_image_name
+```
+
+```yaml
+version: '3'
+services:
+  your_service:
+    image: your_image_name
+    env_file:
+      - ./env.list
+```
+
 ## 日志配置
 
 容器默认使用 json-file 日志驱动，其日志文件（如 37cf0f6b...-json.log）无自动轮转策略，很可能导致磁盘爆炸。
