@@ -1,0 +1,30 @@
+mynameid: sshsvr_run
+namespace: odoo
+inputs:
+  - type: SELECT
+    id: run_opt
+    displayName: 选择操作类型
+    values: [ "update", "restart" ]
+    required: true
+
+tasks:
+  - id: login_svr
+    type: io.kestra.plugin.fs.ssh.Command
+    commands:
+      - pwd
+      - |
+        cd /home/myname
+        echo "$(date '+%Y-%m-%d_%H:%M')---({{ inputs['run_opt'] }})---" >> kestra.log
+        if [ "{{ inputs['run_opt'] }}" = "restart" ]; then
+            echo "this is restart"
+            docker restart odooweb
+        fi
+        if [ "{{ inputs['run_opt'] }}" = "update" ]; then
+            docker compose -f docker-compose.yml down
+            git --git-dir=/home/myname/myproject/.git pull
+            git --git-dir=/home/myname/myproject/.git log --max-count=1
+            ./docker.sh
+        fi
+    host: "{{envs.odoo_ssh_host_uat}}"
+    username: "{{envs.odoo_ssh_user}}"
+    password: "{{envs.odoo_ssh_password}}"

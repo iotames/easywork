@@ -10,6 +10,19 @@
 
 ## 常见命令
 
+### 指定仓库目录和工作目录
+
+```bash
+# 指定仓库目录
+git --git-dir=/path/to/repository/.git pull
+
+# 临时指定工作目录
+git –work-tree=/path/to/directory pull
+
+# 同时指定仓库目录和工作目录
+git --git-dir=/path/to/repository/.git --work-tree=/path/to/directory pull
+```
+
 ### 设置用户名和邮箱
 
 因为在不同环境上提交代码，身份信息会变。导致用户身份，换来换去的。团队开发时尤其要注意。

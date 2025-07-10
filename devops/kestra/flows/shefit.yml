@@ -1,0 +1,17 @@
+id: shefit
+namespace: webspider
+
+tasks:
+  - id: exec
+    type: io.kestra.plugin.fs.ssh.Command
+    commands:
+      - cd /projects/stspider/
+      - /projects/stspider/stspider --spider=shefit
+    host: "{{envs.spider_ssh_host}}"
+    username: "{{envs.spider_ssh_user}}"
+    password: "{{envs.spider_ssh_password}}"
+    port: "{{envs.spider_ssh_port}}"
+triggers:
+  - id: day_02_10
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: 10 2 * * *
