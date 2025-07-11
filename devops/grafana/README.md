@@ -53,6 +53,9 @@ Odoo配置文件 `odoo.conf`
 logfile = /var/log/odoo/odoo-server.log  # 日志文件路径
 log_level = info  # 日志级别（debug/info/warning/error）
 log_handler = :DEBUG  # 模块级日志调试
+
+# 此格式与Promtail的regex表达式完全匹配，避免解析失败
+log_format = %(asctime)s %(process)d %(levelname)s %(name)s: %(message)s
 ```
 
 权限设置
@@ -88,6 +91,10 @@ docker run -d --name promtail -v ./promtail-config.yaml:/etc/promtail/config.yam
 
 ### 部署Loki（日志存储）
 
+```bash
+docker pull grafana/loki:3.5.1
+```
+
 配置文件：loki-config.yaml
 
 ```yaml
@@ -102,10 +109,14 @@ storage_config:
 Docker启动：
 
 ```bash
-docker run -d --name loki -p 3100:3100 -v ./loki-config.yaml:/etc/loki/config.yaml grafana/loki
+docker run -d --name loki -p 3100:3100 -v ./loki-config.yaml:/etc/loki/config.yaml grafana/loki:3.5.1
 ```
 
 ### 配置Grafana连接Loki
+
+```bash
+docker pull grafana/grafana:12.0.2
+```
 
 1. 登录Grafana → ​​Configuration​​ → ​​Data Sources​​ → ​​Add data source​： 选择Loki作为数据源类型，配置Loki的URL（容器内通信地址示例：http://loki:3100）
 

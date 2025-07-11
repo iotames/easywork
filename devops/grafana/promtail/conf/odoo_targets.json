@@ -1,0 +1,17 @@
+[{
+  "targets": [ "localhost" ],
+  "labels": {
+    "__path__": "/var/log/odoodev/*.log",
+    "job": "odoo17",
+    "env": "prod",
+    "app": "erp"
+  }
+},{
+  "targets": [ "localhost" ],
+  "labels": {
+    "__path__": "/var/log/odootest/*.log",
+    "job": "odoo17",
+    "env": "test",
+    "app": "erp"
+  }
+}]

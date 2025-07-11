@@ -1,0 +1,46 @@
+server:
+  http_listen_port: 9080  # 管理端口（可访问 /metrics 查看状态）
+  grpc_listen_port: 0     # 禁用GRPC（非必需）
+
+positions:
+  filename: /etc/promtail/positions.yaml  # 关键！记录文件读取位置
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push  # Loki接收地址
+    batchwait: 1s          # 批量发送等待时间
+    batchsize: 102400       # 每批最大字节数(100KB)
+
+scrape_configs:
+- job_name: odoo_logs
+  file_sd_configs:            # 动态文件发现
+    - files: ['/etc/promtail/odoo_targets.json']
+      refresh_interval: 5s  # 每5秒重载目标配置
+  pipeline_stages:
+    # 多行日志合并（解决Odoo错误堆栈分割问题）
+    - multiline:
+        firstline: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} \d+ \w+ \S+:'  # 匹配Odoo日志头
+        max_wait: 3s  # 等待堆栈信息合并的最长时间
+
+    # Odoo结构化日志解析（适配您提供的日志格式样本）
+    - regex:
+        expression: >-
+          ^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})
+          \s+(?P<pid>\d+)\s+(?P<level>\w+)\s+(?P<module>\S+):\s+(?P<message>.*)$
+
+    # 标签生成（仅转换关键低基数字段）
+    - labels:
+        level:  # 日志级别标签（便于过滤ERROR）
+        module: # 模块名标签（如odoo.http, werkzeug）
+
+    # 时间戳解析（精确到毫秒）
+    - timestamp:
+        source: timestamp
+        format: "2006-01-02 15:04:05,000"
+        location: "Asia/Shanghai"  # 按实际时区修改
+
+    # 错误日志增强处理
+    - match:
+        selector: '{level="ERROR"}'
+        stages:
+          - output:
+              source: message  # 确保完整错误消息（含堆栈）存入Loki

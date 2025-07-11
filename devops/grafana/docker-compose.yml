@@ -1,17 +1,24 @@
 services:
   loki:
-    image: grafana/loki:2.9.4
+    image: grafana/loki:3.5.1
     ports:
       - "3100:3100"
     volumes:
       - ./loki-config.yaml:/etc/loki/config.yaml
-      - /data/loki:/loki  # 持久化存储目录
+      - ./data/loki:/loki  # 持久化存储目录
     command: -config.file=/etc/loki/config.yaml
+    environment:
+      - TZ=Asia/Shanghai
+    user: "10001"  # 显式指定Loki用户UID
   grafana:
-    image: grafana/grafana:10.3.3
+    image: grafana/grafana:12.0.2
     ports:
       - "3000:3000"
     volumes:
-      - /data/grafana:/var/lib/grafana  # 仪表盘持久化
+      - ./data/grafana:/var/lib/grafana  # 仪表盘持久化
     depends_on:
       - loki
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # 设置admin密码
+      - TZ=Asia/Shanghai  # 设置时区（可选）
+    user: "472"  # 显式指定Grafana用户UID
