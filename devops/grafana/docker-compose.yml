@@ -1,0 +1,17 @@
+services:
+  loki:
+    image: grafana/loki:2.9.4
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config.yaml:/etc/loki/config.yaml
+      - /data/loki:/loki  # 持久化存储目录
+    command: -config.file=/etc/loki/config.yaml
+  grafana:
+    image: grafana/grafana:10.3.3
+    ports:
+      - "3000:3000"
+    volumes:
+      - /data/grafana:/var/lib/grafana  # 仪表盘持久化
+    depends_on:
+      - loki

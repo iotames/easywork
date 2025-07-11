@@ -32,8 +32,8 @@ cd grafana-12.0.2
 ```
 
 
-## 日志监控方案
 
+## 日志监控方案
 
 `Promtail` 日志采集器（Loki官方） + `Loki` 日志存储系统（日志聚合）+ `Grafana` 数据展示和告警
 
@@ -107,7 +107,7 @@ docker run -d --name loki -p 3100:3100 -v ./loki-config.yaml:/etc/loki/config.ya
 
 ### 配置Grafana连接Loki
 
-1. 登录Grafana → ​​Configuration​​ → ​​Data Sources​​ → ​​Add data source​： 选择Loki作为数据源类型，配置Loki的URL（例如：http://loki:3100）
+1. 登录Grafana → ​​Configuration​​ → ​​Data Sources​​ → ​​Add data source​： 选择Loki作为数据源类型，配置Loki的URL（容器内通信地址示例：http://loki:3100）
 
 2. 查询与可视化日志​​：进入 Explore 页面，选择 Loki 数据源，输入查询语句。
 
