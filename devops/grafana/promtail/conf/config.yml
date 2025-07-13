@@ -8,7 +8,7 @@ positions:
 clients:
   - url: http://loki:3100/loki/api/v1/push  # Loki接收地址
     batchwait: 1s          # 批量发送等待时间
-    batchsize: 102400       # 每批最大字节数(100KB)
+    batchsize: 1048576       # 每批最大字节数(1MB)
 
 scrape_configs:
 - job_name: odoo_logs

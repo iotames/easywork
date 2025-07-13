@@ -1,4 +1,6 @@
-## 容器启动
+## 安装Promtail
+
+### 容器安装
 
 ```bash
 docker pull grafana/promtail:3.5.1
@@ -12,6 +14,30 @@ docker run -d --name promtail \
 
 - positions.yaml: 无需手动创建，Promtail 首次启动时自动生成。用于记录日志文件的读取位置（偏移量）。
 - /data/promtail：宿主机目录，用于保存自动生成的positions.yaml
+
+### systemd 安装
+
+添加配置文件 `/etc/systemd/system/promtail.service` 或 `/usr/lib/systemd/system/promtail.service`
+
+```conf
+[Unit]
+Description=promtail
+Documentation=https://github.com/topics/promtail
+After=network.target
+
+[Service]
+Type=simple
+User=loki
+Group=loki
+
+# ExecStart=/usr/local/bin/promtail -config.file /etc/promtail/config.yml
+ExecStart=/usr/local/bin/promtail --config.file=/etc/promtail/config.yml
+Restart=on-failure
+MemoryLimit=128M
+
+[Install]
+WantedBy=multi-user.target
+```
 
 
 ## 配置文件
