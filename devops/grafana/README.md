@@ -10,10 +10,19 @@
 2. 通知提醒：以可视方式定义最重要指标的警报规则，Grafana将不断计算并发送通知，在数据达到阈值时（可置顶告警规则）通过 飞书、钉钉、企业微信 等获得通知
 
 
-## 下载和安装
+## 资源
 
 - 项目主页：https://github.com/grafana/grafana
-- 下载地址：https://dl.grafana.com/oss/release/grafana-12.0.2.linux-amd64.tar.gz
+
+### 下载地址
+
+- Promtail日志采集器：https://github.com/grafana/loki/releases/download/v3.4.5/promtail-linux-amd64.zip
+- Loki日志存储：https://github.com/grafana/loki/releases/download/v3.4.5/loki-linux-amd64.zip
+- Grafana数据可视化：https://github.com/grafana/grafana/releases
+
+
+## 下载和安装
+
 
 ```bash
 # 下载指定版本的Grafana
@@ -49,7 +58,7 @@ cd grafana-12.0.2
 
 Odoo配置文件 `odoo.conf`
 
-```odoo.conf
+```conf
 logfile = /var/log/odoo/odoo-server.log  # 日志文件路径
 log_level = info  # 日志级别（debug/info/warning/error）
 log_handler = :DEBUG  # 模块级日志调试
