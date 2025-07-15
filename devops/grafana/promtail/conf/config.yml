@@ -23,14 +23,13 @@ scrape_configs:
 
     # Odoo结构化日志解析（适配您提供的日志格式样本）
     - regex:
-        expression: >-
-          ^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})
-          \s+(?P<pid>\d+)\s+(?P<level>\w+)\s+(?P<module>\S+):\s+(?P<message>.*)$
+        expression: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3}) \s+(?P<pid>\d+) \s+(?P<level>\w+) \s+\w+\s+ (?P<module>[\w.]+?):\s+(?P<message>.*)$'
 
-    # 标签生成（仅转换关键低基数字段）
+    # 标签生成（仅转换关键字段）
+    # 验证标签是否转换成功：curl -G http://172.16.160.18:3100/loki/api/v1/labels --data-urlencode 'match[]={job="odoo17"}'
     - labels:
-        level:  # 日志级别标签（便于过滤ERROR）
-        module: # 模块名标签（如odoo.http, werkzeug）
+        level: ""
+        module: ""
 
     # 时间戳解析（精确到毫秒）
     - timestamp:
