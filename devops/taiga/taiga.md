@@ -30,3 +30,10 @@ Taiga是一款功能强大的项目管理工具，旨在帮助团队高效地规
 2. 官网：https://www.openproject.org
 3. 安装：https://www.openproject.org/docs/installation-and-operations/installation/docker-compose/
 
+`.env` 环境变量文件
+```conf
+TAG=16.2.0
+OPENPROJECT_HTTPS=false
+OPENPROJECT_HOST__NAME=172.16.160.18
+PORT=8089
+```
