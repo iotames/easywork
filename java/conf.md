@@ -1,6 +1,15 @@
 ## 运行时配置​
 
 
+```bash
+#!/bin/bash
+
+nohup java -jar /myapps/yudao-server-2.4.2-SNAPSHOT.jar --spring.config.additional-location=file:/myapps/config/application.prod.yml > yudaosvr.prod.log 2>&1 &
+nohup java -jar /myapps/yudao-server-2.4.2-SNAPSHOT.jar --spring.config.additional-location=file:/myapps/config/application.test.yml > yudaosvr.test.log 2>&1 &
+nginx -s reload
+```
+
+
 ### 配置文件注入（优先级在命令参数和环境变量之后）
 
 1. `工作目录下`（执行命令的目录）的​ `​config` 文件夹里的配置文件​​ ​`​优先级最高​`。
