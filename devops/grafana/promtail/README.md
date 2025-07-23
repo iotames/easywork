@@ -1,3 +1,15 @@
+## Promtail简介
+
+`Promtail` 是 Grafana Labs 专为 `Loki` 打造的 `Log Agent`，主要任务是收集、处理 `Log` 並將之送至 `Loki`。
+
+`Promtail` 目前已并入 [Grafana Alloy](https://github.com/grafana/alloy)：https://grafana.com/blog/2025/02/13/grafana-loki-3.4-standardized-storage-config-sizing-guidance-and-promtail-merging-into-alloy/
+
+### promtail下载
+
+- https://github.com/grafana/loki/releases/
+- https://github.com/grafana/loki/releases/download/v3.4.5/promtail-linux-amd64.zip
+
+
 ## 安装Promtail
 
 ### 容器安装
@@ -15,9 +27,13 @@ docker run -d --name promtail \
 - positions.yaml: 无需手动创建，Promtail 首次启动时自动生成。用于记录日志文件的读取位置（偏移量）。
 - /data/promtail：宿主机目录，用于保存自动生成的positions.yaml
 
-### systemd 安装
+### 原生安装
 
-添加配置文件 `/etc/systemd/system/promtail.service` 或 `/usr/lib/systemd/system/promtail.service`
+- 安装说明：https://grafana.com/docs/loki/latest/setup/install/local/
+
+1. 下载二进制文件：https://github.com/grafana/loki/releases/download/v3.4.5/promtail-linux-amd64.zip
+
+2. 添加配置文件 `/etc/systemd/system/promtail.service` 或 `/usr/lib/systemd/system/promtail.service`
 
 ```conf
 [Unit]
@@ -39,10 +55,19 @@ MemoryLimit=128M
 WantedBy=multi-user.target
 ```
 
+或者使用简单的启动和停止命令：
+
+```bash
+nohup promtail --config.file=./conf/config.yml > promtail.log 2>&1 &
+kill -9 $(ps -aux | grep promtail | grep -v grep | awk '{print $2}')
+```
+
 
 ## 配置文件
 
 `promtail-config.yaml`
+
+`scrape_configs` 配置部分有两种模式：静态配置和动态发现。推荐使用动态发现。
 
 ### 静态配置
 
@@ -101,6 +126,7 @@ scrape_configs:
 }]
 ```
 
+
 ## 日志轮转方案
 
 ```conf
@@ -115,13 +141,19 @@ scrape_configs:
   create 644 odoo odoo
   postrotate
     docker kill -s USR1 odoo_container_name
+    # pkill -HUP promtail || true
     docker kill -s HUP promtail_container_name
   endscript
 }
 ```
 
+如果非容器环境，在宿主机直接运行 Promtail ，日志轮转通过 ​​logrotate 的 postrotate 脚本发送 HUP 信号​​通知 Promtail 刷新文件句柄：`pkill -HUP promtail`
 
 ```bash
 # 检查Promtail状态
 docker exec promtail wc -l /var/log/positions.yaml
 ```
+
+--------------
+
+> Promtail — Loki 御用 Log 收集器 https://ithelp.ithome.com.tw/articles/10331661
