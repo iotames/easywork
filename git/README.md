@@ -1,3 +1,10 @@
+## 资源
+
+- 官方下载：https://git-scm.com/downloads/win
+- 清华大学开源软件镜像站：https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/
+- https://mirrors.huaweicloud.com/git-for-windows/
+
+
 ## 说明
 
 安装完Git客户端之后，可以先运行 `conf.sh`

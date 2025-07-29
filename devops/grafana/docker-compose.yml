@@ -1,6 +1,7 @@
 services:
   loki:
     image: grafana/loki:3.5.1
+    restart: always
     ports:
       - "3100:3100"
     volumes:
@@ -12,6 +13,7 @@ services:
     user: "10001"  # 显式指定Loki用户UID
   grafana:
     image: grafana/grafana:12.0.2
+    restart: always
     ports:
       - "3000:3000"
     volumes:
