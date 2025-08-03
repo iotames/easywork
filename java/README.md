@@ -21,6 +21,32 @@ JRE是运行Java字节码的虚拟机。但要从Java源码，编译成Java字�
 因此，JDK除了包含JRE，还提供了`编译器`、`调试器`等开发工具。
 
 
+## JDK 8u202，JDK 8u211
+
+- JDK 8u202​​: 发布于 2019 年 1 月。是​​最后一个免费商用版本​​（BCL协议）
+- JDK 8u211: 发布于 2019 年 4 月。采用​​OTN协议​​，明确​​禁止生产环境免费使用​。
+
+
+## OpenJDK
+
+OpenJDK 和 Oracle JDK（通常简称 JDK）是 Java 开发工具包的两个主流实现，两者在核心功能上高度一致。
+
+- Microsoft Build of OpenJDK: https://learn.microsoft.com/zh-cn/java/openjdk/download
+- Eclipse Temurin（原AdoptOpenJDK）:​ https://mirrors.tuna.tsinghua.edu.cn/Adoptium/
+- 华为云：https://mirrors.huaweicloud.com/openjdk/
+
+生产环境推荐 ​​Eclipse Temurin​​（社区中立）或 ​​Amazon Corretto​​（云服务集成），通过国内镜像加速下载。若需Windows深度优化，可选用Microsoft Build。旧项目迁移时，注意用jdeprscan扫描兼容性
+
+```bash
+wget -c https://mirrors.tuna.tsinghua.edu.cn/Adoptium/17/jdk/x64/linux/OpenJDK17U-jdk_x64_linux_hotspot_17.0.16_8.tar.gz
+tar xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.16_8.tar.gz -C /usr/local/
+export JAVA_HOME=/usr/local/jdk-17.0.16_8
+export PATH=$JAVA_HOME/bin:$PATH
+# 输出包含 "Eclipse Temurin" 即成功
+java --version
+```
+
+
 ## 安装JDK
 
 安装JDK后，设置`三个系统环境变量`:
