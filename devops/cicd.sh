@@ -21,6 +21,7 @@ if [ -f "${ENV_FILE}" ]; then
     . "${ENV_FILE}"
 fi
 
+# 应该再传递一个变量。作为项目的实际绝对路径。
 cd "$HOME"
 RUN_SCRIPT="$HOME/odoorun/run.sh"
 NOTIFY_SCRIPT="$HOME/bin/wxwork.sh"

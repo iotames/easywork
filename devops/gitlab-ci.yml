@@ -1,5 +1,6 @@
 # .gitlab-ci.yml
 # https://docs.gitlab.com/ci/quick_start/tutorial/
+# TODO 应该传递一个环境变量文件给服务器里的脚本使用。如：${REMOTE_ENV_FILE} /home/yourname/erp/.env
 stages:
   # - build
   - test
