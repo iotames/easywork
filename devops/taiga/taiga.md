@@ -11,29 +11,3 @@ Taiga是一款功能强大的项目管理工具，旨在帮助团队高效地规
 
 1. 从容器启动：https://docs.taiga.io/setup-production.html#setup-prod-with-docker
 2. 从源码启动：https://docs.taiga.io/setup-production.html#setup-prod-from-source-code
-
-
-## 其他
-
-
-- 通用项目管理
-1. PowerProject：闭源，商业授权费用高。适合强管控型项目：如基建/制造。可与SAP/用友等ERP深度集成。https://blog.csdn.net/Bianyj5678/article/details/145597148
-2. OpenProject：开源（GPLv3），自托管。在资源调度、成本控制方面的标准化能力更契合大型集团管控需求。有官方移动应用
-
-- 软件项目管理
-1. Taiga：Django+Angular架构。原生自洽设计。敏捷开发，与GitLab深度集成
-2. Redmine：插件生态设计。Ruby on Rails架构。配置复杂，优势：缺陷跟踪。
-
-### OpenProject
-
-1. 项目主页：https://github.com/opf/openproject，https://github.com/opf/openproject-docker-compose
-2. 官网：https://www.openproject.org
-3. 安装：https://www.openproject.org/docs/installation-and-operations/installation/docker-compose/
-
-`.env` 环境变量文件
-```conf
-TAG=16.2.0
-OPENPROJECT_HTTPS=false
-OPENPROJECT_HOST__NAME=172.16.160.18
-PORT=8089
-```
