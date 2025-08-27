@@ -11,14 +11,14 @@ nvm-windows 是 Windows 官方支持的 Node 版本管理工具，功能类似�
 - 推荐手动安装，下载免安装版本：https://github.com/coreybutler/nvm-windows/releases/download/1.2.2/nvm-noinstall.zip
 
 1. 卸载现有 Node.js（如果已安装）,包括 npm 相关目录（如 `C:\Users\<你的用户名>\AppData\Roaming\npm`）。
-2. 下载 `nvm-noinstall.zip` 并解压缩到一个目录。如：`C:\Users\<username>\AppData\Roaming\nvm`
+2. 下载 `nvm-noinstall.zip` 并解压缩到一个目录。如：`D:\App\nvm` 或 `C:\Users\<username>\AppData\Roaming\nvm`
 3. 添加一个名为 `NVM_HOME` 的新环境变量。为上一步的 `nvm` 所在目录。默认值为： `C:\Users\<username>\AppData\Roaming\nvm`
 4. 添加一个 `NVM_SYMLINK` 环境变量，代表当前版本的 `NodeJS`。这是快捷方式路径，当前是不存在的，后由 `nvm` 自己创建和维护。例：`D:\App\activenodejs`
 5. 把前面的 `NVM_HOME` 和 `NVM_SYMLINK` 添加到 `PATH` 环境变量中。
-6. 在 NVM_HOME 目录下，创建一个名为 `settings.txt` 的文件，内容如下：
+6. 在 NVM_HOME 目录下，创建一个名为 `settings.txt` 的文件。内容如下（root和path配置项记得替换为实际路径）：
 
 ```
-root: D:\App\nvm-noinstall
+root: D:\App\nvm
 path: D:\App\activenodejs
 node_mirror: https://npmmirror.com/mirrors/node/
 npm_mirror: https://npmmirror.com/mirrors/npm/
@@ -40,7 +40,7 @@ useragent: null
 
 ### FOR Linux
 
-```
+```bash
 # 选择以下命令之一安装：
 # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -54,7 +54,7 @@ source ~/.bashrc
 
  1. `Error: EPERM: operation not permitted`: 权限不够，需要使用管理员权限运行。或者把NodeJS放弃使用NVM的方式。
 
-```
+```bat
 # 放弃使用NVM
 # 1. 清除缓存。
 # 2. 重命名 NVM_HOME 目录。使环境变量失效。

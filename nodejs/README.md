@@ -1,7 +1,7 @@
 ## npm和npx
 
 
-```
+```bash
 # npx 的设计中，--registry 等配置参数属于 npx 自身的全局参数，必须紧跟在 npx 命令之后，在目标命令之前指定。
 npx --registry=https://registry.npmmirror.com create-react-app my-app
 
@@ -17,7 +17,7 @@ npm install -g create-react-app --registry=https://registry.npmmirror.com
 
 ### 安装位置
 
-```
+```bash
 # 查找缓存路径.这会返回类似 /Users/yourname/.npm
 # C:\Users\yourname\AppData\Roaming\npm-cache 或
 # C:\Users\yourname\AppData\Local\npm-cache
