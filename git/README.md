@@ -10,10 +10,44 @@
 - 安装完Git客户端之后，可以先运行: [conf.sh](conf.sh)
 
 
-## 配置文件
+## 配置
 
 - 代码仓库的配置文件：`.git/config`
 
+### 网络代理
+
+1. http和https代理
+
+```bash
+# 设置Git代理,网络不好可使用此项
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy "socks5://127.0.0.1:1080"
+
+# 取消Git代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
+2. SSH代理
+
+编辑SSH客户端配置文件:`vim ~/.ssh/config`
+
+```
+Host github
+    HostName github.com
+    ProxyCommand connect -S 127.0.0.1:7890 %h %p
+    Port 22
+    User git
+```
+
+3. 修改项目 `.git/config` 配置文件
+
+```conf
+[http]
+    proxy = socks5://127.0.0.1:7890
+[https]
+    proxy = socks5://127.0.0.1:7890
+```
 
 ## 常见命令
 

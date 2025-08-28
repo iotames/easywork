@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Git团队协作时，第一件事，先设置固定的用户名和邮箱。
-# 因为在不同环境上提交代码，身份信息会变。导致用户身份识别规范不起来。在多台电脑上开发，就要设置多次。
+# Git仓库应用常用邮箱识别用户。在不同设备提交代码，身份信息如不固定，会导致代码提交用户身份识别错乱。在多台电脑上开发，要尤其注意。
 
-# git config --global user.name "Hankin"
-# git config --global user.email hankin@catmes.com
+git config --global user.email hankin@catmes.com
+git config --global user.name "Hankin"
 git config --global color.ui true
 
 # 提交时转换为LF，检出时不转换    For Linux

@@ -79,6 +79,8 @@ fi
 
 ### 其他命令模板
 
+代码更新:
+
 ```bash
 pwd
 cd $_SPUG_path
@@ -88,6 +90,8 @@ git pull
 git status
 git log --max-count=1
 ```
+
+代码回滚:
 
 ```bash
 get_latest_commits() {
