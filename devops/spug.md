@@ -76,3 +76,44 @@ else
   echo "跳过用户组查询"
 fi
 ```
+
+### 其他命令模板
+
+```bash
+pwd
+cd $_SPUG_path
+echo "the path is:$_SPUG_path"
+pwd
+git pull
+git status
+git log --max-count=1
+```
+
+```bash
+get_latest_commits() {
+    n=${1:-1}
+    # 验证参数是否为正整数
+    if ! echo "$n" | grep -Eq '^[0-9]+$' || [ "$n" -eq 0 ]; then
+        echo "错误：参数必须是正整数" >&2
+        return 1
+    fi
+
+    # 获取最近n条提交的commitID
+    git log --pretty=format:%H -n "$n" | awk -v line="$n" 'NR==line'
+}
+pwd
+cd $_SPUG_gpath
+pwd
+if [ "$_SPUG_commit_index" = "0" ]; then
+    echo "拉取最新代码：git pull"
+    git pull
+else
+    echo "重置至第$_SPUG_commit_index条提交"
+    echo "重置前："
+    git log --max-count=1
+    commitID=$(get_latest_commits $_SPUG_commit_index)
+    git reset --hard $commitID
+    echo "重置后："
+    git log --max-count=1
+fi
+```
