@@ -5,9 +5,10 @@
 - `-n`: 英文缩写：`not empty`。检查字符串是否 `非空`。示例： `if [ -n "$VAR" ]; then` 表示如果 $VAR 非空，则执行后续操作。
 - `-z`:  英文缩写：`zero length`。检查字符串是否 `为空`。示例： `if [ -z "$VAR" ]; then` 表示如果 $VAR 为空，则执行后续操作。
 
-```
+```bash
 # 判断 WEB_PORT 是否为空。为空则赋予默认值。
 if [ -z "${WEB_PORT}" ]; then
+    echo "WEB_PORT 为空"
     WEB_PORT=8069
 fi
 
@@ -20,7 +21,7 @@ fi
 
 ## 判断两个变量是否相等
 
-```
+```bash
 # 判断两个变量是否相等
 if [ "$var1" = "$var2" ]; then
   echo '$var1 eq $var2'
@@ -32,6 +33,33 @@ fi
 if [ "$1" = "update" ]; then
     echo "----ARG1--IS--update......"
     exit 0
+fi
+```
+
+## 判断两个变量是否不相等
+
+```bash
+# 示例变量
+my_var="hello"
+
+# 方法1: 使用 != 运算符
+if [ "$my_var" != "world" ]; then
+    echo "my_var 不等于 'world'"
+else
+    echo "my_var 等于 'world'"
+fi
+
+# 处理大小写不同的情况
+if [ "${my_var,,}" != "HELLO" ]; then
+    echo "my_var(忽略大小写) 不等于 'HELLO'"
+else
+    echo "my_var(忽略大小写) 等于 'HELLO'"
+fi
+
+# 数字比较示例
+num_var=10
+if [ "$num_var" -ne 5 ]; then
+    echo "$num_var 不等于 5"
 fi
 ```
 
@@ -52,7 +80,7 @@ fi
 
 ### 判断文件夹是否存在
 
-```
+```bash
 # 检查是否存在.git目录
 if [ -d "${ODOO_ADDONS}/.git" ]; then
     echo "------检测到${ODOO_ADDONS}目录存在.git"
@@ -63,7 +91,7 @@ fi
 
 ### 判断文件是否存在
 
-```
+```bash
 # 如果存在 .env 文件，从中读取环境变量
 # https://stackoverflow.com/questions/19331497/set-environment-variables-from-file-of-key-value-pairs
 if [ -f .env ]; then
