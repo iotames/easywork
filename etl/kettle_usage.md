@@ -11,7 +11,6 @@ export PATH=$PATH:$KETTLE_HOME
 
 ### 资源库的配置和使用
 
-
 将图形界面保存的 `.kjb/.ktr` 文件，存放至统一目录
 
 - 首次启动 `Spoon`，如已有文件资源库，则如下配置：
@@ -29,6 +28,27 @@ export PATH=$PATH:$KETTLE_HOME
 方法一：左上角菜单下有个快捷操作栏，图标从左到右依次是：`新建`、`打开`、`浏览`、`保存`、`另存为`。可以直接点击 `打开` 图标，选择要打开的文件。
 方法二：点击左上角菜单 `工具` → `资源库` → `探索资源库` → 点击选项卡 `浏览` → 双击想要打开的 `Jon文件`  →  双击右下角 `Close` 按钮。就可看见已经打开了一个Job了。
 
+### 数据库连接配置
+
+在 `用户主目录` (即Linux的 `$HOME` 或Windows的 `%HOME%` )的 `.kettle` 和 `.pentaho` 目录。
+
+- 密码加密: 执行kettle目录的 `Encr.bat` (Linux则使用 `encr.sh`)文件
+
+```
+# 得到加密后的密码字符串，复制到.kettle/kettle.properties文件的密码变量中
+Encr.bat -kettle 待加密密码字符串
+```
+
+- 变量配置文件: `.kettle/kettle.properties`
+
+```
+# kettle可以直接使用变量代替数据库主机名，用户名，密码等。
+pg_local_host=127.0.0.1
+pg_local_port=5432
+pg_local_dbnm=postgres
+pg_local_user=postgres
+pg_local_pwd=Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9
+```
 
 ## 常用命令
 
@@ -102,26 +122,6 @@ spoon.sh --headless --execute=/etl/data_migration.ktr
 
 
 ## 配置与监控
-
-在 `用户主目录` (即Linux的 `$HOME` 或Windows的 `%HOME%` )的 `.kettle` 和 `.pentaho` 目录。
-
-- 密码加密: 执行kettle目录的 `Encr.bat` (Linux则使用 `encr.sh`)文件
-
-```
-# 得到加密后的密码字符串，复制到.kettle/kettle.properties文件的密码变量中
-Encr.bat -kettle 待加密密码字符串
-```
-
-- 变量配置文件: `.kettle/kettle.properties`
-
-```
-# kettle可以直接使用变量代替数据库主机名，用户名，密码等。
-pg_local_host=127.0.0.1
-pg_local_port=5432
-pg_local_dbnm=postgres
-pg_local_user=postgres
-pg_local_pwd=Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9
-```
 
 - 资源库配置文件: `.kettle/repositories.xml`。 
 
