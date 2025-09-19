@@ -3,6 +3,7 @@
 - prometheus下载中心：https://prometheus.io/download/
 - node_exporter(CPU占用等服务器指标导出): https://github.com/prometheus/node_exporter/releases
 - Prometheus(指标数据存储和查询): https://github.com/prometheus/prometheus/releases
+- Prometheus配置文档：https://prometheus.io/docs/prometheus/latest/configuration/configuration/
 
 
 ## 快速开始
@@ -46,7 +47,7 @@ node_exporter --web.listen-address=:9100 --collector.systemd --collector.systemd
 curl -X POST http://localhost:9090/-/reload
 ```
 
-2. 防止Prometheus服务器的数据存储空间无限增长，导致存储空间爆炸。在Prometheus `启动命令` 或 `配置文件`，通过 `--storage.tsdb.retention.time` 参数指定数据保留时长，`--storage.tsdb.retention.size` 参数限制TSDB占用的最大磁盘空间。
+2. 防止Prometheus服务器的数据存储空间无限增长，导致存储空间爆炸。在Prometheus `启动命令` ，通过 `--storage.tsdb.retention.time` 参数指定数据保留时长，`--storage.tsdb.retention.size` 参数限制TSDB占用的最大磁盘空间。
 
 ```bash
 # 支持单位：y, w, d, h, m, s, ms。
@@ -54,6 +55,8 @@ curl -X POST http://localhost:9090/-/reload
 # 支持单位：B, KB, MB, GB, TB, PB, EB。
 --storage.tsdb.retention.size=50GB
 ```
+
+retention `不支持在配置文件中配置`，只支持命令行启动配置。不要被AI骗了。
 
 - 配置文件：[prometheus.yml](prometheus.yml):
 
@@ -66,15 +69,6 @@ global:
   evaluation_interval: 2m
 # 每次抓取数据的超时时间，默认为10秒 
   scrape_timeout: 10s
-
-# 数据保留策略配置
-storage:
-  tsdb:
-    retention:
-    # 数据保留时间，例如30天。单位支持: s, m, h, d, w, y
-      time: 30d
-    # （可选）同时限制存储空间大小。支持单位：B, KB, MB, GB, TB, PB, EB。
-      size: 500MB
 
 scrape_configs:
   - job_name: "server_node"

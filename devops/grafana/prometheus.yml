@@ -12,15 +12,6 @@ global:
   external_labels:
     monitor: 'codelab-monitor'
 
-# 数据保留策略配置
-storage:
-  tsdb:
-    retention:
-    # 数据保留时间，例如30天。单位支持: s, m, h, d, w, y
-      time: 30d
-    # （可选）同时限制存储空间大小
-      size: 500MB
-
 # Alertmanager configuration
 alerting:
   alertmanagers:
