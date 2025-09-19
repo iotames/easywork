@@ -33,19 +33,49 @@ node_exporter --web.listen-address=:9100 --collector.systemd --collector.systemd
 /usr/local/bin/prometheus \
     --config.file=/etc/prometheus/prometheus.yml \
     --storage.tsdb.path=/var/lib/prometheus/data \
-    --web.enable-lifecycle
+    --web.enable-lifecycle \
+    --storage.tsdb.retention.time=30d \
+    --storage.tsdb.retention.size=50GB
+
 ```
 
-在启动命令中添加 `--web.enable-lifecycle`，使得prometheus支持热更新配置文件。
+1. 在启动命令中添加 `--web.enable-lifecycle`，使得prometheus支持热更新配置文件。
 
 ```bash
 # 热更新配置文件
 curl -X POST http://localhost:9090/-/reload
 ```
 
+2. 防止Prometheus服务器的数据存储空间无限增长，导致存储空间爆炸。在Prometheus `启动命令` 或 `配置文件`，通过 `--storage.tsdb.retention.time` 参数指定数据保留时长，`--storage.tsdb.retention.size` 参数限制TSDB占用的最大磁盘空间。
+
+```bash
+# 支持单位：y, w, d, h, m, s, ms。
+--storage.tsdb.retention.time=30d
+# 支持单位：B, KB, MB, GB, TB, PB, EB。
+--storage.tsdb.retention.size=50GB
+```
+
 - 配置文件：[prometheus.yml](prometheus.yml):
 
 ```yaml
+# 全局配置
+global:
+# 设置数据采集频率为2分钟1次。默认1分钟1次。可以设置scrape_configs中覆盖。
+  scrape_interval: 2m
+# 评估告警规则的间隔，默认为1分钟。一般和scrape_interval设置相同的值。
+  evaluation_interval: 2m
+# 每次抓取数据的超时时间，默认为10秒 
+  scrape_timeout: 10s
+
+# 数据保留策略配置
+storage:
+  tsdb:
+    retention:
+    # 数据保留时间，例如30天。单位支持: s, m, h, d, w, y
+      time: 30d
+    # （可选）同时限制存储空间大小。支持单位：B, KB, MB, GB, TB, PB, EB。
+      size: 500MB
+
 scrape_configs:
   - job_name: "server_node"
     static_configs:

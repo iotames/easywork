@@ -1,13 +1,25 @@
-# my global config
+# 全局配置
 global:
-  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
-  # scrape_timeout is set to the global default (10s).
+# 设置数据采集频率为2分钟1次。默认1分钟1次。可以设置scrape_configs中覆盖。
+  scrape_interval: 2m
+# 评估告警规则的间隔，默认为1分钟。一般和scrape_interval设置相同的值。
+  evaluation_interval: 2m
+# 每次抓取数据的超时时间，默认为10秒 
+  scrape_timeout: 10s
 
   # Attach these labels to any time series or alerts when communicating with
   # external systems (federation, remote storage, Alertmanager).
   external_labels:
     monitor: 'codelab-monitor'
+
+# 数据保留策略配置
+storage:
+  tsdb:
+    retention:
+    # 数据保留时间，例如30天。单位支持: s, m, h, d, w, y
+      time: 30d
+    # （可选）同时限制存储空间大小
+      size: 500MB
 
 # Alertmanager configuration
 alerting:
@@ -34,7 +46,7 @@ scrape_configs:
           role: "gitlab"
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: "prometheus"
-    scrape_interval: 5s
+    scrape_interval: 30s
 
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
