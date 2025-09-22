@@ -1,3 +1,45 @@
+## 日志看板
+
+### 日志准备
+
+Odoo配置文件 `odoo.conf`
+
+```conf
+logfile = /var/log/odoo/odoo-server.log  # 日志文件路径
+log_level = info  # 日志级别（debug/info/warning/error）
+log_handler = :DEBUG  # 模块级日志调试
+
+# 此格式与Promtail的regex表达式完全匹配，避免解析失败
+log_format = %(asctime)s %(process)d %(levelname)s %(name)s: %(message)s
+```
+
+权限设置
+
+```bash
+sudo mkdir /var/log/odoo
+sudo chown odoo:odoo /var/log/odoo  # odoo为运行用户
+```
+
+### 日志采集
+
+- [promtail日志采集器](promtail/README.md)
+
+配置文件：promtail-config.yaml
+
+```yaml
+server:
+  http_listen_port: 9080
+clients:
+  - url: http://loki:3100/loki/api/v1/push  # Loki服务地址
+scrape_configs:
+  - job_name: odoo
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: odoo  # 标签用于Grafana筛选
+          __path__: /var/log/odoo/*.log  # Odoo日志路径
+```
+
 ### 变量设置
 
 1. 进入仪表板，点击 `Edit` 按钮， 然后点击左边的 `Settings`，进入仪表板设置。
