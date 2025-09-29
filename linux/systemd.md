@@ -315,10 +315,15 @@ StandardOutput=file:/root/qddns/output.log
 ```
 # 查看某服务的日志
 journalctl -u nginx.service
+
 # 查看日志已占用的空间
 journalctl --disk-usage
-# –vacuum-size=1G #设置日志最大占用空间
-# –vacuum-time=1years #设置日志最大保存时间
+
+# 设置日志最大占用空间: 500M, 2G
+journalctl --vacuum-size=500M
+
+# 设置日志最大保存时间: 10d, 1years
+journalctl --vacuum-time=30d
 ```
 
 ## 注意事项
