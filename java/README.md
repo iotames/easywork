@@ -34,6 +34,8 @@ OpenJDK 和 Oracle JDK（通常简称 JDK）是 Java 开发工具包的两个主
 - Microsoft Build of OpenJDK: https://learn.microsoft.com/zh-cn/java/openjdk/download
 - Eclipse Temurin（原AdoptOpenJDK）:​ https://mirrors.tuna.tsinghua.edu.cn/Adoptium/
 - 华为云：https://mirrors.huaweicloud.com/openjdk/
+- 安装OpenJDK: https://openjdk.org/install/
+- 下载OpenJDK-25: https://jdk.java.net/java-se-ri/25
 
 生产环境推荐 ​​Eclipse Temurin​​（社区中立）或 ​​Amazon Corretto​​（云服务集成），通过国内镜像加速下载。若需Windows深度优化，可选用Microsoft Build。旧项目迁移时，注意用jdeprscan扫描兼容性
 

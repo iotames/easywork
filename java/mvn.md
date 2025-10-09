@@ -95,10 +95,12 @@ mvn clean install -U -Dmaven.test.skip=true
 
 ### 镜像仓库设置
 
-在 `<mirrors></mirrors>` 标签中添加 `mirror` 子节点，配置中央仓库的镜像仓库：
-```
+国内访问中央仓库可能较慢，可以在 `<mirrors></mirrors>` 标签中添加 `mirror` 子节点，配置镜像仓库。将所有请求重定向到指定仓库（如阿里云镜像）：
+
+```xml
+<!-- settings.xml 示例 -->
 <mirror>
-  <id>aliyunmaven</id>
+  <id>aliyun</id>
   <mirrorOf>central</mirrorOf>
   <name>阿里云公共仓库</name>
   <url>https://maven.aliyun.com/repository/public</url>
@@ -110,6 +112,51 @@ mvn clean install -U -Dmaven.test.skip=true
 - 华为云：https://repo.huaweicloud.com/repository/maven/
 - 清华大学：https://repo.maven.apache.org/maven2/
 - 中科院：http://maven.opencas.cn/maven/
+
+### 私有仓库设置
+
+在项目源码的 `pom.xml` 中配置私有仓库：
+
+```xml
+<!-- pom.xml 示例 -->
+<repositories>
+    <repository>
+        <id>my-private-repo</id>
+        <url>http://your-repo-url/repository/maven-public/</url>
+        <!-- <releases><enabled>true</enabled></releases> -->
+        <!-- <snapshots><enabled>true</enabled></snapshots> -->
+    </repository>
+</repositories>
+```
+
+在用户家目录下 `.m2/settings.xml` 文件，配置私有仓库的账号密码：
+
+```xml
+<!-- settings.xml 示例 -->
+<servers>
+    <server>
+        <id>my-private-repo</id>
+        <username>admin</username>
+        <password>password</password>
+    </server>
+</servers>
+```
+
+也可以把私有仓库地址配置成镜像仓库，覆盖所有对Maven Central 的请求
+
+```xml
+<!-- settings.xml 示例 -->
+<settings>
+  <mirrors>
+    <mirror>
+      <id>my-company-repo</id>
+      <name>Company Private Repository</name>
+      <url>http://nexus.example.com/repository/maven-public/</url>
+      <mirrorOf>central</mirrorOf> <!-- 覆盖所有对 Maven Central 的请求 -->
+    </mirror>
+  </mirrors>
+</settings>
+```
 
 
 ## 第三方组件
@@ -128,6 +175,23 @@ mvn clean install -U -Dmaven.test.skip=true
     <version>2.13.1</version>
 </dependency>
 ```
+
+
+## 搭建Nexus私有仓库
+
+扩展阅读：
+- nexus.md: [Nexus私有仓库](nexus.md)
+
+Nexus 是 Sonatype 公司开发的流行仓库管理工具，支持 Maven、npm、Docker 等多种格式的私有仓库管理。
+
+也可以通过 HTTP 服务器（如 Nginx、Apache）直接托管 Maven 依赖文件，无需专用工具。但不推荐。
+
+
+## 注意事项
+
+1. 依赖冲突：多个依赖引用了同一库的不同版本，可能会导致冲突。通过 `mvn dependency:tree` 查看依赖树。
+2. 清理本地仓库: 本地仓库可能积累大量无用依赖，定期清理（如删除 ~/.m2/repository）可以节省空间。
+
 
 ----------
 
