@@ -15,6 +15,7 @@ onatype Nexus 3 这个功能强大的产品，它不仅能够用于创建 Maven 
 ## 容器安装方式
 
 - 官方容器镜像仓库：https://hub.docker.com/r/sonatype/nexus3
+- Nexus3最佳实践-搭建Docker私有仓库：https://cloud.tencent.com/developer/article/1352350
 
 ```bash
 docker pull sonatype/nexus3:3.85.0
