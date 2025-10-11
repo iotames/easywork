@@ -128,11 +128,18 @@ tail -f /opt/nexus/log/nexus.log
 默认管理员账号：`admin`
 初始密码：在 `sonatype-work/nexus3/admin.password` 文件中查找。
 
-登录后进入管理界面：
+### 仓库类型
 
-1. 创建 Hosted Repository（存储私有 Jar 包）
-2. 创建 Proxy Repository（代理 Maven Central）
-3. 创建 Repository Group（聚合仓库，包含以上2种类型的多个仓库，可以调整优先级）
+1. Hosted Repository（存储私有 Jar 包）
+2. Proxy Repository（代理 Maven Central）
+3. Repository Group（聚合仓库，包含以上2种类型的多个仓库，可以调整优先级）
+
+`/#admin/repository/repositories` 路径下已存在的​​maven仓库有4个：
+
+1. ​​maven-public​​ (group)：只读，用于客户端下载依赖（聚合了central、releases、snapshots）
+​​2. maven-releases​​ (hosted)：可写，用于部署正式版本
+​​3. maven-snapshots​​ (hosted)：可写，用于部署快照版本
+​​4. maven-central​​ (proxy)：只读，代理Maven中央仓库
 
 创建仓库：
 1. 进入 Repository → Repositories → Create repository。

@@ -115,29 +115,6 @@ mvn clean install -U -Dmaven.test.skip=true
 
 ### 私有仓库设置
 
-在项目源码的 `pom.xml` 中配置私有仓库：
-
-```xml
-<!-- pom.xml 示例 -->
-<!-- 可把maven-public替换成自己的路径。如果使用Nexus搭建私有库，建议使用group类型的聚合仓库链接。 -->
-<repositories>
-    <repository>
-        <id>my-private-repo</id>
-        <url>http://your-repo-url/repository/maven-public/</url>
-        <!-- <releases><enabled>true</enabled></releases> -->
-        <!-- <snapshots><enabled>true</enabled></snapshots> -->
-    </repository>
-</repositories>
-
-<!-- 分发管理，在此配置要上传的私有仓库地址：可把maven-public替换成自己的路径 -->
-<distributionManagement>
-    <repository>
-        <id>my-private-repo</id>
-        <url>http://your-repo-url/repository/maven-public/</url>
-    </repository>
-</distributionManagement>
-```
-
 在用户家目录下 `.m2/settings.xml` 文件，配置私有仓库的账号密码：
 
 ```xml
@@ -151,8 +128,36 @@ mvn clean install -U -Dmaven.test.skip=true
 </servers>
 ```
 
-也可以把私有仓库地址配置成镜像仓库，覆盖所有对Maven Central 的请求。
+在项目源码的 `pom.xml` 中配置私有仓库：
+
+```xml
+<!-- pom.xml 示例 -->
+<!-- 可把maven-releases替换成自己的路径。 -->
+<!--如果使用Nexus搭建私有库，建议使用group类型的聚合仓库下载，而上传发布使用hostd类型仓库。 -->
+<repositories>
+    <repository>
+        <id>my-private-repo</id>
+        <url>http://your-repo-url/repository/maven-releases/</url>
+        <!-- <releases><enabled>true</enabled></releases> -->
+        <!-- <snapshots><enabled>true</enabled></snapshots> -->
+    </repository>
+</repositories>
+
+<!-- 分发管理，在此配置要上传的私有仓库地址：可把maven-releases替换成自己的路径 -->
+<distributionManagement>
+    <repository>
+        <id>my-private-repo</id>
+        <url>http://your-repo-url/repository/maven-releases/</url>
+    </repository>
+</distributionManagement>
+```
+
 最后使用 `mvn deploy` 命令，将打包成果上传到私有仓库。
+
+提示：​​配置 `SCM`（版本控制系统）​​：在 `pom.xml` 添加 `<scm>` 标签，配置 Git 仓库地址，这是插件自动打标签和提交的基础。保证后面 `mvn deploy` 生成的Jar包为 `releases` 而非 `snapshots`。
+
+
+想把私有仓库配置成镜像仓库，覆盖所有对Maven Central 的请求。可如下设置：
 
 ```xml
 <!-- settings.xml 示例 -->
@@ -161,7 +166,7 @@ mvn clean install -U -Dmaven.test.skip=true
     <mirror>
       <id>my-company-repo</id>
       <name>Company Private Repository</name>
-      <url>http://nexus.example.com/repository/maven-public/</url>
+      <url>http://nexus.example.com/repository/maven-releases/</url>
       <mirrorOf>central</mirrorOf> <!-- 覆盖所有对 Maven Central 的请求 -->
     </mirror>
   </mirrors>
