@@ -4,6 +4,8 @@ Nexus Repository Manager（简称 Nexus）是由 Sonatype 公司开发的一款�
 
 onatype Nexus 3 这个功能强大的产品，它不仅能够用于创建 Maven 私服，还可以用来创建 yum、pypi、npm、nuget、rubygems 等各种私有仓库。而且，Nexus 从 3.0 版本也开始支持创建 Docker 镜像仓库了！
 
+官方文档：https://help.sonatype.com/en/maven-repositories.html
+
 
 ## 核心功能
 
@@ -19,7 +21,19 @@ onatype Nexus 3 这个功能强大的产品，它不仅能够用于创建 Maven 
 
 ```bash
 docker pull sonatype/nexus3:3.85.0
-docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data sonatype/nexus3:3.85.0
+```
+
+启动脚本：
+
+```bash
+#!/bin/bash
+
+docker run -d --restart always --name nexus \
+-p 5800:8081 \
+-v /some/dir/nexus-data:/nexus-data \
+sonatype/nexus3:3.85.0
+#-e HTTP_PROXY="socks5://192.168.2.71:7890" \
+#-e HTTPS_PROXY="socks5://192.168.2.71:7890" \
 ```
 
 1. Nexus 安装在 /opt/sonatype/nexus 目录下。
@@ -32,14 +46,6 @@ docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data sona
 # 默认为 -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs
 # -Djava.util.prefs.userRoot=/some-other-dir 可以设置为持久路径，如果容器重新启动，它将保留已安装的 Sonatype Nexus 存储库许可证。
 docker run -d -p 8081:8081 --name nexus -e INSTALL4J_ADD_VM_PARAMS="-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/some-other-dir" sonatype/nexus3
-```
-
-```bash
-# 查看运行日志
-docker logs -f nexus
-
-# 测试服务状态
-curl http://localhost:8081/
 ```
 
 其他启动参数：
@@ -59,7 +65,7 @@ docker run -dti \
         -e INSTALL4J_ADD_VM_PARAMS="-Xms4g -Xmx4g -XX:MaxDirectMemorySize=8g" \
         -v /etc/localtime:/etc/localtime \
         -v /data/nexus:/nexus-data \
-        sonatype/nexus3:latest
+        sonatype/nexus3:3.85.0
 ```
 
 ## 常规安装方式
@@ -126,7 +132,7 @@ tail -f /opt/nexus/log/nexus.log
 
 1. 创建 Hosted Repository（存储私有 Jar 包）
 2. 创建 Proxy Repository（代理 Maven Central）
-3. 创建 Repository Group（合并上述仓库）
+3. 创建 Repository Group（聚合仓库，包含以上2种类型的多个仓库，可以调整优先级）
 
 创建仓库：
 1. 进入 Repository → Repositories → Create repository。

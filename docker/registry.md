@@ -35,7 +35,16 @@ docker pull 172.16.160.33:9000/library/postgres:17.4-bookworm
 
 - `-v` 选项可以将本地仓库目录挂载到容器内的 `/var/lib/registry` 下使用，这样就不会容器被删除后镜像也会随之消失。
 - [使用Harbor搭建企业私有容器镜像仓库](harbor/README.md)
+- 可修改 `/etc/hosts` 文件，添加域名映射。如：`172.16.160.33 mirrors.local`
+- 如果把私有仓库添加到 `registry-mirrors` 列表中，则 `docker pull`可省略地址前缀。
 
+`/etc/docker/daemon.json` 文件内容示例：
+```json
+{ 
+    "insecure-registries":["172.16.160.33:9000"],
+    "registry-mirrors": ["http://172.16.160.33:9000"]
+}
+```
 
 ### 公共镜像仓库
 

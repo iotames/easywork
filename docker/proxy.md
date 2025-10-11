@@ -15,6 +15,8 @@ vim /etc/systemd/system/docker.service.d/http-proxy.conf
 [Service]
 Environment="HTTP_PROXY=socks5://user:pass@127.0.0.1:1080"
 Environment="HTTPS_PROXY=socks5://user:pass@127.0.0.1:1080"
+# 如果要访问本地私有网络，可以设置 NO_PROXY 环境变量。或禁用代理。
+Environment="NO_PROXY=localhost,127.0.0.1"
 ```
 
 重启docker
