@@ -75,6 +75,34 @@ mvn clean install -U -Dmaven.test.skip=true
 - `全局配置`： 在 `Maven安装目录` 下的 `conf/settings.xml` 文件，是全局的配置文件。
 - `局部配置`：新建或编辑 `用户目录` 的 `.m2/settings.xml` 文件，会覆盖全局配置。更改后实时生效，不用重启命令窗口。
 
+### 代理设置
+
+
+- 通过配置文件设置Maven的https代理
+
+在 `~/.m2/settings.xml` 文件，配置 `https` 代理。测试发现http和socks代理可能无效。
+
+```xml
+  <proxies>
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <username></username>
+      <password></password>
+      <host>127.0.0.1</host>
+      <port>7890</port>
+      <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+```
+
+- 通过环境变量设置Maven的socks代理
+
+```bash
+# 未验证。
+export MAVEN_OPTS="-DsocksProxyHost=127.0.0.1 -DsocksProxyPort=1080"
+```
 
 ## Maven仓库
 
