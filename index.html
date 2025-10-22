@@ -21,8 +21,13 @@
       // loadNavbar: true,
       // 启用相对路径
       relativePath: true,
-
-      ext: '.md', // 默认文件扩展名
+      // notFoundPage: 'README.md',
+      // search: {
+      //   maxAge: 86400000, // 过期时间，一天，单位毫秒
+      //   placeholder: '搜索',
+      //   noData: '找不到搜索数据!',
+      // },
+      // ext: '.md', // 默认文件扩展名
       // 路由配置，支持子目录
       // routes: {
       //   '/devops/gitlab/': '/devops/gitlab/README.md',
@@ -32,18 +37,25 @@
       // 重要：启用子目录README.md自动加载
       alias: {
         '/(.*)/': '/$1/README.md',
-        '([A-z]+).md': '$1.md'
+        '([A-z]+).md': '$1.md',
+        '([A-z]+).sh': '$1.sh'
       },
-      search: {
-        maxAge: 86400000, // 过期时间，一天，单位毫秒
-        placeholder: '搜索',
-        noData: '找不到搜索数据!',
-      }
+      // markdown: {
+      //   renderer: {
+      //     link: function (href, title, text) {
+      //       if (href.endsWith('.sh')){
+      //         href = window.location.href + '/' + href;
+      //         return `<a href="${href}">${text}</a>`;
+      //       }
+      //       return this.origin.link.apply(this, arguments);
+      //     }
+      //   }
+      // }
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script> -->
 </body>
 
 </html>

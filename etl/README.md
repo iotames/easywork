@@ -1,12 +1,3 @@
----
-layout: home
-title: ETL
----
-
-{% comment %}
-页面主体内容移到这里
-{% endcomment %}
-
 ## ETL简介
 
 `ETL(Extract-Transform-Load)`: 在大数据技术领域内，用来描述将数据从 来源端 经过 `抽取(extract)`, `转换(transform)`, `加载(load)` 至 目的端 的过程。 `ETL` 一词常用在数据仓库，但其对象并不限于数据仓库。

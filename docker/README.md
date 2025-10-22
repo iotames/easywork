@@ -1,12 +1,3 @@
----
-layout: home
-title: Docker
----
-
-{% comment %}
-页面主体内容移到这里
-{% endcomment %}
-
 ## Docker配置
 
 - 配置文件：`/etc/docker/daemon.json`
