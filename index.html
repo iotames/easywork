@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EasyWork</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'EasyWork',
+      repo: 'https://github.com/iotames/easywork/',
+      homepage: 'README.md',
+      // loadSidebar: true,
+      // loadNavbar: true,
+      // 启用相对路径
+      relativePath: true,
+
+      ext: '.md', // 默认文件扩展名
+      // 路由配置，支持子目录
+      // routes: {
+      //   '/devops/gitlab/': '/devops/gitlab/README.md',
+      //   // 可以为其他子目录添加类似配置
+      // },
+      // 使用通配符方式
+      // 重要：启用子目录README.md自动加载
+      alias: {
+        '/(.*)/': '/$1/README.md',
+        '([A-z]+).md': '$1.md'
+      },
+      search: {
+        maxAge: 86400000, // 过期时间，一天，单位毫秒
+        placeholder: '搜索',
+        noData: '找不到搜索数据!',
+      }
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+</body>
+
+</html>
