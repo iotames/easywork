@@ -35,7 +35,7 @@ title: 首页
   <div class="card">
     <h3>💾 数据库与ETL</h3>
     <p>SQL 脚本模板、ETL 工具使用指南。</p>
-    <a href="sql/">了解更多</a>
+    <a href="etl/">了解更多</a>
   </div>
 
   <div class="card">

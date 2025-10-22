@@ -1,3 +1,12 @@
+---
+layout: home
+title: DevOps
+---
+
+{% comment %}
+项目简介部分移到了页面主体内容中
+{% endcomment %}
+
 ## 什么是DevOps
 
 DevOps 是一种软件开发方法，通过将软件开发 (Dev) 和 IT 运营 (Ops) 团队的工作相结合并实现自动化，加速交付应用程序和服务。
@@ -34,7 +43,7 @@ PORT=8089
 
 ## Taiga
 
-- taiga.md: [从远程服务器进行增量备份](taiga/taiga.md)
+- taiga.md: [taiga/taiga.md](taiga/taiga.md)
 
 ------------
 
