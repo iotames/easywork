@@ -1,0 +1,61 @@
+title: EasyWork 技术博客
+email: your-email@example.com
+description: >-
+  EasyWork - 工作和学习的备忘笔记，开发和运维的效率工具。
+baseurl: ""
+url: ""
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Markdown processing
+markdown: kramdown
+highlighter: rouge
+
+# 设置README.md为首页
+include:
+  - README.md
+
+# Exclude from processing.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Collections for different documentation types
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Default settings for posts and pages
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  # 为根目录设置使用index.md作为首页
+  - scope:
+      path: "index.md"
+    values:
+      layout: "home"
+  # 为子目录设置使用README.md作为首页
+  - scope:
+      path: "*/README.md"
+    values:
+      layout: "page"
