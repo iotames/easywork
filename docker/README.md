@@ -34,7 +34,8 @@ services:
 
 - 如果已有容器内，已经有庞大的日志文件，可先删除。重启后会新建日志文件。然后限定日志大小。
 
-```
+```bash
+du -sh /var/lib/docker/containers/*/*-json.log
 rm -rf /var/lib/docker/containers/37cf0f6b2bd911feba7a99be9f8082e968e3573830459ca17d529ef1ed687757/37cf0f6b2bd911feba7a99be9f8082e968e3573830459ca17d529ef1ed687757-json.log
 ```
 
