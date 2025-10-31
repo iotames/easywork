@@ -1,0 +1,64 @@
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 获取 FFmpeg​
+    - name: Acquire FFmpeg
+    id: get_ffmpeg
+    shell: cmd
+    run: |
+        echo 正在检查FFmpeg是否已安装...
+        ffmpeg -version > NUL 2>&1
+        if %errorlevel% == 0 (
+        echo FFmpeg已存在于系统PATH中。
+        echo ffmpeg_cmd=ffmpeg >> %GITHUB_OUTPUT%
+        ) else (
+        echo 正在下载便携版FFmpeg...
+        curl -L -o ffmpeg.zip "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip"
+        powershell -Command "Expand-Archive -Path ffmpeg.zip -DestinationPath ffmpeg_dist -Force"
+        echo ffmpeg_cmd=ffmpeg_dist\ffmpeg-n6.1-latest-win64-gpl-essentials\bin\ffmpeg.exe >> %GITHUB_OUTPUT%
+        )
+
+    # 生成 ICO 文件​
+    - name: Generate ICO from PNG
+    shell: cmd
+    run: |
+        echo 开始将PNG转换为ICO文件...
+        %{{ steps.get_ffmpeg.outputs.ffmpeg_cmd }}% -i assets/icon.png -vf "scale=256:256" app.ico
+        echo ICO生成命令执行完毕。
+
+    # 验证结果并应用备用方案​
+    - name: Verify ICO and Apply Fallback
+    shell: cmd
+    run: |
+        if exist app.ico (
+        echo ✅ ICO文件 'app.ico' 已成功生成。
+        ) else (
+        echo ⚠️  ICO文件生成失败，将使用备用图标。
+        if exist assets\default.ico (
+            copy assets\default.ico app.ico
+            echo ✅ 已应用备用默认图标。
+        ) else (
+            echo ❌ 严重错误：ICO文件生成失败且未找到备用图标。
+            exit /b 1
+        )
+        )
+
+    - name: Build Go application
+      run: go build -o myapp.exe
+
+    - name: Download rcedit
+      run: |
+        curl -sSL -o rcedit.zip https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.zip
+        unzip rcedit.zip
+
+    - name: Set version info and icon
+      run: |
+        ./rcedit-x64.exe myapp.exe \
+          --set-icon "app.ico" \
+          --set-file-version "${{ github.run_number }}" \
+          --set-version-string "FileDescription" "我的跨平台应用" \
+          --set-version-string "ProductName" "MyApp"

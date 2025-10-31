@@ -1,0 +1,114 @@
+name: CreateRelease
+
+on:
+  release:
+    types:
+      - prereleased
+      # - released
+  push:
+    tags:
+      - "v*"
+
+permissions: # 需要设置写权限才能自动发布
+  contents: write
+
+jobs:
+  create_release:
+    if: github.event_name == 'push'
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Create PreRelease
+        id: create_release
+        uses: actions/create-release@v1
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref_name }}
+          body: 修复了一些已知问题。
+          draft: false
+          prerelease: true
+
+  build:
+    name: Build App
+    strategy:
+      matrix:
+        os: [ ubuntu-latest,  macos-latest ]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22.x'
+
+      - name: Setup Docker
+        if: runner.os == 'Linux'
+        uses: docker-practice/actions-setup-docker@master
+
+      - name: Setup toolchain
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libgl1-mesa-dev xorg-dev libgtk-3-dev
+          go install fyne.io/fyne/v2/cmd/fyne@latest
+          go install github.com/fyne-io/fyne-cross@latest
+
+      - name: Build for Linux
+        if: runner.os == 'Linux'
+        run: |
+          go env -w GO111MODULE=on
+          go mod tidy
+          go build -ldflags="-s -w"
+          chmod +x downutils
+          tar zcf downutils-linux-x86_64.tar.gz downutils
+          
+      - name: Build for Windows
+        if: runner.os == 'Linux'
+        run: |
+          fyne-cross windows --arch=amd64 --icon resource/images/logo.png
+          cd fyne-cross/bin/windows-amd64
+          zip -r $GITHUB_WORKSPACE/downutils-windows-x86_64.zip ./*
+
+      - name: Build for macOS
+        if: runner.os == 'macOS'
+        run: |
+          go env -w GO111MODULE=on
+          go mod tidy
+          go install fyne.io/fyne/v2/cmd/fyne@latest
+          fyne package --icon resource/images/logo.png --release
+          zip -r downutils-macOS-x86_64.zip downutils.app
+
+      # - name: Get File Name
+      #   id: get_filename
+      #   run: |
+      #     export _NAME=downutils-
+      #     echo "GOOS: $GOOS, GOARCH: $GOARCH, RELEASE_NAME: $_NAME"
+      #     echo "ASSET_NAME=$_NAME" >> $GITHUB_OUTPUT
+      #     echo "ASSET_NAME=$_NAME" >> $GITHUB_ENV
+
+        # 上传附件
+      - name: Upload file to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact-${{ matrix.os }}
+          path: |
+            downutils-linux-x86_64.tar.gz
+            downutils-windows-x86_64.zip
+            downutils-macOS-x86_64.zip
+
+      - name: Upload files to GitHub release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            downutils-linux-x86_64.tar.gz
+            downutils-windows-x86_64.zip
+            downutils-macOS-x86_64.zip
