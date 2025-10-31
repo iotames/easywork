@@ -3,3 +3,10 @@
 logs/
 _site/
 .jekyll-cache/
+.vitepress/dist
+.vitepress/cache
+node_modules/
+api-examples.md
+markdown-examples.md
+package-lock.json
+package.json
