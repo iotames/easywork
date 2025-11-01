@@ -10,6 +10,41 @@ Workflow​​ 是GitHub提供的自动化工作流服务。常用于自动化�
 2. 由特定事件触发（如 push、pull request、定时任务等）
 3. 包含一个或多个按顺序或并行执行的作业 (jobs)
 
+## 权限
+
+`Github Pages` 的部署，可能需要代码仓库某个分支的写权限。比如 `peaceiris/actions-gh-pages` 组件，默认使用 `gh-pages`分支发布静态网页。
+
+1. 在仓库的 `Settings` -> `Actions` -> `General` -> `Workflow permissions` 中选择 `Read and write permissions`
+2. 在 `xxxx.yml` 文件中添加 `permissions` 权限配置
+
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+# jobs 部分之前添加权限配置
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04  
+```
+
+否则可能发生错误:
+
+```bash
+Push the commit or tag
+  /usr/bin/git push origin gh-pages
+  remote: Permission to xxx/xxxx.git denied to github-actions[bot].
+  fatal: unable to access 'https://github.com/xxx/xxxx.git/': The requested URL returned error: 403
+  Error: Action failed with "The process '/usr/bin/git' failed with exit code 128"
+```
+
 ## Action​​：
 
 Action​​ 是工作流中的独立任务单元，是可重用的代码块。
