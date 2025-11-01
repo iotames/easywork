@@ -57,7 +57,7 @@ export default defineUserConfig({
 }
 ```
 
-常见命令：
+### 常见命令
 
 ```bash
 # 启动开发服务器

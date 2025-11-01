@@ -8,28 +8,31 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: 24
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          pnpm add -D vuepress@next vue
+          pnpm add -D @vuepress/bundler-vite@next @vuepress/theme-default@next
+          pnpm add -D sass-embedded
 
       - name: Build VuePress site
         run: npx vuepress build
 
       - name: Deploy to GitHub Pages
         # peaceiris/actions-gh-pages 操作会将 .vuepress/dist 目录的内容复制并推送到 gh-pages 分支的根目录
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .vuepress/dist
