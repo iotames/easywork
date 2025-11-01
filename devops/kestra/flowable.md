@@ -9,7 +9,7 @@
 1. 根据 beauty 或 notebook 的产品类别输入发出 API 请求。
 2. 判断API响应的结果是否存在商品，然后执行对应的流程。
 
-```
+```yaml
 id: getting_started
 namespace: company.team
 
@@ -58,8 +58,8 @@ tasks:
         uri: "https://openlibrary.org/search.json?author={{ taskrun.value }}&sort=new"
 ```
 
-1. values 属性定义迭代列表： 即字符串值列表["value1"， "value2"] 或键值对 [{"key": "value1"}, {"key": "value2"}] 列表 
-2. tasks 属性定义要迭代执行的任务列表。可以使用 {{ taskrun.value }} 或 {{ parent.taskrun.value }} 变量访问迭代值。
+1. values 属性定义迭代列表： 即字符串值列表 `["value1"， "value2"]` 或键值对 `[{"key": "value1"}, {"key": "value2"}]` 列表 
+2. tasks 属性定义要迭代执行的任务列表。可以使用 `{{ taskrun.value }}` 或 `{{ parent.taskrun.value }}` 变量访问迭代值。
 3. concurrencyLimit 属性值为 0 ，任务讲并行执行。不填该属性或属性值为1，则任务串行，将按顺序执行。
 
 ```yaml

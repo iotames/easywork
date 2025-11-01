@@ -45,7 +45,7 @@ jekyll build
 
 ## 注意事项
 
-markdown类型的链接，如：[Docker镜像仓库的使用](registry.md) 跳转会有问题。
+markdown类型的链接跳转会有问题。
 
 
 -------------
