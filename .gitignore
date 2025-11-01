@@ -3,10 +3,20 @@
 logs/
 _site/
 .jekyll-cache/
-.vitepress/dist
-.vitepress/cache
-node_modules/
-api-examples.md
-markdown-examples.md
+
 package-lock.json
 package.json
+node_modules/
+
+.vitepress/dist
+.vitepress/cache
+api-examples.md
+markdown-examples.md
+
+# VuePress 默认临时文件目录
+.vuepress/.temp
+# VuePress 默认缓存目录
+.vuepress/.cache
+# VuePress 默认构建生成的静态文件目录
+.vuepress/dist
+pnpm-lock.yaml
