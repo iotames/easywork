@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.24" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
+    <link rel="preload" href="/assets/style-BFGakUI2.css" as="style"><link rel="stylesheet" href="/assets/style-BFGakUI2.css">
+    <link rel="modulepreload" href="/assets/app-D3rUnszu.js"><link rel="modulepreload" href="/assets/realip.html-B8oFP3xp.js">
+    <link rel="prefetch" href="/assets/index.html-DKz9b3Ei.js" as="script"><link rel="prefetch" href="/assets/index.html-D5sxTzK9.js" as="script"><link rel="prefetch" href="/assets/index.html-B-mNBBMb.js" as="script"><link rel="prefetch" href="/assets/echarts-bar.html-CyEQeJnH.js" as="script"><link rel="prefetch" href="/assets/index.html-1qdwbQdb.js" as="script"><link rel="prefetch" href="/assets/gcc.html-D96Bjn4p.js" as="script"><link rel="prefetch" href="/assets/xxd.html-Dle07MPG.js" as="script"><link rel="prefetch" href="/assets/quick_run.html-DwYVYp8F.js" as="script"><link rel="prefetch" href="/assets/windows_remote_desktop.html-DpgKdJn-.js" as="script"><link rel="prefetch" href="/assets/index.html-qcgLelQm.js" as="script"><link rel="prefetch" href="/assets/buildexe.html-Bf6cA-U2.js" as="script"><link rel="prefetch" href="/assets/bytebase.html-CDkDnrwQ.js" as="script"><link rel="prefetch" href="/assets/logrotate.html-DYg7n5rq.js" as="script"><link rel="prefetch" href="/assets/redis.html-Bi2T56hk.js" as="script"><link rel="prefetch" href="/assets/setenv.html-DIfDXr23.js" as="script"><link rel="prefetch" href="/assets/sonarqube.html-DrlJS1yq.js" as="script"><link rel="prefetch" href="/assets/spug.html-Ds3XdtfQ.js" as="script"><link rel="prefetch" href="/assets/index.html-DSbu5qWN.js" as="script"><link rel="prefetch" href="/assets/datastruct.html-KVoTEm5T.js" as="script"><link rel="prefetch" href="/assets/index.html-CAcaSt7Q.js" as="script"><link rel="prefetch" href="/assets/proxy.html-pHSb9haw.js" as="script"><link rel="prefetch" href="/assets/registry.html-D83qYNSY.js" as="script"><link rel="prefetch" href="/assets/volumes.html-C7Gq0imc.js" as="script"><link rel="prefetch" href="/assets/index.html-Ic7Ztt-N.js" as="script"><link rel="prefetch" href="/assets/kettle.html-DS7ciwOa.js" as="script"><link rel="prefetch" href="/assets/kettle_conf.html-Ar9u_g33.js" as="script"><link rel="prefetch" href="/assets/kettle_issue.html-y0fBKRj3.js" as="script"><link rel="prefetch" href="/assets/kettle_select.html-e7htpltm.js" as="script"><link rel="prefetch" href="/assets/kettle_spoon.html-mF0dB-zJ.js" as="script"><link rel="prefetch" href="/assets/kettle_usage.html-VjQLUSSU.js" as="script"><link rel="prefetch" href="/assets/index.html-DRZ_ljCc.js" as="script"><link rel="prefetch" href="/assets/gitflow.html-smIkxoHG.js" as="script"><link rel="prefetch" href="/assets/gittag.html-CW_mIuFL.js" as="script"><link rel="prefetch" href="/assets/index.html-CrcKw4gu.js" as="script"><link rel="prefetch" href="/assets/cross_build.html-DN_FQC3G.js" as="script"><link rel="prefetch" href="/assets/dialog_file.html-BoxPrT-q.js" as="script"><link rel="prefetch" href="/assets/httpproxy_svr.html-1pKloBbb.js" as="script"><link rel="prefetch" href="/assets/index.html-B4dni4zZ.js" as="script"><link rel="prefetch" href="/assets/conf.html-CzffwkAa.js" as="script"><link rel="prefetch" href="/assets/envformvn.html-B2S6xiDd.js" as="script"><link rel="prefetch" href="/assets/jwt.html-DcS25b97.js" as="script"><link rel="prefetch" href="/assets/mvn.html-Ccr-Zqxe.js" as="script"><link rel="prefetch" href="/assets/nexus.html-DSu0n6mm.js" as="script"><link rel="prefetch" href="/assets/index.html-QTCMmHmj.js" as="script"><link rel="prefetch" href="/assets/disk.html-BqEP0V83.js" as="script"><link rel="prefetch" href="/assets/ssh.html-zrS7ygI4.js" as="script"><link rel="prefetch" href="/assets/index.html-PdCDBR4D.js" as="script"><link rel="prefetch" href="/assets/httpheader.html-COd9Fr9S.js" as="script"><link rel="prefetch" href="/assets/index.html-BX7R3dr7.js" as="script"><link rel="prefetch" href="/assets/location.html-XzUN8MvW.js" as="script"><link rel="prefetch" href="/assets/nginxui.html-CtTLiHgY.js" as="script"><link rel="prefetch" href="/assets/index.html-CuxegCyI.js" as="script"><link rel="prefetch" href="/assets/docs.html-DUD38YZl.js" as="script"><link rel="prefetch" href="/assets/n8n.html-CTFcRyr5.js" as="script"><link rel="prefetch" href="/assets/nvm.html-DwoJTvnr.js" as="script"><link rel="prefetch" href="/assets/jekyll.html-DUtKBfCN.js" as="script"><link rel="prefetch" href="/assets/add_index.html-CSBjlGkK.js" as="script"><link rel="prefetch" href="/assets/index.html-C58Jn_p-.js" as="script"><link rel="prefetch" href="/assets/role.html-CRt5OcgB.js" as="script"><link rel="prefetch" href="/assets/index.html-DUlRNDX9.js" as="script"><link rel="prefetch" href="/assets/issue.html-P4asiLV1.js" as="script"><link rel="prefetch" href="/assets/runner.html-DOIqZUdx.js" as="script"><link rel="prefetch" href="/assets/index.html-BDp_D-AC.js" as="script"><link rel="prefetch" href="/assets/dashboards.html-D4aMAqRU.js" as="script"><link rel="prefetch" href="/assets/loki_nginx.html-CrNEMPI6.js" as="script"><link rel="prefetch" href="/assets/node_exporter.html-CRpltNIz.js" as="script"><link rel="prefetch" href="/assets/prometheus.html-B3jdoAPc.js" as="script"><link rel="prefetch" href="/assets/index.html-D4J87MbI.js" as="script"><link rel="prefetch" href="/assets/config.html-DXwR3QQF.js" as="script"><link rel="prefetch" href="/assets/errors.html-CEvIGsSj.js" as="script"><link rel="prefetch" href="/assets/flowable.html-D3Ts-bhq.js" as="script"><link rel="prefetch" href="/assets/inoutputs.html-tSeeaukD.js" as="script"><link rel="prefetch" href="/assets/namespace.html-CdNmt2DK.js" as="script"><link rel="prefetch" href="/assets/scripts.html-6FpJ4GUo.js" as="script"><link rel="prefetch" href="/assets/triggers.html-BJLn9LVv.js" as="script"><link rel="prefetch" href="/assets/start_docker.html-DH-WUo6q.js" as="script"><link rel="prefetch" href="/assets/taiga.html-C2DRTB1n.js" as="script"><link rel="prefetch" href="/assets/index.html-CoN9_wcl.js" as="script"><link rel="prefetch" href="/assets/index.html-CCA6v9As.js" as="script"><link rel="prefetch" href="/assets/index.html-Dv2ZFfSk.js" as="script"><link rel="prefetch" href="/assets/if.html-B_JRX2xF.js" as="script"><link rel="prefetch" href="/assets/index.html-CzLhkv3B.js" as="script"><link rel="prefetch" href="/assets/journald.html-BPhQD_Sb.js" as="script"><link rel="prefetch" href="/assets/jwt.html-DBu0c90v.js" as="script"><link rel="prefetch" href="/assets/view_data.html-iN0eG0Sk.js" as="script"><link rel="prefetch" href="/assets/index.html-CrUU9DSR.js" as="script"><link rel="prefetch" href="/assets/404.html-DoM5Aq0E.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/"><!----><span class="vp-site-name" aria-hidden="true">沙滩星空的博客</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading"> <!----></p><!----></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div id="content"><h2 id="http请求头ip和tcp源ip" tabindex="-1"><a class="header-anchor" href="#http请求头ip和tcp源ip"><span>HTTP请求头IP和TCP源IP</span></a></h2><p>打破砂锅问到底：</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">下面两个HTTP请求头的含义是什么？有何区别？</span>
+<span class="line">&quot;X-Forwarded-For&quot;: [&quot;119.91.107.106, 153.99.246.174&quot;]</span>
+<span class="line">&quot;X-Real-Ip&quot;: [&quot;153.99.246.174&quot;]</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">按照HTTP协议，请求头都是可伪造的。如果我想获取HTTP请求的真实IP(因为X-Real-Ip请求头还是有伪造的可能)。要怎么做？</span>
+<span class="line">也就是说，如果网络请求，经过中间层层转发，我只能获取最后一层的服务器IP做为真实IP。如果没经过转发，那就是最初发起请求的客户端IP了。能理解吗？</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">如果使用Go语言的net/http标准库构建了Web服务器，如何获取“最后一层真实IP”？</span>
+<span class="line">如果使用Go语言的net/http标准库构建了Web服务器，但是接收到的网络请求，是先经过本机的另一个NGINX服务做了反向代理，然后再转发到这台Go语言的Web服务器。那么获取到的IP是哪个？</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">如果HTTP请求头存在X-Real-Ip，且与真实的TCP源IP不一致，是否可以判定是网络攻击？</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h2 id="笔记" tabindex="-1"><a class="header-anchor" href="#笔记"><span>笔记</span></a></h2><p>NGINX配置：</p><div class="language-nginx line-numbers-mode" data-highlighter="prismjs" data-ext="nginx"><pre><code class="language-nginx"><span class="line"><span class="token comment"># $remote_addr就是客户端真实IP</span></span>
+<span class="line"><span class="token directive"><span class="token keyword">log_format</span> main <span class="token string">&#39;<span class="token variable">$remote_addr</span> [<span class="token variable">$time_local]</span> &quot;<span class="token variable">$request</span>&quot;&#39;</span></span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"><span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span></span>
+<span class="line">    <span class="token directive"><span class="token keyword">proxy_pass</span> http://127.0.0.1:8080</span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment"># 将客户端真实IP（Nginx看到的远程IP）写入X-Real-IP头。</span></span>
+<span class="line">    <span class="token comment"># 因为存在NGINX反向代理，使得http://127.0.0.1:8080应用服务端，获取的TCP源IP是NGINX的IP，也就是127.0.0.1。</span></span>
+<span class="line">    <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Real-IP <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span></span>
+<span class="line">    <span class="token comment"># 记录完整的转发链（客户端IP, 中间代理IP）</span></span>
+<span class="line">    <span class="token directive"><span class="token keyword">proxy_set_header</span> X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Go语言代码：</p><div class="language-golang line-numbers-mode" data-highlighter="prismjs" data-ext="golang"><pre><code class="language-golang"><span class="line">package main</span>
+<span class="line"></span>
+<span class="line">import (</span>
+<span class="line">	&quot;net&quot;</span>
+<span class="line">	&quot;net/http&quot;</span>
+<span class="line">	&quot;strings&quot;</span>
+<span class="line">)</span>
+<span class="line"></span>
+<span class="line">func main() {</span>
+<span class="line">	http.HandleFunc(&quot;/get-real-ip&quot;, func(w http.ResponseWriter, r *http.Request) {</span>
+<span class="line">		// 1. 获取 TCP 连接的源地址（格式：IP:端口）</span>
+<span class="line">		remoteAddr := r.RemoteAddr</span>
+<span class="line"></span>
+<span class="line">		// 2. 分割 IP 和端口（处理可能的错误，如地址格式异常）</span>
+<span class="line">		ip, _, err := net.SplitHostPort(remoteAddr)</span>
+<span class="line">		if err != nil {</span>
+<span class="line">			// 极端情况：如果地址格式不符合 &quot;IP:端口&quot;（如 Unix 域套接字），直接使用原始地址作为 IP</span>
+<span class="line">			ip = remoteAddr</span>
+<span class="line">		}</span>
+<span class="line"></span>
+<span class="line">		// 3. 返回结果。如果是NGINX转发过来的请求，那TCP连接的源IP只能是NGINX的IP</span>
+<span class="line">		w.Write([]byte(&quot;最后一层真实IP: &quot; + ip))</span>
+<span class="line"></span>
+<span class="line">        // 从Nginx转发的X-Real-IP头中获取客户端真实IP</span>
+<span class="line">        clientIP := r.Header.Get(&quot;X-Real-IP&quot;)</span>
+<span class="line">        if clientIP == &quot;&quot; {</span>
+<span class="line">            // 降级处理：如果没有X-Real-IP，使用最后一级IP（Nginx的IP）</span>
+<span class="line">            ip, _, _ := net.SplitHostPort(r.RemoteAddr)</span>
+<span class="line">            clientIP = ip</span>
+<span class="line">        }</span>
+<span class="line">        w.Write([]byte(&quot;客户端真实IP（来自Nginx转发）: &quot; + clientIP))</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">	})</span>
+<span class="line"></span>
+<span class="line">	// 启动服务器，监听 8080 端口</span>
+<span class="line">	http.ListenAndServe(&quot;:8080&quot;, nil)</span>
+<span class="line">}</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2025-09-24T03:44:10.000Z" data-allow-mismatch>2025/9/24 03:44</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-D3rUnszu.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.24" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
+    <link rel="preload" href="/assets/style-BFGakUI2.css" as="style"><link rel="stylesheet" href="/assets/style-BFGakUI2.css">
+    <link rel="modulepreload" href="/assets/app-D3rUnszu.js"><link rel="modulepreload" href="/assets/start_docker.html-DH-WUo6q.js">
+    <link rel="prefetch" href="/assets/index.html-DKz9b3Ei.js" as="script"><link rel="prefetch" href="/assets/index.html-D5sxTzK9.js" as="script"><link rel="prefetch" href="/assets/index.html-B-mNBBMb.js" as="script"><link rel="prefetch" href="/assets/echarts-bar.html-CyEQeJnH.js" as="script"><link rel="prefetch" href="/assets/index.html-1qdwbQdb.js" as="script"><link rel="prefetch" href="/assets/gcc.html-D96Bjn4p.js" as="script"><link rel="prefetch" href="/assets/xxd.html-Dle07MPG.js" as="script"><link rel="prefetch" href="/assets/quick_run.html-DwYVYp8F.js" as="script"><link rel="prefetch" href="/assets/windows_remote_desktop.html-DpgKdJn-.js" as="script"><link rel="prefetch" href="/assets/index.html-qcgLelQm.js" as="script"><link rel="prefetch" href="/assets/buildexe.html-Bf6cA-U2.js" as="script"><link rel="prefetch" href="/assets/bytebase.html-CDkDnrwQ.js" as="script"><link rel="prefetch" href="/assets/logrotate.html-DYg7n5rq.js" as="script"><link rel="prefetch" href="/assets/redis.html-Bi2T56hk.js" as="script"><link rel="prefetch" href="/assets/setenv.html-DIfDXr23.js" as="script"><link rel="prefetch" href="/assets/sonarqube.html-DrlJS1yq.js" as="script"><link rel="prefetch" href="/assets/spug.html-Ds3XdtfQ.js" as="script"><link rel="prefetch" href="/assets/index.html-DSbu5qWN.js" as="script"><link rel="prefetch" href="/assets/datastruct.html-KVoTEm5T.js" as="script"><link rel="prefetch" href="/assets/index.html-CAcaSt7Q.js" as="script"><link rel="prefetch" href="/assets/proxy.html-pHSb9haw.js" as="script"><link rel="prefetch" href="/assets/registry.html-D83qYNSY.js" as="script"><link rel="prefetch" href="/assets/volumes.html-C7Gq0imc.js" as="script"><link rel="prefetch" href="/assets/index.html-Ic7Ztt-N.js" as="script"><link rel="prefetch" href="/assets/kettle.html-DS7ciwOa.js" as="script"><link rel="prefetch" href="/assets/kettle_conf.html-Ar9u_g33.js" as="script"><link rel="prefetch" href="/assets/kettle_issue.html-y0fBKRj3.js" as="script"><link rel="prefetch" href="/assets/kettle_select.html-e7htpltm.js" as="script"><link rel="prefetch" href="/assets/kettle_spoon.html-mF0dB-zJ.js" as="script"><link rel="prefetch" href="/assets/kettle_usage.html-VjQLUSSU.js" as="script"><link rel="prefetch" href="/assets/index.html-DRZ_ljCc.js" as="script"><link rel="prefetch" href="/assets/gitflow.html-smIkxoHG.js" as="script"><link rel="prefetch" href="/assets/gittag.html-CW_mIuFL.js" as="script"><link rel="prefetch" href="/assets/index.html-CrcKw4gu.js" as="script"><link rel="prefetch" href="/assets/cross_build.html-DN_FQC3G.js" as="script"><link rel="prefetch" href="/assets/dialog_file.html-BoxPrT-q.js" as="script"><link rel="prefetch" href="/assets/httpproxy_svr.html-1pKloBbb.js" as="script"><link rel="prefetch" href="/assets/index.html-B4dni4zZ.js" as="script"><link rel="prefetch" href="/assets/conf.html-CzffwkAa.js" as="script"><link rel="prefetch" href="/assets/envformvn.html-B2S6xiDd.js" as="script"><link rel="prefetch" href="/assets/jwt.html-DcS25b97.js" as="script"><link rel="prefetch" href="/assets/mvn.html-Ccr-Zqxe.js" as="script"><link rel="prefetch" href="/assets/nexus.html-DSu0n6mm.js" as="script"><link rel="prefetch" href="/assets/index.html-QTCMmHmj.js" as="script"><link rel="prefetch" href="/assets/disk.html-BqEP0V83.js" as="script"><link rel="prefetch" href="/assets/ssh.html-zrS7ygI4.js" as="script"><link rel="prefetch" href="/assets/index.html-PdCDBR4D.js" as="script"><link rel="prefetch" href="/assets/httpheader.html-COd9Fr9S.js" as="script"><link rel="prefetch" href="/assets/index.html-BX7R3dr7.js" as="script"><link rel="prefetch" href="/assets/location.html-XzUN8MvW.js" as="script"><link rel="prefetch" href="/assets/nginxui.html-CtTLiHgY.js" as="script"><link rel="prefetch" href="/assets/realip.html-B8oFP3xp.js" as="script"><link rel="prefetch" href="/assets/index.html-CuxegCyI.js" as="script"><link rel="prefetch" href="/assets/docs.html-DUD38YZl.js" as="script"><link rel="prefetch" href="/assets/n8n.html-CTFcRyr5.js" as="script"><link rel="prefetch" href="/assets/nvm.html-DwoJTvnr.js" as="script"><link rel="prefetch" href="/assets/jekyll.html-DUtKBfCN.js" as="script"><link rel="prefetch" href="/assets/add_index.html-CSBjlGkK.js" as="script"><link rel="prefetch" href="/assets/index.html-C58Jn_p-.js" as="script"><link rel="prefetch" href="/assets/role.html-CRt5OcgB.js" as="script"><link rel="prefetch" href="/assets/index.html-DUlRNDX9.js" as="script"><link rel="prefetch" href="/assets/issue.html-P4asiLV1.js" as="script"><link rel="prefetch" href="/assets/runner.html-DOIqZUdx.js" as="script"><link rel="prefetch" href="/assets/index.html-BDp_D-AC.js" as="script"><link rel="prefetch" href="/assets/dashboards.html-D4aMAqRU.js" as="script"><link rel="prefetch" href="/assets/loki_nginx.html-CrNEMPI6.js" as="script"><link rel="prefetch" href="/assets/node_exporter.html-CRpltNIz.js" as="script"><link rel="prefetch" href="/assets/prometheus.html-B3jdoAPc.js" as="script"><link rel="prefetch" href="/assets/index.html-D4J87MbI.js" as="script"><link rel="prefetch" href="/assets/config.html-DXwR3QQF.js" as="script"><link rel="prefetch" href="/assets/errors.html-CEvIGsSj.js" as="script"><link rel="prefetch" href="/assets/flowable.html-D3Ts-bhq.js" as="script"><link rel="prefetch" href="/assets/inoutputs.html-tSeeaukD.js" as="script"><link rel="prefetch" href="/assets/namespace.html-CdNmt2DK.js" as="script"><link rel="prefetch" href="/assets/scripts.html-6FpJ4GUo.js" as="script"><link rel="prefetch" href="/assets/triggers.html-BJLn9LVv.js" as="script"><link rel="prefetch" href="/assets/taiga.html-C2DRTB1n.js" as="script"><link rel="prefetch" href="/assets/index.html-CoN9_wcl.js" as="script"><link rel="prefetch" href="/assets/index.html-CCA6v9As.js" as="script"><link rel="prefetch" href="/assets/index.html-Dv2ZFfSk.js" as="script"><link rel="prefetch" href="/assets/if.html-B_JRX2xF.js" as="script"><link rel="prefetch" href="/assets/index.html-CzLhkv3B.js" as="script"><link rel="prefetch" href="/assets/journald.html-BPhQD_Sb.js" as="script"><link rel="prefetch" href="/assets/jwt.html-DBu0c90v.js" as="script"><link rel="prefetch" href="/assets/view_data.html-iN0eG0Sk.js" as="script"><link rel="prefetch" href="/assets/index.html-CrUU9DSR.js" as="script"><link rel="prefetch" href="/assets/404.html-DoM5Aq0E.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/"><!----><span class="vp-site-name" aria-hidden="true">沙滩星空的博客</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading"> <!----></p><!----></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div id="content"><h2 id="项目下载" tabindex="-1"><a class="header-anchor" href="#项目下载"><span>项目下载</span></a></h2><ul><li>docker: version &gt;= 19.03.0+</li></ul><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">git</span> clone https://github.com/taigaio/taiga-docker.git</span>
+<span class="line"><span class="token builtin class-name">cd</span> taiga-docker/</span>
+<span class="line"><span class="token function">git</span> checkout stable</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="配置变量" tabindex="-1"><a class="header-anchor" href="#配置变量"><span>配置变量</span></a></h2><ul><li>配置：https://docs.djangoproject.com/zh-hans/5.2/ref/settings/</li></ul><p>在 <code>.env</code> 文件配置变量，以覆盖默认值。 docker-compose.yml 和 docker-compose-inits.yml 都将从此文件中读取数据</p><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line"># 数据库账号密码</span>
+<span class="line">POSTGRES_USER=taiga</span>
+<span class="line">POSTGRES_PASSWORD=taiga</span>
+<span class="line"></span>
+<span class="line"># URL 设置</span>
+<span class="line">TAIGA_SCHEME=http</span>
+<span class="line">TAIGA_DOMAIN=localhost:9000</span>
+<span class="line"># it&#39;ll be appended to the TAIGA_DOMAIN (use either &quot;&quot; or a &quot;/subpath&quot;)</span>
+<span class="line">SUBPATH=&quot;&quot;</span>
+<span class="line"># events connection protocol (use either &quot;ws&quot; or &quot;wss&quot;)</span>
+<span class="line">WEBSOCKETS_SCHEME=ws</span>
+<span class="line"></span>
+<span class="line"># 设置密钥，用于加密签名。</span>
+<span class="line">SECRET_KEY=&quot;taiga-secret-key&quot;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>电子邮件配置</li></ul><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line"># 默认情况下，电子邮件将打印在标准输出 （EMAIL_BACKEND=console）。如果您有自己的 SMTP 服务，请将其更改为 EMAIL_BACKEND=smtp</span>
+<span class="line">EMAIL_BACKEND=console  # use an SMTP server or display the emails in the console (either &quot;smtp&quot; or &quot;console&quot;)</span>
+<span class="line">EMAIL_HOST=smtp.host.example.com  # SMTP server address</span>
+<span class="line">EMAIL_PORT=587   # default SMTP port</span>
+<span class="line">EMAIL_HOST_USER=user  # user to connect the SMTP server</span>
+<span class="line">EMAIL_HOST_PASSWORD=password  # SMTP user&#39;s password</span>
+<span class="line">EMAIL_DEFAULT_FROM=changeme@example.com  # email address for the automated emails</span>
+<span class="line"></span>
+<span class="line"># EMAIL_USE_TLS/EMAIL_USE_SSL are mutually exclusive (only set one of those to True)</span>
+<span class="line">EMAIL_USE_TLS=True  # use TLS (secure) connection with the SMTP server</span>
+<span class="line">EMAIL_USE_SSL=False  # use implicit TLS (secure) connection with the SMTP server</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>队列管理器设置: 用于在 rabbitmq 服务中保留消息。</li></ul><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line">RABBITMQ_USER=taiga  # user to connect to RabbitMQ</span>
+<span class="line">RABBITMQ_PASS=taiga  # RabbitMQ user&#39;s password</span>
+<span class="line">RABBITMQ_VHOST=taiga  # RabbitMQ container name</span>
+<span class="line">RABBITMQ_ERLANG_COOKIE=secret-erlang-cookie  # unique value shared by any connected instance of RabbitMQ</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="其他自定义配置" tabindex="-1"><a class="header-anchor" href="#其他自定义配置"><span>其他自定义配置</span></a></h3><p>默认情况下，所有这些自定义选项都处于禁用状态，需要您编辑 <code>docker-compose.yml</code></p><p>应该在适当的服务（或在 <code>docker-compose.yml</code> 文件中的 <code>&amp;default-back-environment</code> 组）中添加相应的环境变量，并使用有效值来启用它们。</p><p>如果您使用的是 HTTP（尽管强烈建议反对它），则需要配置以下环境变量，以便您可以访问 Admin：</p><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line"># Django Admin 中的会话 cookie</span>
+<span class="line"># 添加到 &amp;default-back-environment 环境</span>
+<span class="line">SESSION_COOKIE_SECURE: &quot;False&quot;</span>
+<span class="line">CSRF_COOKIE_SECURE: &quot;False&quot;</span>
+<span class="line"></span>
+<span class="line"># 公众注册</span>
+<span class="line"># 添加到 &amp;default-back-environment 环境</span>
+<span class="line">PUBLIC_REGISTER_ENABLED: &quot;True&quot;</span>
+<span class="line"># 添加到 taiga-front 服务环境</span>
+<span class="line">PUBLIC_REGISTER_ENABLED: &quot;true&quot;</span>
+<span class="line"></span>
+<span class="line"># Gitlab OAuth 登录</span>
+<span class="line"># 添加到 &amp;default-back-environment 环境</span>
+<span class="line">ENABLE_GITLAB_AUTH: &quot;True&quot;</span>
+<span class="line">GITLAB_API_CLIENT_ID: &quot;gitlab-client-id&quot;</span>
+<span class="line">GITLAB_API_CLIENT_SECRET: &quot;gitlab-client-secret&quot;</span>
+<span class="line">GITLAB_URL: &quot;gitlab-url&quot;</span>
+<span class="line">PUBLIC_REGISTER_ENABLED: &quot;True&quot;</span>
+<span class="line"># 添加到 taiga-front 服务环境</span>
+<span class="line">ENABLE_GITLAB_AUTH: &quot;true&quot;</span>
+<span class="line">GITLAB_CLIENT_ID: &quot;gitlab-client-id&quot;</span>
+<span class="line">GITLAB_URL: &quot;gitlab-url&quot;</span>
+<span class="line">PUBLIC_REGISTER_ENABLED: &quot;true&quot;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="高级配置-可选" tabindex="-1"><a class="header-anchor" href="#高级配置-可选"><span>高级配置(可选)</span></a></h2><p>高级配置将忽略 docker-compose.yml 或 docker-compose-inits.yml 中的环境变量。如果您使用的是 env vars，请跳过此部分。</p><p>此为直接修改代码配置文件。</p><h3 id="映射-config-py-文件" tabindex="-1"><a class="header-anchor" href="#映射-config-py-文件"><span>映射 config.py 文件</span></a></h3><p>从 https://github.com/taigaio/taiga-back 下载文件，settings/config.py.prod.example 并重命名它：</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">mv</span> settings/config.py.prod.example settings/config.py</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>将文件映射到 /taiga-back/settings/config.py 。请记住，您必须同时以 docker-compose.yml 和 docker-compose-inits.yml 映射它。您可以通过示例查看 <code>docker-compose.yml</code> 中的 <code>x-volumes</code> 部分。</p><p>编辑 <code>config.py</code>:</p><ul><li>Taiga secret key：更改它很重要 。它必须与 taiga-events 和 taiga-protected 中的密钥具有相同的值</li><li>Taiga urls：使用 TAIGA_URL、SITES 和 FORCE_SCRIPT_NAME 配置 Taiga 的投放位置（见下面的示例）</li><li>连接到 PostgreSQL;check 文件中的 DATABASES 部分</li><li>连接到 RabbitMQ 以使用 taiga-events;检查文件中的 “EVENTS” 部分</li><li>连接到 RabbitMQ 以进行 taiga-async;检查文件中的 “TAIGA ASYNC” 部分</li><li>电子邮件凭证;检查文件中的 “EMAIL” 部分</li><li>启用/禁用匿名遥测;检查文件中的 “TELEMETRY” 部分</li></ul><h3 id="映射-conf-json-文件" tabindex="-1"><a class="header-anchor" href="#映射-conf-json-文件"><span>映射 conf.json 文件</span></a></h3><p>从 https://github.com/taigaio/taiga-front 下载文件 conf/conf.example.json 并重命名它：</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">mv</span> conf.example.json conf.json</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>示例：</p><div class="language-json line-numbers-mode" data-highlighter="prismjs" data-ext="json"><pre><code class="language-json"><span class="line"><span class="token punctuation">{</span></span>
+<span class="line">    <span class="token property">&quot;api&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://taiga.mycompany.com/api/v1/&quot;</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token property">&quot;eventsUrl&quot;</span><span class="token operator">:</span> <span class="token string">&quot;wss://taiga.mycompany.com/events&quot;</span><span class="token punctuation">,</span></span>
+<span class="line">    <span class="token property">&quot;baseHref&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span></span>
+<span class="line">    ...</span>
+<span class="line"><span class="token punctuation">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="配置admin用户" tabindex="-1"><a class="header-anchor" href="#配置admin用户"><span>配置Admin用户</span></a></h2><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">docker</span> compose up <span class="token parameter variable">-d</span></span>
+<span class="line"></span>
+<span class="line"><span class="token function">docker</span> compose <span class="token parameter variable">-f</span> docker-compose.yml <span class="token parameter variable">-f</span> docker-compose-inits.yml run <span class="token parameter variable">--rm</span> taiga-manage createsuperuser</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="启动并运行" tabindex="-1"><a class="header-anchor" href="#启动并运行"><span>启动并运行</span></a></h2><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">docker</span> compose up <span class="token parameter variable">-d</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h2 id="配置nginx代理" tabindex="-1"><a class="header-anchor" href="#配置nginx代理"><span>配置NGINX代理</span></a></h2><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line">server {</span>
+<span class="line">  server_name taiga.mycompany.com;</span>
+<span class="line"></span>
+<span class="line">  location / {</span>
+<span class="line">    proxy_set_header Host $http_host;</span>
+<span class="line">    proxy_set_header X-Real-IP $remote_addr;</span>
+<span class="line">    proxy_set_header X-Scheme $scheme;</span>
+<span class="line">    proxy_set_header X-Forwarded-Proto $scheme;</span>
+<span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+<span class="line">    proxy_redirect off;</span>
+<span class="line">    proxy_pass http://localhost:9000/;</span>
+<span class="line">  }</span>
+<span class="line"></span>
+<span class="line">  # Events</span>
+<span class="line">  location /events {</span>
+<span class="line">      proxy_pass http://localhost:9000/events;</span>
+<span class="line">      proxy_http_version 1.1;</span>
+<span class="line">      proxy_set_header Upgrade $http_upgrade;</span>
+<span class="line">      proxy_set_header Connection &quot;upgrade&quot;;</span>
+<span class="line">      proxy_set_header Host $host;</span>
+<span class="line">      proxy_connect_timeout 7d;</span>
+<span class="line">      proxy_send_timeout 7d;</span>
+<span class="line">      proxy_read_timeout 7d;</span>
+<span class="line">  }</span>
+<span class="line"></span>
+<span class="line">  # TLS: Configure your TLS following the best practices inside your company</span>
+<span class="line">  # Logs and other configurations</span>
+<span class="line">}</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="参考资料" tabindex="-1"><a class="header-anchor" href="#参考资料"><span>参考资料</span></a></h2><blockquote><p>在生产环境中安装 Taiga: https://docs.taiga.io/setup-production.html#setup-prod-with-docker</p></blockquote></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2025-07-17T10:23:04.000Z" data-allow-mismatch>2025/7/17 10:23</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: whq78164@gmail.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-D3rUnszu.js" defer></script>
+  </body>
+</html>

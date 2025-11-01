@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.24" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
+    <link rel="preload" href="/assets/style-BFGakUI2.css" as="style"><link rel="stylesheet" href="/assets/style-BFGakUI2.css">
+    <link rel="modulepreload" href="/assets/app-D3rUnszu.js"><link rel="modulepreload" href="/assets/envformvn.html-B2S6xiDd.js">
+    <link rel="prefetch" href="/assets/index.html-DKz9b3Ei.js" as="script"><link rel="prefetch" href="/assets/index.html-D5sxTzK9.js" as="script"><link rel="prefetch" href="/assets/index.html-B-mNBBMb.js" as="script"><link rel="prefetch" href="/assets/echarts-bar.html-CyEQeJnH.js" as="script"><link rel="prefetch" href="/assets/index.html-1qdwbQdb.js" as="script"><link rel="prefetch" href="/assets/gcc.html-D96Bjn4p.js" as="script"><link rel="prefetch" href="/assets/xxd.html-Dle07MPG.js" as="script"><link rel="prefetch" href="/assets/quick_run.html-DwYVYp8F.js" as="script"><link rel="prefetch" href="/assets/windows_remote_desktop.html-DpgKdJn-.js" as="script"><link rel="prefetch" href="/assets/index.html-qcgLelQm.js" as="script"><link rel="prefetch" href="/assets/buildexe.html-Bf6cA-U2.js" as="script"><link rel="prefetch" href="/assets/bytebase.html-CDkDnrwQ.js" as="script"><link rel="prefetch" href="/assets/logrotate.html-DYg7n5rq.js" as="script"><link rel="prefetch" href="/assets/redis.html-Bi2T56hk.js" as="script"><link rel="prefetch" href="/assets/setenv.html-DIfDXr23.js" as="script"><link rel="prefetch" href="/assets/sonarqube.html-DrlJS1yq.js" as="script"><link rel="prefetch" href="/assets/spug.html-Ds3XdtfQ.js" as="script"><link rel="prefetch" href="/assets/index.html-DSbu5qWN.js" as="script"><link rel="prefetch" href="/assets/datastruct.html-KVoTEm5T.js" as="script"><link rel="prefetch" href="/assets/index.html-CAcaSt7Q.js" as="script"><link rel="prefetch" href="/assets/proxy.html-pHSb9haw.js" as="script"><link rel="prefetch" href="/assets/registry.html-D83qYNSY.js" as="script"><link rel="prefetch" href="/assets/volumes.html-C7Gq0imc.js" as="script"><link rel="prefetch" href="/assets/index.html-Ic7Ztt-N.js" as="script"><link rel="prefetch" href="/assets/kettle.html-DS7ciwOa.js" as="script"><link rel="prefetch" href="/assets/kettle_conf.html-Ar9u_g33.js" as="script"><link rel="prefetch" href="/assets/kettle_issue.html-y0fBKRj3.js" as="script"><link rel="prefetch" href="/assets/kettle_select.html-e7htpltm.js" as="script"><link rel="prefetch" href="/assets/kettle_spoon.html-mF0dB-zJ.js" as="script"><link rel="prefetch" href="/assets/kettle_usage.html-VjQLUSSU.js" as="script"><link rel="prefetch" href="/assets/index.html-DRZ_ljCc.js" as="script"><link rel="prefetch" href="/assets/gitflow.html-smIkxoHG.js" as="script"><link rel="prefetch" href="/assets/gittag.html-CW_mIuFL.js" as="script"><link rel="prefetch" href="/assets/index.html-CrcKw4gu.js" as="script"><link rel="prefetch" href="/assets/cross_build.html-DN_FQC3G.js" as="script"><link rel="prefetch" href="/assets/dialog_file.html-BoxPrT-q.js" as="script"><link rel="prefetch" href="/assets/httpproxy_svr.html-1pKloBbb.js" as="script"><link rel="prefetch" href="/assets/index.html-B4dni4zZ.js" as="script"><link rel="prefetch" href="/assets/conf.html-CzffwkAa.js" as="script"><link rel="prefetch" href="/assets/jwt.html-DcS25b97.js" as="script"><link rel="prefetch" href="/assets/mvn.html-Ccr-Zqxe.js" as="script"><link rel="prefetch" href="/assets/nexus.html-DSu0n6mm.js" as="script"><link rel="prefetch" href="/assets/index.html-QTCMmHmj.js" as="script"><link rel="prefetch" href="/assets/disk.html-BqEP0V83.js" as="script"><link rel="prefetch" href="/assets/ssh.html-zrS7ygI4.js" as="script"><link rel="prefetch" href="/assets/index.html-PdCDBR4D.js" as="script"><link rel="prefetch" href="/assets/httpheader.html-COd9Fr9S.js" as="script"><link rel="prefetch" href="/assets/index.html-BX7R3dr7.js" as="script"><link rel="prefetch" href="/assets/location.html-XzUN8MvW.js" as="script"><link rel="prefetch" href="/assets/nginxui.html-CtTLiHgY.js" as="script"><link rel="prefetch" href="/assets/realip.html-B8oFP3xp.js" as="script"><link rel="prefetch" href="/assets/index.html-CuxegCyI.js" as="script"><link rel="prefetch" href="/assets/docs.html-DUD38YZl.js" as="script"><link rel="prefetch" href="/assets/n8n.html-CTFcRyr5.js" as="script"><link rel="prefetch" href="/assets/nvm.html-DwoJTvnr.js" as="script"><link rel="prefetch" href="/assets/jekyll.html-DUtKBfCN.js" as="script"><link rel="prefetch" href="/assets/add_index.html-CSBjlGkK.js" as="script"><link rel="prefetch" href="/assets/index.html-C58Jn_p-.js" as="script"><link rel="prefetch" href="/assets/role.html-CRt5OcgB.js" as="script"><link rel="prefetch" href="/assets/index.html-DUlRNDX9.js" as="script"><link rel="prefetch" href="/assets/issue.html-P4asiLV1.js" as="script"><link rel="prefetch" href="/assets/runner.html-DOIqZUdx.js" as="script"><link rel="prefetch" href="/assets/index.html-BDp_D-AC.js" as="script"><link rel="prefetch" href="/assets/dashboards.html-D4aMAqRU.js" as="script"><link rel="prefetch" href="/assets/loki_nginx.html-CrNEMPI6.js" as="script"><link rel="prefetch" href="/assets/node_exporter.html-CRpltNIz.js" as="script"><link rel="prefetch" href="/assets/prometheus.html-B3jdoAPc.js" as="script"><link rel="prefetch" href="/assets/index.html-D4J87MbI.js" as="script"><link rel="prefetch" href="/assets/config.html-DXwR3QQF.js" as="script"><link rel="prefetch" href="/assets/errors.html-CEvIGsSj.js" as="script"><link rel="prefetch" href="/assets/flowable.html-D3Ts-bhq.js" as="script"><link rel="prefetch" href="/assets/inoutputs.html-tSeeaukD.js" as="script"><link rel="prefetch" href="/assets/namespace.html-CdNmt2DK.js" as="script"><link rel="prefetch" href="/assets/scripts.html-6FpJ4GUo.js" as="script"><link rel="prefetch" href="/assets/triggers.html-BJLn9LVv.js" as="script"><link rel="prefetch" href="/assets/start_docker.html-DH-WUo6q.js" as="script"><link rel="prefetch" href="/assets/taiga.html-C2DRTB1n.js" as="script"><link rel="prefetch" href="/assets/index.html-CoN9_wcl.js" as="script"><link rel="prefetch" href="/assets/index.html-CCA6v9As.js" as="script"><link rel="prefetch" href="/assets/index.html-Dv2ZFfSk.js" as="script"><link rel="prefetch" href="/assets/if.html-B_JRX2xF.js" as="script"><link rel="prefetch" href="/assets/index.html-CzLhkv3B.js" as="script"><link rel="prefetch" href="/assets/journald.html-BPhQD_Sb.js" as="script"><link rel="prefetch" href="/assets/jwt.html-DBu0c90v.js" as="script"><link rel="prefetch" href="/assets/view_data.html-iN0eG0Sk.js" as="script"><link rel="prefetch" href="/assets/index.html-CrUU9DSR.js" as="script"><link rel="prefetch" href="/assets/404.html-DoM5Aq0E.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/"><!----><span class="vp-site-name" aria-hidden="true">沙滩星空的博客</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading"> <!----></p><!----></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div id="content"><h2 id="环境变量注入配置文件的实现方案" tabindex="-1"><a class="header-anchor" href="#环境变量注入配置文件的实现方案"><span>环境变量注入配置文件的实现方案</span></a></h2><ol><li>​修改 pom.xml 配置</li></ol><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">&lt;build&gt;</span>
+<span class="line">  &lt;resources&gt;</span>
+<span class="line">    &lt;resource&gt;</span>
+<span class="line">      &lt;directory&gt;src/main/resources&lt;/directory&gt;</span>
+<span class="line">      &lt;filtering&gt;true&lt;/filtering&gt; &lt;!-- 开启变量替换 --&gt;</span>
+<span class="line">      &lt;includes&gt;</span>
+<span class="line">        &lt;include&gt;application*.yaml&lt;/include&gt; &lt;!-- 覆盖所有环境配置文件 --&gt;</span>
+<span class="line">      &lt;/includes&gt;</span>
+<span class="line">    &lt;/resource&gt;</span>
+<span class="line">  &lt;/resources&gt;</span>
+<span class="line">&lt;/build&gt;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="2"><li>切换配置文件</li></ol><p>覆盖规则：application-local.yaml &gt; application-dev.yaml &gt; application.yaml（后加载的配置优先级更高）</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">src/main/resources/</span>
+<span class="line">  ├── application.yaml          # 主配置（定义激活的Profile）</span>
+<span class="line">  ├── application-local.yaml    # 本地环境配置</span>
+<span class="line">  ├── application-dev.yaml       # 开发环境配置</span>
+<span class="line">  └── application-prod.yaml     # 生产环境配置</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2.1 指定配置文件</p><p>配置 <code>application.yaml</code>。添加 <code>spring.profiles.active</code> 指向 <code>local</code>：</p><div class="language-application.yaml line-numbers-mode" data-highlighter="prismjs" data-ext="application.yaml"><pre><code class="language-application.yaml"><span class="line">spring:</span>
+<span class="line">  profiles:</span>
+<span class="line">  # @profileActive@，表示由Maven动态替换</span>
+<span class="line">    active: local</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>等效命令：<code>java -jar app.jar --spring.profiles.active=local</code> 说明：</p><ul><li><code>--spring.profiles.active=local</code> 是 ​​Spring Boot 的启动参数​​，作用于​​应用 <code>运行时</code> 阶段​​。它直接告诉 Spring Boot 激活名为 local 的 Profile，并加载对应的配置文件（如 application-local.yaml）</li><li><code>Maven Profiles</code> 是 <code>构建阶段</code> ​​的配置（如编译、打包），而<code> Spring Profiles</code> 是​ <code>​运行阶段​</code> ​的配置。两者无依赖关系。命令行参数启动时，Maven 早已完成构建，因此无需 pom.xml 中的 Profile 定义</li></ul><p>2.2 动态切换配置文件（可选）</p><p>配置 <code>application.yaml</code>。添加 <code>spring.profiles.active</code> 指向动态变量：</p><div class="language-application.yaml line-numbers-mode" data-highlighter="prismjs" data-ext="application.yaml"><pre><code class="language-application.yaml"><span class="line">spring:</span>
+<span class="line">  profiles:</span>
+<span class="line">  # @profileActive@，表示由Maven动态替换</span>
+<span class="line">    active: @profileActive@</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果配置了<code>spring.profiles.active</code>: <code>@profileActive@</code>，则会开启由Maven动态替换配置文件的方式。要在 <code>pom.xml</code> 定义 <code>profiles</code>:</p><div class="language-pom.xml line-numbers-mode" data-highlighter="prismjs" data-ext="pom.xml"><pre><code class="language-pom.xml"><span class="line">&lt;profiles&gt;</span>
+<span class="line">  &lt;profile&gt;</span>
+<span class="line">    &lt;id&gt;local&lt;/id&gt;</span>
+<span class="line">    &lt;properties&gt;</span>
+<span class="line">      &lt;profileActive&gt;local&lt;/profileActive&gt; &lt;!-- 激活local配置 --&gt;</span>
+<span class="line">    &lt;/properties&gt;</span>
+<span class="line">    &lt;activation&gt;</span>
+<span class="line">      &lt;activeByDefault&gt;true&lt;/activeByDefault&gt; &lt;!-- 默认启用 --&gt;</span>
+<span class="line">    &lt;/activation&gt;</span>
+<span class="line">  &lt;/profile&gt;</span>
+<span class="line">  &lt;profile&gt;</span>
+<span class="line">    &lt;id&gt;dev&lt;/id&gt;</span>
+<span class="line">    &lt;properties&gt;</span>
+<span class="line">      &lt;profileActive&gt;dev&lt;/profileActive&gt; &lt;!-- 激活dev配置 --&gt;</span>
+<span class="line">    &lt;/properties&gt;</span>
+<span class="line">  &lt;/profile&gt;</span>
+<span class="line">&lt;/profiles&gt;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="3"><li>修改 application-local.yaml 语法</li></ol><div class="language-application-local.yaml line-numbers-mode" data-highlighter="prismjs" data-ext="application-local.yaml"><pre><code class="language-application-local.yaml"><span class="line">url: jdbc:mysql://${DB_HOST}:${DB_PORT:3306}/${DB_NAME}?useSSL=false</span>
+<span class="line">username: ${DB_USERNAME}</span>
+<span class="line">password: ${DB_PASSWORD}</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ol start="4"><li>用法</li></ol><ul><li>环境变量字符串不能添加引号，否则引号也会被导入xml文件中</li><li><code>-P dev</code> 会激活对应 Profile，将 @profileActive@ 替换为 dev，使 Spring Boot 加载 application-dev.yaml</li></ul><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line"># 可以设置spring.profiles.active为local, 固定配置文件为application-local.yaml</span>
+<span class="line">export DB_HOST=172.16.160.33</span>
+<span class="line">export DB_PORT=3307</span>
+<span class="line">mvn clean package -Dmaven.test.skip=true</span>
+<span class="line"></span>
+<span class="line"># 使用 dev 配置（@profileActive@的动态配置文件方式）</span>
+<span class="line">mvn clean package -P dev -Dmaven.test.skip=true</span>
+<span class="line"></span>
+<span class="line"># 使用 prod 配置（@profileActive@的动态配置文件方式，同时注入环境变量）</span>
+<span class="line">export DB_HOST=10.0.0.1</span>
+<span class="line">mvn clean package -P prod -Dmaven.test.skip=true</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2025-06-20T14:34:18.000Z" data-allow-mismatch>2025/6/20 14:34</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: hankin@catmes.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-D3rUnszu.js" defer></script>
+  </body>
+</html>
