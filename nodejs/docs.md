@@ -16,6 +16,7 @@ pnpm add -D sass-embedded
 
 # 安装 mermaidjs 插件。用于渲染Markdown中的mermaid流程图
 # https://ecosystem.vuejs.press/zh/plugins/markdown/
+pnpm add -D mermaid
 pnpm add -D @vuepress/plugin-markdown-chart@next
 ```
 
