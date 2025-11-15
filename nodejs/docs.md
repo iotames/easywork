@@ -13,6 +13,10 @@ pnpm add -D vuepress@next vue
 pnpm add -D @vuepress/bundler-vite@next @vuepress/theme-default@next
 # Preprocessor dependency "sass-embedded" not found. Did you install it? Try `pnpm add -D sass-embedded`.
 pnpm add -D sass-embedded
+
+# 安装 mermaidjs 插件。用于渲染Markdown中的mermaid流程图
+# https://ecosystem.vuejs.press/zh/plugins/markdown/
+pnpm add -D @vuepress/plugin-markdown-chart@next
 ```
 
 ### 配置文件
@@ -26,6 +30,7 @@ pnpm add -D sass-embedded
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
+import Mermaid  from 'vuepress-plugin-mermaidjs'
 
 export default defineUserConfig({
   bundler: viteBundler(),
@@ -33,6 +38,9 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: '你好， VuePress ！',
   description: '这是我的第一个 VuePress 站点',  
+  plugins: [
+    Mermaid()
+  ]  
 })
 ```
 

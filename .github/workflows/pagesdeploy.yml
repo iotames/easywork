@@ -36,6 +36,7 @@ jobs:
           pnpm add -D vuepress@next vue
           pnpm add -D @vuepress/bundler-vite@next @vuepress/theme-default@next
           pnpm add -D sass-embedded
+          pnpm add -D @vuepress/plugin-markdown-chart@next
 
       - name: Build VuePress site
         run: npx vuepress build
