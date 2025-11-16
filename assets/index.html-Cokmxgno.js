@@ -1,0 +1,1 @@
+import{_ as e,c as o,d as a,r as n,o as l}from"./app-B5WmjTv7.js";const c={};function r(s,_){const t=n("Catalog");return l(),o("div",null,[a(t)])}const m=e(c,[["render",r]]),p=JSON.parse('{"path":"/sql/","title":"Sql","lang":"zh-CN","frontmatter":{"title":"Sql"},"git":{},"filePathRelative":null}');export{m as comp,p as data};
