@@ -167,6 +167,3 @@ cmake 的这个特性，使得各平台各IDE都愿意原生内置 cmake 支持�
 > cmake是什么，为什么现在都用cmake,cmake编译原理和跨平台示例 https://blog.csdn.net/jiedichina/article/details/126675963
 > 关于C语言的分离式编译构建工具以及用VSCode写C的一些问题 https://blog.csdn.net/m0_74075298/article/details/134617955
 > xmake与cmake，哪个更好用 https://www.zhihu.com/question/57373378/answer/3287150393
-
-
-  [1]: https://blog.catmes.com/usr/uploads/2024/05/167724307.png
