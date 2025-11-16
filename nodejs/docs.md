@@ -9,8 +9,12 @@
 # 初始化项目 pnpm init （可省略。最新版本的pnpm，执行pnpm add命令，若找不到package.json文件，会自动创建）
 # 安装 vuepress 和 vue
 pnpm add -D vuepress@next vue
+
 # 安装打包工具和主题
-pnpm add -D @vuepress/bundler-vite@next @vuepress/theme-default@next
+pnpm add -D @vuepress/bundler-vite@next
+# pnpm add -D vuepress-theme-hope@next
+pnpm add -D @vuepress/theme-default@next
+
 # Preprocessor dependency "sass-embedded" not found. Did you install it? Try `pnpm add -D sass-embedded`.
 pnpm add -D sass-embedded
 
@@ -18,6 +22,9 @@ pnpm add -D sass-embedded
 # https://ecosystem.vuejs.press/zh/plugins/markdown/
 pnpm add -D mermaid
 pnpm add -D @vuepress/plugin-markdown-chart@next
+
+# 安装目录导航插件
+pnpm add -D @vuepress/plugin-catalog@next
 ```
 
 ### 配置文件

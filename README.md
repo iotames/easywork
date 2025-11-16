@@ -44,6 +44,7 @@
     - disk.md: [磁盘分区和挂载](linux/disk.md)
   - nginx: [Nginx主题](nginx/)  
   - nodejs: [NodeJS相关](nodejs/)
+    - docs.md: [文档工具](nodejs/docs.md)
   - other: [其他](other/)
   - sql: [SQL主题](sql/)
     - create_db_user.sql: [创建数据库和用户](sql/create_db_user.sql)
