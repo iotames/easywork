@@ -1,1 +1,0 @@
-import{_ as e,c as o,d as a,r as n,o as c}from"./app-B5WmjTv7.js";const r={};function l(s,_){const t=n("Catalog");return c(),o("div",null,[a(t)])}const m=e(r,[["render",l]]),p=JSON.parse('{"path":"/ruby/","title":"Ruby","lang":"zh-CN","frontmatter":{"title":"Ruby"},"git":{},"filePathRelative":null}');export{m as comp,p as data};
