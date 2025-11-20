@@ -1,0 +1,1 @@
+import{_ as t,c as e,d as a,r as n,o as c}from"./app-CnRw7dQC.js";const r={};function l(s,_){const o=n("Catalog");return c(),e("div",null,[a(o)])}const i=t(r,[["render",l]]),p=JSON.parse('{"path":"/python/odoo/","title":"Odoo","lang":"zh-CN","frontmatter":{"title":"Odoo"},"git":{},"filePathRelative":null}');export{i as comp,p as data};
