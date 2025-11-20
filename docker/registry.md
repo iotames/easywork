@@ -35,7 +35,12 @@ curl http://127.0.0.1:9000/v2/library/postgres/tags/list
 
 ### Docker客户端拉取镜像
 
-1. 配置示例： `/etc/docker/daemon.json` 配置文件
+1. 配置文件 `/etc/docker/daemon.json`:
+
+- `registry-mirrors`：配置多个镜像加速器。效果：执行 `docker pull` 命令可省略地址前缀。
+- `insecure-registries`：允许使用HTTP协议访问私有仓库（生产环境建议使用HTTPS）
+
+配置Docker信任私有库，并设置私有库为镜像加速器。示例：
 
 ```json
 { 
@@ -46,7 +51,7 @@ curl http://127.0.0.1:9000/v2/library/postgres/tags/list
 
 2. 使用示例：
 
-postgres, registry 等官方镜像，在私有仓库中，推荐添加 `library/` 前缀
+nginx, postgres, registry 等官方镜像，在私有仓库中，推荐添加 `library/` 前缀
 
 ```bash
 # 客户端
@@ -56,7 +61,7 @@ vim /etc/docker/daemon.json
 { "insecure-registries":["172.16.160.33:9000"] }
 
 # 2. 重载配置。使上面的配置立即生效
-# systemctl restart docker.service
+# 如果不生效，请重启docker服务守护进程。systemctl restart docker.service
 systemctl daemon-reload
 
 # 3. 在本地标记待上传的镜像。两个镜像标签最好保持一致，也就是冒号:后面的部分。
@@ -67,6 +72,27 @@ docker push 172.16.160.33:9000/library/postgres:17.4-bookworm
 
 # 5. 拉取镜像
 docker pull 172.16.160.33:9000/library/postgres:17.4-bookworm
+```
+
+### 身份认证配置
+
+生产环境建议启用身份认证：
+
+```bash
+# 创建认证文件
+docker run --entrypoint htpasswd httpd:2 -Bbn admin password > /opt/auth/htpasswd
+
+# 启动带认证的Registry
+docker run -d \
+  -p 5000:5000 \
+  --restart=always \
+  --name registry \
+  -v /opt/auth:/auth \
+  -e "REGISTRY_AUTH=htpasswd" \
+  -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" \
+  -e "REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd" \
+  -v /opt/docker-registry:/var/lib/registry \
+  registry:3.0.0
 ```
 
 
