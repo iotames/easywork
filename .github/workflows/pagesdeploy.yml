@@ -39,6 +39,7 @@ jobs:
           pnpm add -D mermaid
           pnpm add -D @vuepress/plugin-markdown-chart@next
           pnpm add -D @vuepress/plugin-catalog@next
+          pnpm add -D @vuepress/plugin-slimsearch@next
 
       - name: Build VuePress site
         run: npx vuepress build

@@ -4,6 +4,7 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
 import { catalogPlugin } from '@vuepress/plugin-catalog'
 import { markdownChartPlugin } from '@vuepress/plugin-markdown-chart'
+import { slimsearchPlugin } from '@vuepress/plugin-slimsearch'
 
 export default defineUserConfig({
   bundler: viteBundler(),
@@ -26,9 +27,14 @@ export default defineUserConfig({
       // 排除一些不需要生成目录页的文件夹
       exclude: ['/\.vuepress/', '/node_modules/'],
       // 目录层级深度
-      level: 3,
+      level: 2,
       // 不显示索引编号
       index: false,
+    }),
+    slimsearchPlugin({
+      indexContent: true,
+      suggestion: true,
+      searchDelay: 500,
     }),
     markdownChartPlugin({
       // 启用 Mermaid

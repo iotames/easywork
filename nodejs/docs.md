@@ -23,8 +23,11 @@ pnpm add -D sass-embedded
 pnpm add -D mermaid
 pnpm add -D @vuepress/plugin-markdown-chart@next
 
-# 安装目录导航插件
+# 安装目录导航插件 https://ecosystem.vuejs.press/zh/plugins/features/catalog.html
 pnpm add -D @vuepress/plugin-catalog@next
+
+# 本地全局搜索 https://ecosystem.vuejs.press/zh/plugins/search/
+pnpm add -D @vuepress/plugin-slimsearch@next
 ```
 
 ### 配置文件
