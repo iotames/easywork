@@ -6,6 +6,7 @@
 ## 目录结构
 
 - easywork
+  - ai: [AI人工智能相关](ai/)
   - backup: [数据备份](backup/)
     - rsync.sh: [从远程服务器进行增量备份](backup/rsync.sh)
   - config: [配置相关](config/)
