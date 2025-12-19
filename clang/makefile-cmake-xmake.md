@@ -2,18 +2,19 @@
 
 为了简化多个源代码文件下，通过 `gcc` 工具编译复杂的C语言项目，出现了 `Makefile`。
 
-只要把 `GCC` 的各种控制和编译选项编写到 `Makefile` 文件中，再使用 `make` 工具解析，然后调用 GCC 执行编译即可，实现编译（构建）自动化。
+只要把 `GCC` 的各种控制和编译选项编写到 `Makefile` 文件中，再使用 `make` 命令，即可调用 `GCC` 编译，实现编译（构建）自动化。
 
 
 ## Makefile规则
 
 整体规则:
-```
+
+```makefile
 <target> : <prerequisites>
 [tab] <commands>
 ```
 
-第一行冒号前面的部分叫做 “目标”（target），冒号后面的部分叫做 “前置条件”（prerequisites），第二行必须由一个 tab 键起始，后面跟着 “命令”（commands）。
+第一行冒号前面的部分叫做 “目标”（target），冒号后面的部分叫做 “前置条件”（prerequisites），第二行必须由一个 `tab` 键起始，后面跟着 “命令”（commands）。
 
 “目标” 是必需的，不可省略。“前置条件” 和 “命令” 是可省略的，但是这两者至少需要存在一个（两者不能同时省略）。
 
@@ -24,7 +25,7 @@
 2. 新建 `temp.txt` 文件，内容随意
 3. 执行 `make hello.txt` 命令，创建 `hello.txt` 文件。
 
-```
+```makefile
 hello.txt: temp.txt
     cp temp.txt hello.txt
 ```
@@ -32,7 +33,7 @@ hello.txt: temp.txt
 `Makefile` 规则文件：文件名为 `Makefile` 或 `makefile`， 不需要扩展名。
 
 也可以使用 `-f` 指定 `Makefile` 文件名：
-```
+```bash
 make -f config.txt
 make --file=config.txt
 ```
@@ -104,14 +105,16 @@ graph TD
 
 
 1. 创建 `CMakeLists.txt` 文件
-2. 生成 `MakeFile` 文件
 
-```
+```bash
 #要求最低的cmake版本号
 cmake_minimum_required (VERSION 3.5)
 
 #项目信息
 project (Hello)
+
+# 设置源文件
+# SET(SRC_LIST "src/main.c")
 
 #递归查找src目录下所有的后缀为c的文件，并保存在SRCS变量中
 file(GLOB_RECURSE SRCS "./src/*.c")
@@ -122,11 +125,19 @@ file(GLOB_RECURSE SRCS_H "./src/*.h")
 #设置输出路径为build路径
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "./build")
 
+# 生成可执行文件
+# ADD_EXECUTABLE(hello ${SRC_LIST})
+
 #用src下的源文件生成一个叫Hello的可执行文件
 add_executable(Hello ${SRCS} ${SRC_H})
 ```
 
-```
+2. 使用 `cmake` 构建命令，生成 `Makefile` 文件
+
+```bash
+# cmake .
+# 生成 CMakeCache.txt、CMakeFiles、cmake_install.cmake、Makefile
+
 # Windows下生成MinGW的MakeFile
 cmake CMakeLists.txt -G "MinGW Makefiles"
 
