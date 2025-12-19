@@ -1,0 +1,1 @@
+import{_ as t,c as o,d as a,r as n,o as c}from"./app-5yuJsK7O.js";const l={};function r(s,i){const e=n("Catalog");return c(),o("div",null,[a(e,{level:2})])}const d=t(l,[["render",r]]),p=JSON.parse('{"path":"/desktop/regedit/","title":"Regedit","lang":"zh-CN","frontmatter":{"title":"Regedit"},"git":{},"filePathRelative":null}');export{d as comp,p as data};
