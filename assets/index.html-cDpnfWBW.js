@@ -1,1 +1,0 @@
-import{_ as e,c as o,d as n,r as a,o as c}from"./app-CzK_TT9_.js";const l={};function r(s,_){const t=a("Catalog");return c(),o("div",null,[n(t,{level:2})])}const p=e(l,[["render",r]]),m=JSON.parse('{"path":"/python/","title":"Python","lang":"zh-CN","frontmatter":{"title":"Python"},"git":{},"filePathRelative":null}');export{p as comp,m as data};
