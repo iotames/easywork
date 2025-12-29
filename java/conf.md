@@ -66,9 +66,10 @@ String dbUrl = System.getenv("DB_URL");
 
 2. 运行启动时注入环境变量。如： `SPRING_DATASOURCE_URL`（点 `.` 需转为下划线 `_`）。
 
-```
+```bash
 # 设置环境变量
 export DB_URL=jdbc:mysql://prod-db:3306/app
+export SPRING_DATASOURCE_URL=jdbc:mysql://test-db:3307/app
 
 # 启动应用
 java -jar app.jar
@@ -79,6 +80,6 @@ java -jar app.jar
 1. 在源码中读取：Spring Boot 中直接通过 `@Value("${spring.datasource.url}")`  注入。
 2. 启动时，通过命令参数 `--key=value ` 传入。如：`--server.port=8081`
 
-```
+```bash
 java -jar app.jar --spring.datasource.url=jdbc:mysql://test-db:3306/app --server.port=8081
 ```

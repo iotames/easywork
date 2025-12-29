@@ -2,6 +2,11 @@
 
 泛微OA系统部署配置和实施记录。
 
+- 泛微帮助中心-首页（包含应用模块和引擎指南两大块）：https://eteams.cn/community/help/
+
+- 新手入门：https://eteams.cn/community/help/230
+- 常见问题：https://eteams.cn/community/help/233
+
 主要在 `后台管理中心` 和 `运维管理平台` 两个地方配置。
 
 
@@ -24,8 +29,17 @@
 
 系统管理 - 账号安全 - 安全设置 - 基础设置：密码策略，登录设置
 
+### 平台引擎
+
+1. 企业微信集成(e-cology)
+
+云桥 - 企业微信集成 - 点击右上角 `新建企业微信`
+
+https://weapp.eteams.cn/sp/ebdpage/view/freepass/1152863419640021002/page/1152863419640021002?id=1159225924068999205&freepass_doc=1&space_id=1159147935877833073
 
 ### 集成中心
+
+#### 统一认证中心
 
 1. 开启Oauth2.0服务端
 

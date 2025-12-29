@@ -3,7 +3,7 @@
 
 1. ​修改 pom.xml 配置
 
-```
+```xml
 <build>
   <resources>
     <resource>
@@ -94,7 +94,7 @@ password: ${DB_PASSWORD}
 - 环境变量字符串不能添加引号，否则引号也会被导入xml文件中
 - `-P dev` 会激活对应 Profile，将 @profileActive@ 替换为 dev，使 Spring Boot 加载 application-dev.yaml
 
-```
+```bash
 # 可以设置spring.profiles.active为local, 固定配置文件为application-local.yaml
 export DB_HOST=172.16.160.33
 export DB_PORT=3307
