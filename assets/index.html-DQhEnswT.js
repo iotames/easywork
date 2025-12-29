@@ -1,0 +1,1 @@
+import{_ as t,c as o,d as a,r as n,o as c}from"./app-DiXcnT37.js";const l={};function r(s,i){const e=n("Catalog");return c(),o("div",null,[a(e,{level:2})])}const m=t(l,[["render",r]]),p=JSON.parse('{"path":"/bi/","title":"Bi","lang":"zh-CN","frontmatter":{"title":"Bi"},"git":{},"filePathRelative":null}');export{m as comp,p as data};

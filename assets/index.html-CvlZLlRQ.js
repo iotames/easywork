@@ -1,1 +1,0 @@
-import{_ as t,c as a,d as o,r as n,o as c}from"./app-D2yLL4ii.js";const l={};function r(s,_){const e=n("Catalog");return c(),a("div",null,[o(e,{level:2})])}const m=t(l,[["render",r]]),p=JSON.parse('{"path":"/oa/","title":"Oa","lang":"zh-CN","frontmatter":{"title":"Oa"},"git":{},"filePathRelative":null}');export{m as comp,p as data};
