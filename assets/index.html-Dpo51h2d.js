@@ -1,1 +1,0 @@
-import{_ as t,c as o,d as a,r as n,o as c}from"./app-CbLqF3yI.js";const l={};function r(s,_){const e=n("Catalog");return c(),o("div",null,[a(e,{level:2})])}const m=t(l,[["render",r]]),p=JSON.parse('{"path":"/ruby/","title":"Ruby","lang":"zh-CN","frontmatter":{"title":"Ruby"},"git":{},"filePathRelative":null}');export{m as comp,p as data};
