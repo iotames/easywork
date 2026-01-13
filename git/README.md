@@ -2,7 +2,8 @@
 
 - 官方下载：https://git-scm.com/downloads/win
 - 清华大学开源软件镜像站：https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/
-- https://mirrors.huaweicloud.com/git-for-windows/
+- 华为镜像站下载：https://mirrors.huaweicloud.com/git-for-windows/
+- 淘宝镜像站下载：https://npm.taobao.org/mirrors/git-for-windows/
 
 
 ## 说明
