@@ -1,1 +1,0 @@
-import{_ as t,c as o,d as a,r as l,o as n}from"./app-B0UrfQJy.js";const c={};function r(s,_){const e=l("Catalog");return n(),o("div",null,[a(e,{level:2})])}const m=t(c,[["render",r]]),p=JSON.parse('{"path":"/sql/","title":"Sql","lang":"zh-CN","frontmatter":{"title":"Sql"},"git":{},"filePathRelative":null}');export{m as comp,p as data};
