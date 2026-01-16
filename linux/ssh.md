@@ -34,6 +34,7 @@ Host alpine
 HostName 127.0.0.1
 Port 2222
 User root
+; ProxyCommand connect -S 127.0.0.1:7890 %h %p
 IdentityFile ~/.ssh/alpine.pri
 ```
 
