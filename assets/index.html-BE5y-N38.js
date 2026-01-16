@@ -1,0 +1,1 @@
+import{_ as t,c as o,d as a,r as n,o as c}from"./app-BHGz2LPP.js";const l={};function s(r,p){const e=n("Catalog");return c(),o("div",null,[a(e,{level:2})])}const i=t(l,[["render",s]]),m=JSON.parse('{"path":"/desktop/","title":"Desktop","lang":"zh-CN","frontmatter":{"title":"Desktop"},"git":{},"filePathRelative":null}');export{i as comp,m as data};
