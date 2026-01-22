@@ -83,6 +83,12 @@ mvn clean install -U -Dmaven.test.skip=true
 在 `~/.m2/settings.xml` 文件，配置 `https` 代理。测试发现http和socks代理可能无效。
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!--  配置代理（如果在公司网络或需要代理上网时使用） -->
   <proxies>
     <proxy>
       <id>optional</id>
@@ -95,6 +101,7 @@ mvn clean install -U -Dmaven.test.skip=true
       <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
     </proxy>
   </proxies>
+</settings>
 ```
 
 - 通过环境变量设置Maven的socks代理
@@ -113,7 +120,7 @@ export MAVEN_OPTS="-DsocksProxyHost=127.0.0.1 -DsocksProxyPort=1080"
 
 ### 本地仓库设置
 
-```
+```xml
 <settings>
     <!-- 自定义本地仓库地址 -->
     <localRepository>D:/maven/repo</localRepository>
