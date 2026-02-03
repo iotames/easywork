@@ -40,7 +40,6 @@ org.gjt.mm.mysql.Driver
 - 例： 下载 https://cdn.mysql.com/archives/mysql-connector-java-9.2/mysql-connector-j-9.2.0.zip 然后解压缩，复制文件 `mysql-connector-j-9.2.0.jar` 到 Kettle 的 `lib` 目录下。然后重启 Kettle。
 
 
-
 ## 数据表字段类型错误
 
 Kettle会自作聪明地把MySQL来源数据表的tinyint(1)类型字段，转换成boolean类型。导致写入到目标表时，因数据类型对不上而报错。
@@ -49,6 +48,6 @@ MySQL JDBC驱动将tinyint(1)特殊映射为Java的Boolean类型（仅支持0/1�
 
 在Kettle中配置MySQL数据库连接时，在​​“连接”标签页的“选项”标签卡​​中，添加以下连接参数：
 
-```
+```bash
 tinyInt1isBit=false
 ```

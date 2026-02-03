@@ -9,24 +9,9 @@ export KETTLE_HOME=/opt/pentaho/data-integration
 export PATH=$PATH:$KETTLE_HOME
 ```
 
-### 资源库的配置和使用
+### 资源库配置
 
-将图形界面保存的 `.kjb/.ktr` 文件，存放至统一目录
-
-- 首次启动 `Spoon`，如已有文件资源库，则如下配置：
-
-点击右上角 `​​Connect`​​ → ​​​`Other Repositories`​​ → ​​选择 ​`​File Repository`​​ → 点击 `​​Get Started​​` → 输入资源库名称和路径
-
-- 已配置好资源库的情况下，可以再添加新资源库：
-
-`​​Connect` → `Repository Manager​​` → `Add` → `Other Repositories` → ​选择 `​​File Repository` → `​​Get Started​​` → 输入资源库名称和路径
-
-若找不到 `Connect`​​按钮，请检查 `jdk版本` 与当前 `Kettle版本` 是否匹配。如：`kettle 9.3` 需要使用 `jdk11`
-
-- 使用资源库：
-
-方法一：左上角菜单下有个快捷操作栏，图标从左到右依次是：`新建`、`打开`、`浏览`、`保存`、`另存为`。可以直接点击 `打开` 图标，选择要打开的文件。
-方法二：点击左上角菜单 `工具` → `资源库` → `探索资源库` → 点击选项卡 `浏览` → 双击想要打开的 `Jon文件`  →  双击右下角 `Close` 按钮。就可看见已经打开了一个Job了。
+- 资源库配置文件: `~/.kettle/repositories.xml`
 
 ### 数据库连接配置
 
@@ -34,12 +19,12 @@ export PATH=$PATH:$KETTLE_HOME
 
 - 密码加密: 执行kettle目录的 `Encr.bat` (Linux则使用 `encr.sh`)文件
 
-```
+```bash
 # 得到加密后的密码字符串，复制到.kettle/kettle.properties文件的密码变量中
 Encr.bat -kettle 待加密密码字符串
 ```
 
-- 变量配置文件: `.kettle/kettle.properties`
+- 变量配置文件: `~/.kettle/kettle.properties`
 
 ```
 # kettle可以直接使用变量代替数据库主机名，用户名，密码等。
@@ -64,7 +49,7 @@ pg_local_pwd=Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9
 
 ### Pan 转换执行​
 
-```
+```bash
 # 执行基础转换（Pan）
 # ./pan.sh -file=/etl/trans/customer_sync.ktr -level=Minimal >> /logs/trans.log
 pan.sh -file=/data/etl_jobs/data_clean.ktr -level=Debug >> /var/log/clean.log 2>&1
@@ -83,13 +68,18 @@ pan.sh -file=/etl/transform.ktr \
 
 ### ​​Kitchen 作业调度​
 
-```
+与转换文件不同，调用作业文件，需要配置 `资源库文件`： `~/.kettle/repositories.xml`
+
+```bash
 # 执行作业流程（Kitchen）
 # ./kitchen.sh -file=/etl/jobs/nightly_etl.kjb -level=Error -log=/logs/nightly.log
 kitchen.sh -file=/data/etl_jobs/sales_etl.kjb -level=Basic >> /var/log/etl.log 2>&1
 
-# 执行带错误重试的作业
-kitchen.sh -file=/jobs/sync.kjb -retry=3 -retrydelay=60 -level=Basic
+# 执行带错误重试的作业。指定文件名执行。
+kitchen.sh -rep=testrep -file=/jobs/sync.kjb -retry=3 -retrydelay=60 -level=Basic
+
+# 推荐。指定目录和作业名，代替文件名
+kitchen.sh -rep=testrep -dir=/ods -job=my_etl_job_name -level=Detailed -logfile=logs/etl.log
 
 # 轻量级调度
 crontab -e
@@ -97,9 +87,20 @@ crontab -e
 0 2 * * * /opt/kettle/kitchen.sh -file=/etl/jobs/daily.kjb >> /var/log/daily_etl.log 2>&1
 ```
 
+- `-file=<文件名>` 指定要执行的作业文件（.kjb）的完整路径。
+- `-rep=<资源库名>` 指定作业所在的数据库资源库名称
+- `-user=<用户名>` 连接资源库时使用的用户名
+- `-pass=<密码>` 对应用户的密码
+- `-job=<作业名>` 指定资源库中要执行的作业的名称
+- `-dir=<目录>` 指定作业在资源库中的目录路径
+- `-level=<日志级别>` 设置日志详细程度。可选值包括：Basic（基本）, Detailed（详细）, Debug（调试）, Rowlevel（行级）, Error（错误）, Nothing（无）。通常用Basic或Detailed进行日常监控
+- `-log=<日志文件>` 将日志输出重定向到指定的文件
+- `-norep` 声明不从资源库读取作业。当使用 -file参数执行本地作业文件时，应加上此参数以避免命令行工具尝试连接资源库
+- `-param:<名称>=<值>` 为作业或其中的转换传递命名参数。例如：-param:INPUT_DIR=/home/data
+
 ### Carte 远程服务​
 
-```
+```bash
 # 启动Carte节点（集群模式）
 carte.sh -port=8081 -cluster=prod_cluster -nodeid=node01
 
@@ -109,7 +110,7 @@ curl -X POST "http://carte-server:8081/kitchen?job=/jobs/nightly_sync.kjb"
 
 ### Spoon CLI 自动化调试​
 
-```
+```bash
 # 无头模式运行转换（用于CI/CD流水线）
 spoon.sh --headless --execute=/etl/data_migration.ktr
 ```
@@ -118,7 +119,7 @@ spoon.sh --headless --execute=/etl/data_migration.ktr
 ## 数据库驱动
 
 - 数据库驱动目录：Kettle 主程序下的 `lib` 目录。
-- MySQL 驱动：`mysql-connector-j-9.2.0.jar`。https://downloads.mysql.com/archives/c-j/。下拉框选择：`Platform Independent` ->  选择 `Platform Independent (Architecture Independent), ZIP Archive` 
+- MySQL 驱动：`mysql-connector-j-9.2.0.jar`。https://downloads.mysql.com/archives/c-j/。`Operating System:` 下拉框选择：`Platform Independent` ->  选择 `Platform Independent (Architecture Independent), ZIP Archive` 
 
 
 ## 配置与监控
@@ -166,7 +167,6 @@ MAIL_USER=alert@company.com
 MAIL_PASSWORD=*****
 MAIL_USE_TLS=true
 ```
-
 
 ## 日志级别
 
