@@ -1,0 +1,1 @@
+import{_ as t,c as a,d as o,r as n,o as c}from"./app-DD4qMgE1.js";const l={};function r(s,i){const e=n("Catalog");return c(),a("div",null,[o(e,{level:2})])}const p=t(l,[["render",r]]),m=JSON.parse('{"path":"/devops/taiga/","title":"Taiga","lang":"zh-CN","frontmatter":{"title":"Taiga"},"git":{},"filePathRelative":null}');export{p as comp,m as data};
