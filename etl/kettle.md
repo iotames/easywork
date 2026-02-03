@@ -25,6 +25,8 @@ Kettle官方下载需要账户密码登录或填写表单：
 
 - [kettle_usage.md](kettle_usage.md)
 
+- 版本(pdi-ce-9.3.0.0-428.zip)：`9.3.0.0-428`
+
 1. 资源库配置文件: `~/.kettle/repositories.xml`
 2. 变量配置文件: `~/.kettle/kettle.properties`
 
@@ -45,6 +47,8 @@ kitchen.sh -rep=testrep -file=/yourpath/myjobname.kjb -level=Basic -logfile=logs
 spoon.sh --headless --execute=/etl/data_migration.ktr
 ```
 
+## 驱动
+
 - 驱动目录：Kettle 主程序下的 `lib` 目录。
 
 ### MySQL数据库驱动
@@ -54,3 +58,15 @@ spoon.sh --headless --execute=/etl/data_migration.ktr
 2. 点击 `Operating System:` 的下拉框，选择：`Platform Independent` ->  选择 `Platform Independent (Architecture Independent), ZIP Archive` 
 
 3. 下载驱动文件：https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-j-9.5.0.zip
+
+## 配置
+
+- [kettle_conf.md](kettle_conf.md)
+
+## 图形化工作界面
+
+- [kettle_spoon.md](kettle_spoon.md)
+
+## 常见问题
+
+- [kettle_issue.md](kettle_issue.md)
