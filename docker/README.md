@@ -8,10 +8,11 @@
 
 重载进程或docker使配置立即生效：
 
-```
+```bash
 systemctl daemon-reload
 systemctl restart docker.service
 ```
+
 
 ## 环境变量
 
@@ -28,9 +29,10 @@ services:
       - ./env.list
 ```
 
+
 ## 日志配置
 
-容器默认使用 json-file 日志驱动，其日志文件（如 37cf0f6b...-json.log）无自动轮转策略，很可能导致磁盘爆炸。
+容器默认使用 json-file 日志驱动，其日志文件（如 37cf0f6b...-json.log）无自动轮转策略，很可能导致磁盘存储空间爆炸。
 
 - 如果已有容器内，已经有庞大的日志文件，可先删除。重启后会新建日志文件。然后限定日志大小。
 
@@ -42,7 +44,6 @@ rm -rf /var/lib/docker/containers/37cf0f6b2bd911feba7a99be9f8082e968e3573830459c
 - 针对所有容器：修改配置文件 `/etc/docker/daemon.json`
 
 ```json
-// /etc/docker/daemon.json
 {
   "log-driver": "json-file",
   "log-opts": {
@@ -53,7 +54,8 @@ rm -rf /var/lib/docker/containers/37cf0f6b2bd911feba7a99be9f8082e968e3573830459c
 ```
 
 重启容器服务，使配置生效：
-```
+
+```bash
 systemctl daemon-reload
 systemctl restart docker
 ```
@@ -68,9 +70,31 @@ docker run -d \
   gitlab/gitlab-ee:latest
 ```
 
+- 针对 `docker compose` 的yaml文件
+
+```yaml
+version: '3.6'
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:17.6.2-ce.0
+    container_name: gitlab
+    restart: always
+    hostname: 'gitlab.example.com'
+    # 指定GitLab容器的日志驱动为json-file，并限制单个日志文件最大100MB，最多保留3个文件。
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+        max-file: 3
+    environment:
+    # ... 以下其他配置保持不变 ...
+```
+
+
 ## 镜像仓库
 
 - registry.md: [Docker镜像仓库的使用](registry.md)
+
 
 ## 常用命令
 
@@ -85,7 +109,7 @@ docker run -d \
 
 - Docker系统管理
 
-```
+```bash
 # 查看网络列表
 docker network ls
 # 查看数据卷列表
@@ -103,7 +127,7 @@ docker system prune
 
 - 镜像管理
 
-```
+```bash
 # 查看本地所有镜像：
 docker images
 
@@ -127,7 +151,7 @@ docker rmi $(docker images -q -a)
 
 - 容器实例管理
 
-```
+```bash
 # 显示状态为运行（Up）的容器
 docker ps
 # 显示所有容器,包括运行中（Up）的和退出的(Exited)

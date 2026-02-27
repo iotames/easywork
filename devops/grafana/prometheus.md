@@ -47,7 +47,7 @@ node_exporter --web.listen-address=:9100 --collector.systemd --collector.systemd
 curl -X POST http://localhost:9090/-/reload
 ```
 
-2. 防止Prometheus服务器的数据存储空间无限增长，导致存储空间爆炸。在Prometheus `启动命令` ，通过 `--storage.tsdb.retention.time` 参数指定数据保留时长，`--storage.tsdb.retention.size` 参数限制TSDB占用的最大磁盘空间。
+2. 防止Prometheus服务器的数据存储空间无限增长，导致磁盘存储空间爆炸。在Prometheus `启动命令` ，通过 `--storage.tsdb.retention.time` 参数指定数据保留时长，`--storage.tsdb.retention.size` 参数限制TSDB占用的最大磁盘空间。
 
 ```bash
 # 支持单位：y, w, d, h, m, s, ms。
