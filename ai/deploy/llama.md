@@ -2,6 +2,8 @@
 
 llama.cpp 是一个轻量级、高性能的 LLM（大语言模型）推理框架，同时也提供了基础的部署能力。它的核心设计目标是在资源受限的设备（尤其是CPU）上，以最少的依赖和最高的效率运行大模型推理。
 
+https://github.com/ggml-org/llama.cpp
+
 核心定位与特点
 
 1. 推理引擎：其核心是纯 C/C++ 实现的模型加载、前向计算（推理）引擎，不依赖 PyTorch、TensorFlow 等重型框架。
@@ -20,11 +22,14 @@ llama.cpp 是一个轻量级、高性能的 LLM（大语言模型）推理框架
 # 单次提示文本补全
 ./llama-cli -m /path/to/model.gguf -p "你的提示词"
 # 交互式对话模式（如果模型支持）
-./llama-cli -m /path/to/model.gguf -i
+./llama-cli -m /path/to/model.gguf
 
 # 启动一个兼容 OpenAI API 格式的 HTTP 服务
 # 可通过 http://localhost:8080/v1/chat/completions等端点进行交互。
 ./llama-server -m /path/to/model.gguf --port 8080 --api-key your-api-key
+
+# --reasoning-budget -1 默认为无限制思考过程。--reasoning-budget 0 禁用思考过程。
+./llama-server -m Qwen3.5-0.8B-BF16.gguf --port 8080 --host 0.0.0.0 --api-key your-api-key --reasoning-budget 0
 ```
 
 ## 编程集成
