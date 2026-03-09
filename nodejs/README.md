@@ -1,5 +1,14 @@
-## npm和npx
+## nodejs
 
+- 查看官方的发布页，获取要安装的 Node.js 版本号： [https://nodejs.org/en/download/releases](https://nodejs.org/en/download/releases)
+
+```bash
+wget -c https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz
+tar -xf node-v24.14.0-linux-x64.tar.xz
+# 添加bin目录到PATH环境变量中
+```
+
+## npm和npx
 
 ```bash
 # npx 的设计中，--registry 等配置参数属于 npx 自身的全局参数，必须紧跟在 npx 命令之后，在目标命令之前指定。
