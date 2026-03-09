@@ -1,0 +1,15 @@
+import{_ as s,c as a,e,o as l}from"./app-2xUJLYSB.js";const i={};function p(c,n){return l(),a("div",null,[...n[0]||(n[0]=[e(`<h2 id="介绍" tabindex="-1"><a class="header-anchor" href="#介绍"><span>介绍</span></a></h2><p>OpenClaw是一个开源的自动化工具项目，主要用于简化重复性任务的处理流程。它通过模块化设计，支持用户根据需求灵活组合功能，常见于数据处理、文件管理或系统运维等场景。该项目由社区驱动，强调可扩展性和易用性，适合开发者和技术爱好者快速构建定制化解决方案。</p><ul><li>项目主页：https://github.com/openclaw/openclaw</li><li>官方文档：http://docs.openclaw.ai/</li></ul><h2 id="安装" tabindex="-1"><a class="header-anchor" href="#安装"><span>安装</span></a></h2><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">git</span> clone https://github.com/openclaw/openclaw.git</span>
+<span class="line"><span class="token builtin class-name">cd</span> openclaw</span>
+<span class="line"><span class="token function">pnpm</span> <span class="token function">install</span></span>
+<span class="line"><span class="token function">pnpm</span> ui:build <span class="token comment"># 首次运行时自动安装 UI 依赖</span></span>
+<span class="line"><span class="token function">pnpm</span> build</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 全局安装</span></span>
+<span class="line"><span class="token comment"># 指定环境变量 export PNPM_HOME=&quot;$HOME/.local/share/pnpm&quot;，并将其加入PATH环境变量中。</span></span>
+<span class="line"><span class="token function">pnpm</span> setup</span>
+<span class="line"><span class="token builtin class-name">source</span> ~/.bashrc</span>
+<span class="line"><span class="token function">pnpm</span> <span class="token function">link</span> <span class="token parameter variable">--global</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 如果没有全局安装成功，使用命令：pnpm openclaw onboard --install-daemon</span></span>
+<span class="line">openclaw onboard --install-daemon</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>提示：OpenClaw不推荐运行在Windows系统上，Win上可以推荐WSL2</p>`,6)])])}const o=s(i,[["render",p]]),d=JSON.parse('{"path":"/ai/deploy/openclaw.html","title":"","lang":"zh-CN","frontmatter":{},"git":{"updatedTime":1773067037000,"contributors":[{"name":"Hankin","username":"Hankin","email":"554553400@qq.com","commits":1,"url":"https://github.com/Hankin"}],"changelog":[{"hash":"903ae6ef6e242b903c6285e9710b38ba1f6edb05","time":1773067037000,"email":"554553400@qq.com","author":"Hankin","message":"ADD OpenClaw"}]},"filePathRelative":"ai/deploy/openclaw.md"}');export{o as comp,d as data};
