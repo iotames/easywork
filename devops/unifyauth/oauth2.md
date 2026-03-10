@@ -75,7 +75,7 @@ http://erp.yoursite.com/oauth2/client/callback?code=ST-2-3waB7JCdPdAweaCW1ciBxwm
 
 ```bash
 # GET请求
-http://weapp.yunteams.cn/papi/sso/oauth2.0/profile?access_token=TGT-17-ltrkyX7uoV1UyJvtZVQ3OsLwMKLuiiBghgEi8d5jeQejC0Xl---taqwusjwbChnVGvgETW029070
+http://192.168.0.100:20600/papi/sso/oauth2.0/profile?access_token=TGT-17-ltrkyX7uoV1UyJvtZVQ3OsLwMKLuiiBghgEi8d5jeQejC0Xl---taqwusjwbChnVGvgETW029070
 ```
 
 返回信息
@@ -98,9 +98,10 @@ http://weapp.yunteams.cn/papi/sso/oauth2.0/profile?access_token=TGT-17-ltrkyX7uo
 略
 
 
-## 5. 功能适配增强
+## 5. 功能适配增强【可选】
 
-支持对接多个Oauth2.0服务端。
+
+对接多个Oauth2.0服务端。
 
 新增Oauth2.0服务端列表管理。每个Oauth服务端的配置字段如下所示：
 

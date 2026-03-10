@@ -29,7 +29,51 @@ https://github.com/ggml-org/llama.cpp
 ./llama-server -m /path/to/model.gguf --port 8080 --api-key your-api-key
 
 # --reasoning-budget -1 默认为无限制思考过程。--reasoning-budget 0 禁用思考过程。
-./llama-server -m Qwen3.5-0.8B-BF16.gguf --port 8080 --host 0.0.0.0 --api-key your-api-key --reasoning-budget 0
+./llama-server -m Qwen3.5-0.8B-Q5_K_M.gguf --port 8080 --host 0.0.0.0 --api-key your-api-key --reasoning-budget 0
+```
+
+## 集成systemd系统服务
+
+| 参数 | 含义与作用 | 当前设置值 |
+| :--- | :--- | :--- |
+| `-m` | 指定要加载的模型文件路径。纯CPU推理推荐使用量化版本，如：Q5_K_M | `/home/yourname/aimodels/Qwen3.5-0.8B-Q5_K_M.gguf` |
+| `--host` | 设置服务器监听的网络地址。`0.0.0.0`表示允许所有网络访问。 | `0.0.0.0` |
+| `--port` | 设置服务器监听的端口号。 | `8086` |
+| `--reasoning-budget` | 设置推测解码的预算令牌数，用于加速推理。`0`表示禁用此功能。 | `0` |
+| `-np` | 设置并行批处理大小，可提升多请求下的GPU利用率。 | `4` |
+| `-c` | 设置模型的上下文长度（可处理的令牌总数）。 | `4096` |
+| `--cache-ram` | 设置用于KV缓存的系统内存大小（单位：MB）。 | `8192` |
+| `-t` | 设置用于模型计算的总线程数。 | `6` |
+| `--threads-http` | 设置专门处理HTTP请求的线程数。 | `4` |
+| `--timeout` | 设置单个请求的处理超时时间（单位：秒）。 | `300` |
+| `--api-key` | 设置用于接口认证的API密钥。 | `your-api-key` |
+
+```conf
+[Unit]
+Description=qwen Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=yourname
+WorkingDirectory=/home/yourname/apps/llama-b8244
+ExecStart=/home/yourname/apps/llama-b8244/llama-server -m /home/yourname/aimodels/Qwen3.5-0.8B-Q5_K_M.gguf \
+--host 0.0.0.0 --port 8086 --reasoning-budget 0 \
+-np 4 \
+-c 4096 \
+--cache-ram 8192 \
+-t 6 \
+--threads-http 4 \
+--timeout 300 \
+--api-key your-api-key
+Restart=on-failure
+RestartSec=30
+StandardOutput=file:/home/yourname/aimodels/run.qwen.log
+StandardError=file:/home/yourname/aimodels/run.qwen.error.log
+
+[Install]
+WantedBy=multi-user.target
 ```
 
 ## 编程集成
