@@ -505,3 +505,15 @@ openclaw message send --to +1234567890 --message "Hello from OpenClaw"
 # 链接到聊天助手 (optionally deliver back to any connected channel: WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/BlueBubbles/IRC/Microsoft Teams/Matrix/Feishu/LINE/Mattermost/Nextcloud Talk/Nostr/Synology Chat/Tlon/Twitch/Zalo/Zalo Personal/WebChat)
 openclaw agent --message "Ship checklist" --thinking high
 ```
+
+网关服务管理命令：
+
+```bash
+openclaw gateway install
+openclaw gateway start
+openclaw gateway stop
+openclaw gateway restart
+openclaw gateway uninstall
+```
+
+参考：https://docs.openclaw.ai/cli/gateway
