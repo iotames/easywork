@@ -14,7 +14,7 @@ echo "POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}"
 
 # https://zhuanlan.zhihu.com/p/16194434502
 # -p 80:80
-docker run -d --network host --name nginx -v /mnt/www:/mnt/www -v ~/vhost:/etc/nginx/conf.d
+docker run -d --restart always --network host --name nginx -v /mnt/www:/mnt/www -v ~/vhost:/etc/nginx/conf.d
 
 docker run -d --restart=always --name postgres \
   -e POSTGRES_USER=postgres \
@@ -31,7 +31,7 @@ docker run -d --restart always --name mysql \
   -p 3307:3306 \
   mysql:5.7
 
-docker run -d \
+docker run -d --restart always \
  --name n8n \
  --network host \
  -p 5678:5678 \

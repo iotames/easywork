@@ -26,7 +26,7 @@ http://192.168.0.100:20600/papi/sso/oauth2.0/authorize?client_id=c7ebac2e-dbd1-4
 GET参数如下所示：
 
 1. client_id: Oauth2服务端上的应用标识。值为：`c7ebac2e-dbd1-4496-8159-c0b426ce9e3b`。如有变更，登录后台查看：http://192.168.0.100:20600/info/ig_common/base?id=1162469058209398785
-2. redirect_uri: 填写下一个步骤，Oauth2客户端，用于获取code参数的地址。值为：`http://erp.yoursite.com/oauth2/client/callback`
+2. redirect_uri: 填写下一个步骤，Oauth2服务端跳转回来后，Oauth2客户端，用于获取code参数的地址。值为：`http://erp.yoursite.com/oauth2/client/callback`
 3. response_type: 只能填写 `code`
 
 
@@ -46,17 +46,20 @@ http://erp.yoursite.com/oauth2/client/callback?code=ST-2-3waB7JCdPdAweaCW1ciBxwm
 
 ### 3.1 获取access_token令牌
 
-- 获取access_token的接口地址（POST请求） 
+Oauth2客户端调用Oauth2服务端接口，获取用户信息时，必须传入 `access_token` 参数。
 
-- 给Oauth2服务端发送POST请求。地址：`http://192.168.0.100:20600/papi/sso/oauth2.0/accessToken`。参数如下：
+- 给Oauth2服务端发送HTTP请求。地址：`http://192.168.0.100:20600/papi/sso/oauth2.0/accessToken`。参数如下：
 
 1. grant_type: 只能填写 `authorization_code`
 2. client_id: Oauth2服务端上的应用标识。值为：`c7ebac2e-dbd1-4496-8159-c0b426ce9e3b`。如有变更，登录后台查看：`http://192.168.0.100:20600/info/ig_common/base?id=1162469058209398785`
 3. client_secret：`wQfGGTtSZYYl9rzEpN2cCzyg`
-4. code: 上一个步骤获取的code值
+4. code: 上一个步骤获取的code值，如：`ST-2-3waB7JCdPdAweaCW1ciBxwm5WJ8beta11`
 5. redirect_uri: 值为：`http://erp.yoursite.com/oauth2/client/callback`
 
+具体的HTTP请求方法和参数构建方式，以Oauth2服务端提供的文档为准。
+
 返回示例：
+
 ```json
 {
     "msg":"SUCCESS",

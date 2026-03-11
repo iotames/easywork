@@ -25,6 +25,7 @@ export VITE_APP_DEFAULT_LOGIN_PASSWORD=admin123
 echo "VITE_OUT_DIR:$VITE_OUT_DIR"
 echo "VITE_APP_TITLE:$VITE_APP_TITLE"
 
+# 指定源码目录，执行npm run 命令
 npm --prefix ${UI_SRC_PATH} run build:prod
 
 ################################################################

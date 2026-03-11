@@ -4,14 +4,14 @@
 
 ## 代理设置
 
-```
+```bash
 mkdir -p /etc/systemd/system/docker.service.d
 vim /etc/systemd/system/docker.service.d/http-proxy.conf
 ```
 
 往 `/etc/systemd/system/docker.service.d/http-proxy.conf` 文件添加内容：
 
-```
+```conf
 [Service]
 Environment="HTTP_PROXY=socks5://user:pass@127.0.0.1:1080"
 Environment="HTTPS_PROXY=socks5://user:pass@127.0.0.1:1080"
@@ -21,14 +21,14 @@ Environment="NO_PROXY=localhost,127.0.0.1"
 
 重启docker
 
-```
+```bash
 systemctl daemon-reload
 systemctl restart docker
 ```
 
 查看环境变量:
 
-```
+```bash
 sudo systemctl show --property=Environment docker
 ```
 
@@ -38,30 +38,30 @@ sudo systemctl show --property=Environment docker
 
 群晖 `Container Manager` 配置代理
 
-```
+```bash
 mkdir -p /etc/systemd/system/pkg-ContainerManager-dockerd.service.d
 vi /etc/systemd/system/pkg-ContainerManager-dockerd.service.d/http-proxy.conf
 ```
 
-```
+```conf
 [Service]
 Environment="HTTP_PROXY=socks5://192.168.1.3:10808"
 Environment="HTTPS_PROXY=socks5://192.168.1.3:10808"
 Environment="NO_PROXY=localhost,127.0.0.1"
 ```
 
-```
+```bash
 systemctl daemon-reload
 systemctl restart pkg-ContainerManager-dockerd.service
 ```
 
-```
+```bash
 systemctl show --property=Environment pkg-ContainerManager-dockerd.service
 ```
 
 另外如果要在 Docker 容器内通过代理访问网络，你可以在运行 Docker 容器时，设置环境变量来指定代理，例如：
 
-```
+```bash
 docker run -e http_proxy=http://your-proxy:port \
            -e https_proxy=http://your-proxy:port \
            -e no_proxy=localhost,127.0.0.1 \

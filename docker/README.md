@@ -94,6 +94,7 @@ services:
 ## 镜像仓库
 
 - registry.md: [Docker镜像仓库的使用](registry.md)
+- 中科大镜像站：https://mirrors.ustc.edu.cn/
 
 
 ## 常用命令

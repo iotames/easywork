@@ -7,7 +7,7 @@
 
 ### FOR LINUX
 
-```
+```bash
 # 下载go环境压缩包，链接可自行替换为最新版本
 wget -c https://go.dev/dl/go1.21.0.linux-amd64.tar.gz
 # 若国内网络差，下载不来，可以使用阿里镜像源:
@@ -36,10 +36,12 @@ go version
 
 输入如下命令，更改默认设置项以方便后续开发:
 
-```
+```bash
 # 开启GO111MODULE，方便第三方包的导入
 go env -w GO111MODULE=on
+
 # 使用国内Go模块代理，加速第三方包导入速度
+# or export GOPROXY=https://goproxy.io,direct
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
