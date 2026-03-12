@@ -1,35 +1,35 @@
-## 介绍
-
-OpenClaw是一个开源的自动化工具项目，主要用于简化重复性任务的处理流程。它通过模块化设计，支持用户根据需求灵活组合功能，常见于数据处理、文件管理或系统运维等场景。该项目由社区驱动，强调可扩展性和易用性，适合开发者和技术爱好者快速构建定制化解决方案。
-
-- 项目主页：https://github.com/openclaw/openclaw
-- 官方文档：http://docs.openclaw.ai/
-- 运行时：`Node.js >=22.12.0`
-
-
-## 安装
+## 安装环境
 
 提示：OpenClaw不推荐运行在Windows系统上，Win上可以推荐WSL2
 
-先安装NodeJS运行环境:
+推荐使用MacOS桌面系统本地安装，其次是Linux系统。
+
+
+## 安装NodeJS
 
 ```bash
 wget -c https://nodejs.org/dist/v24.14.0/node-v24.14.0-linux-x64.tar.xz
 tar -xf node-v24.14.0-linux-x64.tar.xz
 # 添加bin目录到PATH环境变量中
+# 例：export PATH=$PATH:$(pwd)/node-v24.14.0-linux-x64/bin
 ```
 
-### npm包安装
+## 安装OpenClaw命令
+
+三种OpenClaw安装方式，推荐使用npm包安装。
+
+1. npm包安装【推荐】
 
 ```bash
 # 或者使用pnpm安装: pnpm add -g openclaw@latest
 npm install -g openclaw@latest
 
 # 安装 Gateway 守护进程（launchd/systemd 用户服务），使其保持运行。
+# 具体步骤查看下一步：安装向导
 openclaw onboard --install-daemon
 ```
 
-### 源码安装
+2. 源码安装【开发者使用】
 
 ```bash
 git clone https://github.com/openclaw/openclaw.git
@@ -52,7 +52,7 @@ pnpm openclaw onboard --install-daemon
 pnpm gateway:watch
 ```
 
-### 容器安装
+3. 容器安装
 
 - https://docs.openclaw.ai/zh-CN/install/docker
 
@@ -478,42 +478,3 @@ Tip: run `openclaw doctor` to review skills + requirements.
 Docs: https://docs.openclaw.ai/skills
 ```
 
-
-## 升级
-
-- 升级指南：https://docs.openclaw.ai/zh-CN/install/updating
-
-```bash
-openclaw update --channel beta
-openclaw update --channel dev
-openclaw update --channel stable
-```
-
-
-## 入门指南
-
-- 完整入门指南（认证、配对、通道）：https://docs.openclaw.ai/zh-CN/start/getting-started
-
-```bash
-openclaw onboard --install-daemon
-
-openclaw gateway --port 18789 --verbose
-
-# 发送测试消息
-openclaw message send --to +1234567890 --message "Hello from OpenClaw"
-
-# 链接到聊天助手 (optionally deliver back to any connected channel: WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/BlueBubbles/IRC/Microsoft Teams/Matrix/Feishu/LINE/Mattermost/Nextcloud Talk/Nostr/Synology Chat/Tlon/Twitch/Zalo/Zalo Personal/WebChat)
-openclaw agent --message "Ship checklist" --thinking high
-```
-
-网关服务管理命令：
-
-```bash
-openclaw gateway install
-openclaw gateway start
-openclaw gateway stop
-openclaw gateway restart
-openclaw gateway uninstall
-```
-
-参考：https://docs.openclaw.ai/cli/gateway
