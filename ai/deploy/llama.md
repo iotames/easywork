@@ -29,6 +29,7 @@ https://github.com/ggml-org/llama.cpp
 ./llama-server -m /path/to/model.gguf --port 8080 --api-key your-api-key
 
 # --reasoning-budget -1 默认为无限制思考过程。--reasoning-budget 0 禁用思考过程。
+# 添加参数，减少中文出现重复循环问题 --repeat_penalty 1.15 --dry
 ./llama-server -m Qwen3.5-0.8B-Q5_K_M.gguf --port 8080 --host 0.0.0.0 --api-key your-api-key --reasoning-budget 0
 ```
 
