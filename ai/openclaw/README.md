@@ -73,6 +73,50 @@ openclaw agent --message "Ship checklist" --thinking high
 openclaw config set gateway.bind "lan"
 ```
 
+### 添加国产大模型
+
+- 模型命令：https://docs.openclaw.ai/concepts/models
+
+添加 DeepSeek 模型：
+
+```bash
+# your-api-key替换为实际的APIkey。
+# DeepSeek示例：https://platform.deepseek.com/api_keys
+openclaw config set 'models.providers.deepseek' --json '{
+  "baseUrl": "https://api.deepseek.com/v1",
+  "apiKey": "your-api-key",
+  "api": "openai-completions",
+  "models": [
+    { "id": "deepseek-chat", "name": "DeepSeek Chat" },
+    { "id": "deepseek-reasoner", "name": "DeepSeek Reasoner" }
+  ]
+}'
+
+# 设置 models.mode 为 merge
+openclaw config set models.mode merge
+
+# 设置默认模型（以deepseek-chat为例）
+openclaw models set deepseek/deepseek-chat
+
+# 重启网关，使应用生效。可查看 ~/.openclaw/openclaw.json 查看配置
+openclaw gateway restart
+```
+
+添加其它大模型：
+
+```bash
+openclaw config set 'models.providers.{provider_name}' --json '{
+  "baseUrl": "https://{baseurl}",
+  "apiKey": "",
+  "api": "openai-completions",
+  "models": [
+    { "id": "{model_id}", "name": "{model_name}" }
+  ]
+}'
+
+openclaw models set {provider_name}/{model_id}
+```
+
 
 ## 升级
 
