@@ -1,7 +1,12 @@
 #!/bin/bash
 
+# URL字符串左右两边添加双引号可能存在问题。
+# 例：
+# set BASE_URL=https://www.baidu.com 正确;
+# set BASE_URL="https://www.baidu.com" 错误
+
 UI_SRC_PATH=/home/myname/myuisrc
-export VITE_BASE_URL='http://172.16.160.33:48080'
+export VITE_BASE_URL=http://172.16.160.33:48080
 export VITE_OUT_DIR=/home/myname/app/myuiprod
 
 export VITE_APP_TITLE=我的网站名

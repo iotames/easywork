@@ -1,3 +1,8 @@
+## 咨询页面
+
+泛微安全中心（获取安全补丁）：https://www.weaver.com.cn/news/src/
+
+
 ## 警告
 
 ```
