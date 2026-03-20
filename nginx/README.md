@@ -1,29 +1,6 @@
-## 禁用HTTP请求响应Nginx版本号
+## 安装
 
-```bash
-vim /etc/nginx/nginx.conf
-```
-确保 `server_tokens off;` 配置已启用。
-
-```nginx.conf
-http {
-  ...
-  server_tokens off;
-  ...
-}
-```
-
-## Ubuntu中的NGINX
-
-注意：网站目录存放在 `/home/ubuntu` 路径下，很可能因权限问题无法访问。无论使用chmod还是chown命令修改权限，均无法解决。
-
-```bash
-tail -f /var/log/nginx/error.log
-
-2025/12/23 09:27:57 [error] 3965262#3965262: *751 "/home/ubuntu/your_site/index.html" is forbidden (13: Permission denied), client: 103.167.135.33, server: site1.yoursite.com, request: "GET / HTTP/1.1", host: "site1.yoursite.com"
-```
-
-## 安装和配置
+### Linux
 
 ```bash
 # 安装nginx
@@ -32,6 +9,36 @@ sudo apt install nginx
 # 站点配置文件位置：
 # /etc/nginx/sites-available/
 # /etc/nginx/sites-enabled/
+```
+
+### Windows
+
+- nginx for Windows: https://nginx.org/en/docs/windows.html
+- nginx 下载: https://nginx.org/en/download.html
+- 配置文件: `conf/nginx.conf`
+
+```bash
+# 启动NGINX
+start nginx.exe
+# 重新加载NGINX
+nginx.exe -s reload
+# 停止NGINX
+nginx.exe -s quit
+```
+
+
+## 配置
+
+1. 检查配置文件(`*.conf` 如: `conf/nginx.conf`)的 `root`, `index`, `fastcgi_param` 配置项
+
+```bash
+fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
+
+# 改为:
+
+fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+# 或:
+fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
 ```
 
 配置文件示例：
@@ -84,9 +91,36 @@ server {
 ```
 
 
+## 禁用HTTP请求响应Nginx版本号
+
+```bash
+vim /etc/nginx/nginx.conf
+```
+确保 `server_tokens off;` 配置已启用。
+
+```conf
+http {
+  ...
+  server_tokens off;
+  ...
+}
+```
+
+
+## Ubuntu中的NGINX
+
+`注意`：网站目录存放在 `/home/ubuntu` 路径下，很可能因权限问题无法访问。无论使用chmod还是chown命令修改权限，均无法解决。
+
+```bash
+tail -f /var/log/nginx/error.log
+
+2025/12/23 09:27:57 [error] 3965262#3965262: *751 "/home/ubuntu/your_site/index.html" is forbidden (13: Permission denied), client: 103.167.135.33, server: site1.yoursite.com, request: "GET / HTTP/1.1", host: "site1.yoursite.com"
+```
+
+
 ## Docker启动
 
-```
+```bash
 #!/bin/bash
 
 docker run -d --network host --name nginx -v /mnt/www:/mnt/www -v ~/vhost:/etc/nginx/conf.d

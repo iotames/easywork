@@ -15,7 +15,9 @@ https://github.com/0xJacky/nginx-ui/blob/dev/README-zh_CN.md
 
 Nginx UI 遵循 Debian 的网页服务器配置文件标准。创建的网站配置文件将会放置于 Nginx 配置文件夹（自动检测）下的 sites-available 中，启用后的网站将会创建一份配置文件软连接到 sites-enabled 文件夹。您可能需要提前调整配置文件的组织方式。
 
-```nginx.conf
+nginx.conf
+
+```conf
 http {
 	# ...
 	include /etc/nginx/conf.d/*.conf;
@@ -32,7 +34,7 @@ http {
 下载：https://github.com/0xJacky/nginx-ui/releases
 配置文件：https://github.com/0xJacky/nginx-ui/blob/dev/app.example.ini
 
-```
+```bash
 # 启动
 nginx-ui -config app.ini
 
