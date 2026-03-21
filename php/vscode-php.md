@@ -53,7 +53,7 @@ extension=pdo_mysql
 ;extension=pgsql
 ```
 
-https://windows.php.net/downloads/php-sdk/deps/vc15/x64/
+- 第三方依赖库下载: https://windows.php.net/downloads/php-sdk/deps/vc15/x64/
 
 ### 启动php-cgi：
 

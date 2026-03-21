@@ -67,7 +67,7 @@ pnpm gateway:watch
 
 1. I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue?: `Yes`
 2. Onboarding mode: `QuickStart`
-3. Model/auth provider: `vLLM`。我这边是自建模型，所以选择vLLM。
+3. Model/auth provider: `vLLM`。自建模型，选择vLLM。后面可以通过 `openclaw config set` 和 `openclaw models set` 命令，切换其它模型。
 4. Select channel (QuickStart): `Skip for now`
 5. Search provider: Web联网搜索提供商配置，选择跳过 `Skip for now`。 国内可选 `Kimi (Moonshot)` 月之暗面。
 6. Install missing skill dependencies： 非 `MacOS` 苹果系统，直接 `Skip for now`，然后按 `回车键` 继续。苹果系统可在列表中按 `空格键` 选择 `summarize`​ 和 `nano-pdf`。
