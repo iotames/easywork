@@ -8,7 +8,6 @@
 - easywork
   - ai: [AI人工智能相关](ai/)
     - deploy: [AI部署](ai/deploy/)
-    - llama.md: [llama.cpp](ai/deploy/llama.md)
     - openclaw: [OpenClaw介绍](ai/openclaw/)
   - backup: [数据备份](backup/)
     - rsync.sh: [从远程服务器进行增量备份](backup/rsync.sh)

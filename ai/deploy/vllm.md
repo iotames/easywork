@@ -4,7 +4,6 @@ vLLM是一个高性能的大语言模型推理和服务框架。它通过PagedAt
 
 - GitHub仓库：https://github.com/vllm-project/vllm
 - 官方文档：https://docs.vllm.ai/
-- https://github.com/NVIDIA/TensorRT-LLM
 - Docker: https://hub.docker.com/r/vllm/vllm-openai/
 
 
@@ -22,13 +21,15 @@ vLLM是一个高性能的大语言模型推理和服务框架。它通过PagedAt
 从Hugging Face下载模型（以Qwen2.5-7B-Instruct为例）：
 ```bash
 # 安装huggingface-hub
+# python3 -m pip install -U huggingface_hub
 pip install -U huggingface_hub
 
 # 设置镜像加速（可选）
-export HF_ENDPOINT=https://hf-mirror.com
+# export HF_ENDPOINT=https://hf-mirror.com
 
 # 下载模型到本地目录
-huggingface-cli download Qwen/Qwen2.5-7B-Instruct --local-dir ./models/Qwen2.5-7B-Instruct
+# 可以去$HOME/.local/bin目录查看安装好的命令。
+hf download Qwen/Qwen2.5-7B-Instruct --local-dir ./models/Qwen2.5-7B-Instruct
 ```
 
 
@@ -36,18 +37,19 @@ huggingface-cli download Qwen/Qwen2.5-7B-Instruct --local-dir ./models/Qwen2.5-7
 
 ### 方式一：pip安装部署（推荐）
 
-1. **创建虚拟环境**
-```bash
-conda create -n vllm python=3.10 -y
-conda activate vllm
-```
+1. **安装vLLM**
 
-2. **安装vLLM**
 ```bash
+# 创建虚拟环境
+python3 -m venv venv
+source venv/bin/activate
+
+# 安装vLLM
 pip install vllm
 ```
 
-3. **启动推理服务**
+
+2. **启动推理服务**
 ```bash
 # 基本启动
 vllm serve Qwen/Qwen2.5-7B-Instruct --host 0.0.0.0 --port 8000
