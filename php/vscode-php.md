@@ -21,18 +21,33 @@ https://windows.php.net/downloads/releases/archives/
 这边下载的PHP版本是: [php-7.2.9-nts-Win32-VC15-x64.zip](https://windows.php.net/downloads/releases/archives/php-7.2.9-nts-Win32-VC15-x64.zip)
 
 
-### PHP扩展
+### PHP配置
 
-1. `php.ini` 设置扩展插件所在目录: `extension_dir = "ext"`
-2. 关闭开启插件的注释。
+1. 复制 `php.ini-development.ini` 或 `php.ini-production` 为 `php.ini`
+2. 在 `php.ini` 根据实际情况，设置扩展插件目录。如: `extension_dir = "ext"`
+3. 关闭开启插件的注释。
 
 ```ini
+memory_limit = 512M
+; 最大执行时间，默认30秒。
+; PHP老项目首次启动，生成缓存可能耗时较高。
+max_execution_time = 300
+
+; Directory in which the loadable extensions (modules) reside.
+; http://php.net/extension-dir
+;extension_dir = "./"
+; On windows:
+extension_dir = "ext"
+
+; 取消注释，开启常用扩展
 extension=curl
 extension=openssl
 extension=mbstring
-extension=mysqli
 extension=fileinfo
-;extension=pdo_mysql
+; 某些PHP框架使用mysqli
+extension=mysqli
+; 某些框架例如symfony使用pdo
+extension=pdo_mysql
 ;extension=pdo_pgsql
 ;extension=pdo_sqlite
 ;extension=pgsql
