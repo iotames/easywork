@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.26" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
+    <link rel="preload" href="/easywork/assets/style-DZR1U-l3.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-DZR1U-l3.css">
+    <link rel="modulepreload" href="/easywork/assets/app-CdKSB2Uu.js"><link rel="modulepreload" href="/easywork/assets/httpsconf.html-HqHrV4P9.js">
+    <link rel="prefetch" href="/easywork/assets/index.html-CdsOtNcr.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DpzZlhVq.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-SPCAfIMQ.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BeuAezzW.js" as="script"><link rel="prefetch" href="/easywork/assets/cbuild.html-C2cvpmW-.js" as="script"><link rel="prefetch" href="/easywork/assets/makefile-cmake-xmake.html-BGyxKJ8G.js" as="script"><link rel="prefetch" href="/easywork/assets/makefile.html-QY2zBUrG.js" as="script"><link rel="prefetch" href="/easywork/assets/musl-gcc.html-CkXMpQ7i.js" as="script"><link rel="prefetch" href="/easywork/assets/xxd.html-P8p37bP8.js" as="script"><link rel="prefetch" href="/easywork/assets/echarts-bar.html-DSSSJiku.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-GTSAjdUM.js" as="script"><link rel="prefetch" href="/easywork/assets/quick_run.html-CnmFW8cC.js" as="script"><link rel="prefetch" href="/easywork/assets/screenshot.html-B81n9E-G.js" as="script"><link rel="prefetch" href="/easywork/assets/windows_remote_desktop.html-EzKCF3Ed.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BMkDUfDd.js" as="script"><link rel="prefetch" href="/easywork/assets/buildexe.html-qCwETH_B.js" as="script"><link rel="prefetch" href="/easywork/assets/bytebase.html-CLv4PorD.js" as="script"><link rel="prefetch" href="/easywork/assets/logrotate.html-D1NY2EvL.js" as="script"><link rel="prefetch" href="/easywork/assets/redis.html-BzyTpNIj.js" as="script"><link rel="prefetch" href="/easywork/assets/setenv.html-rWc75cbr.js" as="script"><link rel="prefetch" href="/easywork/assets/sonarqube.html-DXHCqela.js" as="script"><link rel="prefetch" href="/easywork/assets/spug.html-ITHc4eG8.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BfD_y8au.js" as="script"><link rel="prefetch" href="/easywork/assets/datastruct.html-SzSSamiM.js" as="script"><link rel="prefetch" href="/easywork/assets/erpsysarch.html-DU-0DAU_.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-lXDSldJo.js" as="script"><link rel="prefetch" href="/easywork/assets/proxy.html-Cj6IKFC0.js" as="script"><link rel="prefetch" href="/easywork/assets/registry.html-Czdmsmqr.js" as="script"><link rel="prefetch" href="/easywork/assets/sqlserver.html-BIN_-xik.js" as="script"><link rel="prefetch" href="/easywork/assets/volumes.html-BK-Bd0gI.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-CxB-1TLu.js" as="script"><link rel="prefetch" href="/easywork/assets/gitflow.html-CNFEX_lz.js" as="script"><link rel="prefetch" href="/easywork/assets/gittag.html-DI8HmtUI.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-Cc9Y4X2u.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle.html-DXZMq0JG.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle_build.html-Dbj-Vpnz.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle_conf.html-5OZWzpHb.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle_issue.html-CyQ5RUfo.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle_select.html-Zp-Qn9XK.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle_spoon.html-dYZhsvhA.js" as="script"><link rel="prefetch" href="/easywork/assets/kettle_usage.html-K-QFesJr.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-9lY1zQnr.js" as="script"><link rel="prefetch" href="/easywork/assets/cross_build.html-BsHkF0rs.js" as="script"><link rel="prefetch" href="/easywork/assets/dialog_file.html-DbxTLE1k.js" as="script"><link rel="prefetch" href="/easywork/assets/httpproxy_svr.html-iOFlsov0.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-CWN6m23b.js" as="script"><link rel="prefetch" href="/easywork/assets/camunda.html-BbI7kGuy.js" as="script"><link rel="prefetch" href="/easywork/assets/conf.html-B9n83Ves.js" as="script"><link rel="prefetch" href="/easywork/assets/cordys_crm.html-DvCH4RyH.js" as="script"><link rel="prefetch" href="/easywork/assets/envformvn.html-982ZVSwp.js" as="script"><link rel="prefetch" href="/easywork/assets/jwt.html-DdWxCVol.js" as="script"><link rel="prefetch" href="/easywork/assets/mvn.html-CiZZivOn.js" as="script"><link rel="prefetch" href="/easywork/assets/nexus.html-BnNHzOxA.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-580MKL_Q.js" as="script"><link rel="prefetch" href="/easywork/assets/disk.html-CtpeLrdr.js" as="script"><link rel="prefetch" href="/easywork/assets/ssh.html-Cbq4ay16.js" as="script"><link rel="prefetch" href="/easywork/assets/timezone.html-DOXh9rb1.js" as="script"><link rel="prefetch" href="/easywork/assets/vimconf.html-CNAu3PF0.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-Cn31tf2N.js" as="script"><link rel="prefetch" href="/easywork/assets/httpheader.html-CP-YRhXT.js" as="script"><link rel="prefetch" href="/easywork/assets/httrack.html-DGN9IEzH.js" as="script"><link rel="prefetch" href="/easywork/assets/netlayer.html-CwzACc-w.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DrmmelKi.js" as="script"><link rel="prefetch" href="/easywork/assets/location.html-DKGrv-D4.js" as="script"><link rel="prefetch" href="/easywork/assets/nginxui.html-DpA5LjDZ.js" as="script"><link rel="prefetch" href="/easywork/assets/realip.html-CfHd0Lqd.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-OfnPotSN.js" as="script"><link rel="prefetch" href="/easywork/assets/docs.html-dKKDPFwk.js" as="script"><link rel="prefetch" href="/easywork/assets/n8n.html-BD7XX6vi.js" as="script"><link rel="prefetch" href="/easywork/assets/nvm.html-h8nEC7t-.js" as="script"><link rel="prefetch" href="/easywork/assets/weaver.html-fltdaZhr.js" as="script"><link rel="prefetch" href="/easywork/assets/weaver2wxwork.html-BqYQbwGU.js" as="script"><link rel="prefetch" href="/easywork/assets/weaverconf.html-HIpEvQoV.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-Co_bqGFb.js" as="script"><link rel="prefetch" href="/easywork/assets/php-nts-cgi.html-CTi8MjkU.js" as="script"><link rel="prefetch" href="/easywork/assets/vscode-php.html-DKtLlG97.js" as="script"><link rel="prefetch" href="/easywork/assets/jekyll.html-B0JV6m01.js" as="script"><link rel="prefetch" href="/easywork/assets/add_index.html-PcfYI8tK.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-D_X1tvIa.js" as="script"><link rel="prefetch" href="/easywork/assets/conf.html-CJDv6sVj.js" as="script"><link rel="prefetch" href="/easywork/assets/install.html-CgAcP-ER.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-CI_teQyM.js" as="script"><link rel="prefetch" href="/easywork/assets/llama-cpp.html-Bpr6hQfp.js" as="script"><link rel="prefetch" href="/easywork/assets/triton.html-BTjIJCc7.js" as="script"><link rel="prefetch" href="/easywork/assets/vllm.html-C7MzjoNs.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-CdcLDs3Z.js" as="script"><link rel="prefetch" href="/easywork/assets/arch.html-B8CLas2Z.js" as="script"><link rel="prefetch" href="/easywork/assets/role.html-DdHvyeWN.js" as="script"><link rel="prefetch" href="/easywork/assets/sitedown.html-DkmQog2r.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BxApbOhl.js" as="script"><link rel="prefetch" href="/easywork/assets/ctxmenu.html-BOnm3FIc.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BV66qfgf.js" as="script"><link rel="prefetch" href="/easywork/assets/issue.html-CIw2uGue.js" as="script"><link rel="prefetch" href="/easywork/assets/runner.html-B8733gJi.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-LnuaTCCB.js" as="script"><link rel="prefetch" href="/easywork/assets/dashboards.html-BMOkmRDb.js" as="script"><link rel="prefetch" href="/easywork/assets/loki_nginx.html-CP-7OJcE.js" as="script"><link rel="prefetch" href="/easywork/assets/node_exporter.html-BuduI9Po.js" as="script"><link rel="prefetch" href="/easywork/assets/prometheus.html-B-WdnhIX.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DIdB2cXR.js" as="script"><link rel="prefetch" href="/easywork/assets/config.html-DFSuH5U1.js" as="script"><link rel="prefetch" href="/easywork/assets/errors.html-CLzqRXzz.js" as="script"><link rel="prefetch" href="/easywork/assets/flowable.html-DmANRQq3.js" as="script"><link rel="prefetch" href="/easywork/assets/inoutputs.html-CUD27BNm.js" as="script"><link rel="prefetch" href="/easywork/assets/namespace.html-CVyCHLMM.js" as="script"><link rel="prefetch" href="/easywork/assets/scripts.html-K9mvtAJA.js" as="script"><link rel="prefetch" href="/easywork/assets/triggers.html-DAXITJV6.js" as="script"><link rel="prefetch" href="/easywork/assets/start_docker.html-BZCw7kmy.js" as="script"><link rel="prefetch" href="/easywork/assets/taiga.html-CRNxS1Gl.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DN97OHUg.js" as="script"><link rel="prefetch" href="/easywork/assets/oauth2.html-DqvNO-yd.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-GMiLSurR.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DxE7R1MM.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-CHZ6pevQ.js" as="script"><link rel="prefetch" href="/easywork/assets/if.html-CHvFe9aq.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html--Z3a9u-I.js" as="script"><link rel="prefetch" href="/easywork/assets/journald.html-igNvhD-O.js" as="script"><link rel="prefetch" href="/easywork/assets/jwt.html-BLZlOYk6.js" as="script"><link rel="prefetch" href="/easywork/assets/view_data.html-DszkxX1p.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-LBmuDV53.js" as="script"><link rel="prefetch" href="/easywork/assets/404.html-D7h1PLxU.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-D-DT5wYR.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BkV76uIS.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-C7lyNMQJ.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DdKl7ne3.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-BgkpD34s.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DvvM7SXr.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-CTzGCnZT.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-DlWsSFix.js" as="script"><link rel="prefetch" href="/easywork/assets/index.html-D5a96OCJ.js" as="script"><link rel="prefetch" href="/easywork/assets/SearchResult-B0nrSFHF-CSVJAle2.js" as="script"><link rel="prefetch" href="/easywork/assets/mermaid.esm.min-DODTbBQV.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/easywork/"><!----><span class="vp-site-name" aria-hidden="true">沙滩星空的博客</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!--[--><button type="button" class="slimsearch-button" aria-label="搜索"><svg xmlns="http://www.w3.org/2000/svg" class="icon search-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="search icon"><path d="M192 480a256 256 0 1 1 512 0 256 256 0 0 1-512 0m631.776 362.496-143.2-143.168A318.464 318.464 0 0 0 768 480c0-176.736-143.264-320-320-320S128 303.264 128 480s143.264 320 320 320a318.016 318.016 0 0 0 184.16-58.592l146.336 146.368c12.512 12.48 32.768 12.48 45.28 0 12.48-12.512 12.48-32.768 0-45.28"></path></svg><div class="slimsearch-placeholder">搜索</div><div class="slimsearch-key-hints"><kbd class="slimsearch-key">Ctrl</kbd><kbd class="slimsearch-key">K</kbd></div></button><!--]--></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading"> <!----></p><!----></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div id="content"><h2 id="certbot工具" tabindex="-1"><a class="header-anchor" href="#certbot工具"><span>Certbot工具</span></a></h2><ul><li>Certbot安装与使用 https://certbot.eff.org/instructions</li><li>Certbot用户指南 https://eff-certbot.readthedocs.io/en/stable/using.html</li></ul><ol><li>证书和私钥文件：通常位于 <code>/etc/letsencrypt/live/yoursite.com/</code> 目录下（以命令中第一个 -d指定的域名为目录名）</li><li>自动续期：使用 <code>certbot renew --dry-run</code> 来测试续期流程是否正常</li></ol><h2 id="ssl证书生成" tabindex="-1"><a class="header-anchor" href="#ssl证书生成"><span>SSL证书生成</span></a></h2><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># 1. 安装certbot</span></span>
+<span class="line"><span class="token comment"># 2. 获取同时包含2个域名的证书，下面2个命令任选一个。</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 通过当前Nginx服务的域名配置，获取或更新证书，并自动修改NGINX配置。</span></span>
+<span class="line"><span class="token comment"># 如使用certonly参数，则不会自动修改NGINX配置，需要手动修改NGINX配置。</span></span>
+<span class="line"><span class="token comment"># certbot certonly --nginx -d yoursite.com -d www.yoursite.com</span></span>
+<span class="line">certbot <span class="token parameter variable">--nginx</span> <span class="token parameter variable">-d</span> yoursite.com <span class="token parameter variable">-d</span> www.yoursite.com</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 指定当前正在运行、并能通过公网被访问到的真实根目录，获取或更新证书</span></span>
+<span class="line"><span class="token comment"># 会在指定的网站根目录下的 .well-known/acme-challenge/ 路径中放置一个验证文件</span></span>
+<span class="line">certbot certonly <span class="token parameter variable">--webroot</span> <span class="token parameter variable">-w</span> /var/www/html <span class="token parameter variable">-d</span> yoursite.com <span class="token parameter variable">-d</span> www.yoursite.com</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>证书配置（一般由certbot自动生成）：</p><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line">server {</span>
+<span class="line">    server_name www.yoursite.com yoursite.com;</span>
+<span class="line"></span>
+<span class="line">    # 网站根目录</span>
+<span class="line">    root /var/www/html;</span>
+<span class="line">    index index.html index.htm;</span>
+<span class="line"></span>
+<span class="line">    # 安全与优化设置</span>
+<span class="line">    server_tokens off; # 隐藏Nginx版本信息[1](@ref)</span>
+<span class="line">    autoindex off;     # 禁止目录列表[1](@ref)</span>
+<span class="line"></span>
+<span class="line">    # 省略掉其他配置 ......</span>
+<span class="line"></span>
+<span class="line">    # 证书关键配置</span>
+<span class="line">    listen 443 ssl; # managed by Certbot</span>
+<span class="line">    ssl_certificate /etc/letsencrypt/live/www.yoursite.com/fullchain.pem; # managed by Certbot</span>
+<span class="line">    ssl_certificate_key /etc/letsencrypt/live/www.yoursite.com/privkey.pem; # managed by Certbot</span>
+<span class="line">    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot</span>
+<span class="line">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot</span>
+<span class="line">}</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>certbot命令：</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># --webroot -w /var/www/html 参数，用于验证的目录。必须指定当前正在运行、并能通过公网被访问到的真实根目录。</span></span>
+<span class="line"> <span class="token function">sudo</span> certbot certonly <span class="token parameter variable">--webroot</span> <span class="token parameter variable">-w</span> /var/www/html <span class="token parameter variable">-d</span> yoursite.com <span class="token parameter variable">-d</span> www.yoursite.com</span>
+<span class="line">Saving debug log to /var/log/letsencrypt/letsencrypt.log</span>
+<span class="line">Certificate not yet due <span class="token keyword">for</span> renewal</span>
+<span class="line"></span>
+<span class="line">You have an existing certificate that has exactly the same domains or certificate name you requested and isn<span class="token string">&#39;t close to expiry.</span>
+<span class="line">(ref: /etc/letsencrypt/renewal/www.yoursite.com.conf)</span>
+<span class="line"></span>
+<span class="line">What would you like to do?</span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line">1: Keep the existing certificate for now</span>
+<span class="line">2: Renew &amp; replace the certificate (may be subject to CA rate limits)</span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line">Select the appropriate number [1-2] then [enter] (press &#39;</span>c<span class="token string">&#39; to cancel): 2</span>
+<span class="line">Renewing an existing certificate for yoursite.com and www.yoursite.com</span>
+<span class="line"></span>
+<span class="line">Successfully received certificate.</span>
+<span class="line">Certificate is saved at: /etc/letsencrypt/live/www.yoursite.com/fullchain.pem</span>
+<span class="line">Key is saved at:         /etc/letsencrypt/live/www.yoursite.com/privkey.pem</span>
+<span class="line">This certificate expires on 2026-06-24.</span>
+<span class="line">These files will be updated when the certificate renews.</span>
+<span class="line">Certbot has set up a scheduled task to automatically renew this certificate in the background.</span>
+<span class="line"></span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line">If you like Certbot, please consider supporting our work by:</span>
+<span class="line"> * Donating to ISRG / Let&#39;</span>s Encrypt:   https://letsencrypt.org/donate</span>
+<span class="line"> * Donating to EFF:                    https://eff.org/donate-le</span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>通过NGINX进行端口号反向代理的网站，可能找不到网站根目录。</p><p>可使用 <code>--nginx</code> 代替 <code>--webroot -w /var/www/html</code> 命令参数，自动从NGINX配置中更新证书。</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"> <span class="token function">sudo</span> certbot certonly <span class="token parameter variable">--nginx</span> <span class="token parameter variable">-d</span> yoursite.com <span class="token parameter variable">-d</span> www.yoursite.com</span>
+<span class="line">Saving debug log to /var/log/letsencrypt/letsencrypt.log</span>
+<span class="line"></span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line">You have an existing certificate that contains a portion of the domains you</span>
+<span class="line">requested <span class="token punctuation">(</span>ref: /etc/letsencrypt/renewal/www.yoursite.com.conf<span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line">It contains these names: www.yoursite.com</span>
+<span class="line"></span>
+<span class="line">You requested these names <span class="token keyword">for</span> the new certificate: yoursite.com,</span>
+<span class="line">www.yoursite.com.</span>
+<span class="line"></span>
+<span class="line">Do you want to <span class="token function">expand</span> and replace this existing certificate with the new</span>
+<span class="line">certificate?</span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line"><span class="token punctuation">(</span>E<span class="token punctuation">)</span>xpand/<span class="token punctuation">(</span>C<span class="token punctuation">)</span>ancel: E</span>
+<span class="line">Renewing an existing certificate <span class="token keyword">for</span> yoursite.com and www.yoursite.com</span>
+<span class="line"></span>
+<span class="line">Successfully received certificate.</span>
+<span class="line">Certificate is saved at: /etc/letsencrypt/live/www.yoursite.com/fullchain.pem</span>
+<span class="line">Key is saved at:         /etc/letsencrypt/live/www.yoursite.com/privkey.pem</span>
+<span class="line">This certificate expires on <span class="token number">2026</span>-06-24.</span>
+<span class="line">These files will be updated when the certificate renews.</span>
+<span class="line">Certbot has <span class="token builtin class-name">set</span> up a scheduled task to automatically renew this certificate <span class="token keyword">in</span> the background.</span>
+<span class="line"></span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line">If you like Certbot, please consider supporting our work by:</span>
+<span class="line"> * Donating to ISRG / Let&#39;s Encrypt:   https://letsencrypt.org/donate</span>
+<span class="line"> * Donating to EFF:                    https://eff.org/donate-le</span>
+<span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="跳转设置" tabindex="-1"><a class="header-anchor" href="#跳转设置"><span>跳转设置</span></a></h2><ol><li>80端口域名跳转到443端口</li><li>443端口的不带www域名跳转到www开头的域名</li></ol><div class="language-conf line-numbers-mode" data-highlighter="prismjs" data-ext="conf"><pre><code class="language-conf"><span class="line">server {</span>
+<span class="line">   if ($host = www.yoursite.com) {</span>
+<span class="line">        return 301 https://$host$request_uri;</span>
+<span class="line">    } # managed by Certbot</span>
+<span class="line"></span>
+<span class="line">    if ($host = yoursite.com) {</span>
+<span class="line">        return 301 https://www.yoursite.com$request_uri;</span>
+<span class="line">    }</span>
+<span class="line"></span>
+<span class="line">     listen 80;</span>
+<span class="line">     server_name www.yoursite.com yoursite.com;</span>
+<span class="line">     return 301 https://www.yoursite.com$request_uri;</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line">server {</span>
+<span class="line">    server_name www.yoursite.com yoursite.com;</span>
+<span class="line"></span>
+<span class="line">    # 统一跳转到www开头的主域名</span>
+<span class="line">    if ($host = yoursite.com) {</span>
+<span class="line">        return 301 https://www.yoursite.com$request_uri;</span>
+<span class="line">    }</span>
+<span class="line"></span>
+<span class="line">    # 网站根目录</span>
+<span class="line">    root /var/www/html;</span>
+<span class="line">    index index.html index.htm;</span>
+<span class="line"></span>
+<span class="line">    # 安全与优化设置</span>
+<span class="line">    server_tokens off; # 隐藏Nginx版本信息[1](@ref)</span>
+<span class="line">    autoindex off;     # 禁止目录列表[1](@ref)</span>
+<span class="line"></span>
+<span class="line">    # 核心性能优化</span>
+<span class="line">    sendfile on;       # 开启高效文件传输模式[5](@ref)</span>
+<span class="line">    tcp_nopush on;     # 提升网络包传输效率[5](@ref)</span>
+<span class="line">    tcp_nodelay on;    # 提高网络包传输实时性[5](@ref)</span>
+<span class="line">    keepalive_timeout 65;</span>
+<span class="line"></span>
+<span class="line">    # 启用Gzip压缩</span>
+<span class="line">    gzip on;</span>
+<span class="line">    gzip_min_length 1k;</span>
+<span class="line">    gzip_comp_level 2;</span>
+<span class="line">    gzip_types text/plain text/css application/javascript application/xml text/javascript image/svg+xml;</span>
+<span class="line">    gzip_vary on;</span>
+<span class="line"></span>
+<span class="line">    client_max_body_size 20M;</span>
+<span class="line"></span>
+<span class="line">    location / {</span>
+<span class="line">        proxy_pass http://localhost:3001;</span>
+<span class="line">        proxy_http_version 1.1;</span>
+<span class="line">        proxy_set_header Upgrade $http_upgrade;</span>
+<span class="line">        proxy_set_header Connection &#39;upgrade&#39;;</span>
+<span class="line">        proxy_set_header Host $host;</span>
+<span class="line">        proxy_cache_bypass $http_upgrade;</span>
+<span class="line">    }</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">    listen 443 ssl; # managed by Certbot</span>
+<span class="line">    ssl_certificate /etc/letsencrypt/live/www.yoursite.com/fullchain.pem; # managed by Certbot</span>
+<span class="line">    ssl_certificate_key /etc/letsencrypt/live/www.yoursite.com/privkey.pem; # managed by Certbot</span>
+<span class="line">    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot</span>
+<span class="line">    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot</span>
+<span class="line"></span>
+<span class="line">}</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2026-03-27T01:32:54.000Z" data-allow-mismatch>2026/3/27 01:32</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
+    <script type="module" src="/easywork/assets/app-CdKSB2Uu.js" defer></script>
+  </body>
+</html>
