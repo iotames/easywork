@@ -51,6 +51,10 @@ extension=pdo_mysql
 ;extension=pdo_pgsql
 ;extension=pdo_sqlite
 ;extension=pgsql
+
+extension=gd
+; composer需要zip扩展
+extension=zip
 ```
 
 - 第三方依赖库下载: https://windows.php.net/downloads/php-sdk/deps/vc15/x64/
@@ -59,6 +63,80 @@ extension=pdo_mysql
 
 ```bash
 php-cgi.exe -b 127.0.0.1:9000 -c php.ini
+```
+
+
+## composer包管理器
+
+### 安装composer
+
+- https://docs.phpcomposer.com/00-intro.html
+
+```bash
+# 1. 设置系统的环境变量PATH，并下载 composer.phar 文件
+set PATH=%PATH%;D:\bin
+cd C:\bin
+php -r "readfile('https://getcomposer.org/installer');" | php
+
+# 2. 创建composer.bat文件，用于便捷调用composer.phar文件
+echo @php "%~dp0composer.phar" %*>composer.bat
+```
+
+### 配置composer镜像
+
+```bash
+# 配置镜像
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+# 取消使用镜像
+# ~/.config/composer/config.json
+# C:\Users\用户名\AppData\Roaming\Composer\config.json
+composer config -g --unset repos.packagist
+```
+
+`~/.config/composer/config.json` 或 `C:\Users\用户名\AppData\Roaming\Composer\config.json`
+
+```json
+{
+    "config": {},
+    "repositories": [{
+        "name": "packagist",
+        "type": "composer",
+        "url": "https://packagist.phpcomposer.com"
+    }]
+}
+```
+
+### 设置composer代理
+
+```bash
+# Windows 命令提示符 (CMD)
+set http_proxy=http://你的代理服务器地址:端口
+set https_proxy=http://你的代理服务器地址:端口
+
+# Windows PowerShell
+$env:HTTP_PROXY="http://你的代理服务器地址:端口"
+$env:HTTPS_PROXY="http://你的代理服务器地址:端口"
+
+# Linux 或 macOS
+export HTTP_PROXY=http://你的代理服务器地址:端口
+export HTTPS_PROXY=http://你的代理服务器地址:端口
+```
+
+### Github令牌配置
+
+- https://getcomposer.org/doc/articles/authentication-for-private-packages.md
+
+登录GitHub账号 -》  Settings -》 Developer settings -》 Personal access tokens -》 Fine-grained tokens -》 Generate new token
+
+生成token后，编辑composer的 `auth.json` 文件，路径如下所示：`C:\Users\yourname\AppData\Roaming\Composer\auth.json`
+
+```json
+{
+    "github-oauth": {
+        "github.com": "github_pat_11xxxxxxxxxxxxx5IP7CGo_4AL08JiFptdAGIwkwuZSk1r3P49utxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+}
 ```
 
 
