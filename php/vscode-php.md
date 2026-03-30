@@ -40,21 +40,31 @@ max_execution_time = 300
 extension_dir = "ext"
 
 ; 取消注释，开启常用扩展
+
+; 网络通讯常用扩展
 extension=curl
+; 用于HTTPS等安全通讯和数据加密，许多网络请求和加密功能依赖于此扩展。
 extension=openssl
+; 处理非拉丁文字（如中文）的必备扩展。
 extension=mbstring
+; 常用于验证用户上传的文件是否与其扩展名相符。
 extension=fileinfo
-; 某些PHP框架使用mysqli
+; 某些PHP框架使用mysqli。提供了面向对象和面向过程两种方式
 extension=mysqli
-; 某些框架例如symfony使用pdo
+; 它提供了一个统一的、面向对象的数据库操作接口。很多现代框架，例如symfony使用pdo
 extension=pdo_mysql
 ;extension=pdo_pgsql
 ;extension=pdo_sqlite
 ;extension=pgsql
 
+; 用于动态创建和修改图片，常见用途包括生成验证码、添加水印、制作缩略图等。
 extension=gd
-; composer需要zip扩展
+; PHP的包管理工具Composer在安装依赖包时必须依赖此扩展。
 extension=zip
+
+; Intl 扩展提供了国际化相关的功能,包括字符集转换、日期时间处理、数字格式化、货币格式化、语言环境设置等
+; 解决报错 Class "NumberFormatter" not found
+extension=intl
 ```
 
 - 第三方依赖库下载: https://windows.php.net/downloads/php-sdk/deps/vc15/x64/
