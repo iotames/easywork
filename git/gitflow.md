@@ -47,7 +47,7 @@
 
 命令行示例：
 
-```
+```bash
 # 拉取最新的dev分支到本地
 git pull origin dev
 
@@ -77,7 +77,7 @@ git branch -d myname
 
 ### 解决分支合并冲突
 
-```
+```bash
 # 1. 更新本地dev公共分支
 git checkout dev
 git pull origin dev
@@ -106,7 +106,7 @@ git push origin feature/xxx
 
 ### 团队公共分支合并
 
-```
+```bash
 # 拉取远程主分支和成员的个人分支
 git pull origin dev
 git pull origin myname
@@ -142,7 +142,7 @@ git branch -d myname
 
 ### 个人功能分支操作
 
-```
+```bash
 # 删除名为myname的远程分支
 git push origin --delete myname
 
@@ -151,9 +151,10 @@ git switch dev
 git branch -d myname
 ```
 
+
 ## 查看
 
-```
+```bash
 # 查看提交状态
 git status
 
@@ -164,15 +165,15 @@ git branch
 git branch -a
 ```
 
-## 新建和切换分支
+
+## 分支
 
 - https://git-scm.com/docs/git-branch/zh_HANS-CN
 - https://git-scm.com/docs/git-switch/zh_HANS-CN
 
+### 新建分支
 
-新建分支：
-
-```
+```bash
 # 基于本地当前分支，创建新分支feature1，并切换过去
 git checkout -b feature1
 
@@ -187,9 +188,9 @@ git checkout 17.0
 ```
 
 
-切换分支：
+### 切换分支
 
-```
+```bash
 # 切换到本地分支feature1
 git checkout feature1
 
@@ -200,9 +201,25 @@ git checkout --orphan <new_branch_name>
 git switch --orphan <new_branch_name>
 ```
 
+### 清理分支
+
+```bash
+# git branch -D <branch_name>
+
+# 1. 查看远程跟踪分支
+git branch -r
+
+# 2. 清理陈旧的远程跟踪分支
+git remote prune origin
+
+# 3. 删除所有不在本地的远程跟踪分支
+git fetch --prune
+```
+
+
 ## 克隆仓库
 
-```
+```bash
 # 克隆包含仓库的全部提交历史
 git clone https://github.com/odoo/odoo.git
 
@@ -223,18 +240,31 @@ git clone --depth 3 -b 17.0 --single-branch https://github.com/odoo/odoo.git odo
 
 `git pull <远程主机名> <远程分支名>:<本地分支名>`
 
-```
-git pull origin master:master
+```bash
+# 完整命令：git pull origin master:master
+git pull origin master
 
-# 简写
+# 修改全局配置，禁止 git pull 默认拉取所有分支。
+git config --global pull.only true
+
+# 简写命令
 git pull
 ```
 
+
 ## 推送仓库
 
-```
-git push
+`git push <远程主机名> <本地分支名>:<远程分支名>`
+
+```bash
+# 完整命令
 git push origin master:master
+
+# 简写命令
+git push
+
+# 首次推送使用 git push -u origin 分支名
+git push -u origin master
 ```
 
 [git switch和git checkout](https://blog.csdn.net/weixin_47695827/article/details/141824669)
@@ -242,7 +272,7 @@ git push origin master:master
 
 ## 远程库增删改查
 
-```
+```bash
 git remote add <远程库名> <远程库地址>
 git remote remove <远程库名>
 git remote rename <原远程库名> <新远程库名>

@@ -127,17 +127,18 @@ If you like Certbot, please consider supporting our work by:
 
 ```conf
 server {
-   if ($host = www.yoursite.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+  listen 80;
+  server_name www.yoursite.com yoursite.com;
+  
+  if ($host = www.yoursite.com) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
 
-    if ($host = yoursite.com) {
-        return 301 https://www.yoursite.com$request_uri;
-    }
+  if ($host = yoursite.com) {
+    return 301 https://www.yoursite.com$request_uri;
+  }
 
-     listen 80;
-     server_name www.yoursite.com yoursite.com;
-     return 301 https://www.yoursite.com$request_uri;
+  return 301 https://www.yoursite.com$request_uri;
 }
 
 server {
