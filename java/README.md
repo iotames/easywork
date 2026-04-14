@@ -1,3 +1,7 @@
+---
+title: JAVA
+---
+
 ## 相关资源总览
 
 - 官网下载: https://www.oracle.com/java/technologies/downloads/archive/

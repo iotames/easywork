@@ -1,3 +1,12 @@
+---
+title: NodeJS
+---
+
+## 目录
+
+- build.sh: [自动构建脚本](build.sh)
+- docs.md: [文档工具](docs.md)
+
 ## nodejs
 
 - 查看官方的发布页，获取要安装的 Node.js 版本号： [https://nodejs.org/en/download/releases](https://nodejs.org/en/download/releases)

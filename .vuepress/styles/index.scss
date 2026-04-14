@@ -2,27 +2,34 @@
     --content-width: 1080px;
 }
 
-.vp-catalog {
-  // 主标题保持默认即可，无需额外修饰
+/* .vuepress/styles/index.scss */
 
-  // 所有目录链接都沿用主题默认的 a 标签样式，这里只控制缩进
-  .vp-catalog-child-title,
-  .vp-catalog-sub-title,
-  .vp-sub-catalog-link {
-    display: block;
+/* 仅针对目录组件进行样式调整 */
+.vp-catalog {
+  // 字体设为黑体
+  font-family: 'SimHei', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+
+  // 目录内所有链接改为深色（非绿色）
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--vp-c-accent); // 悬停时可保留绿色高亮（可选）
+    }
   }
 
-  // 二级标题（文件夹内的子目录）左缩进
+  // 层级缩进（保持结构清晰）
   .vp-catalog-sub-title {
     margin-left: 1.5rem;
   }
 
-  // 文章链接左缩进更多，形成清晰的三级结构
   .vp-sub-catalog-link {
+    display: block;
     margin-left: 3rem;
   }
 
-  // 去掉默认列表的圆点和多余内边距
+  // 移除列表默认样式
   ul, li {
     list-style: none;
     margin: 0;

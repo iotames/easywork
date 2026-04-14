@@ -1,6 +1,14 @@
+---
+title: "开发标准和架构"
+---
+
 ## 说明
 
 记录软件开发管理工作遇见的问题和解决方案。
+
+- datastruct.md: [SQL和数据](devstd/datastruct.md)
+- erpsysarch.md: [系统架构设计](devstd/erpsysarch.md)
+
 
 ## 项目管理
 

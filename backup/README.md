@@ -10,4 +10,4 @@ order: 888
 
 ## 脚本列表
 
-- rsync: [rsync.sh](rsync.sh)
+- 从远程服务器进行增量备份: [rsync.sh](rsync.sh)

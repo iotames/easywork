@@ -1,3 +1,6 @@
+---
+title: "Makefile,Cmake和xmake"
+---
 ## Makefile简介
 
 为了简化多个源代码文件下，通过 `gcc` 工具编译复杂的C语言项目，出现了 `Makefile`。

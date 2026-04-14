@@ -1,3 +1,7 @@
+---
+title: Nginx
+---
+
 ## 安装
 
 ### Linux

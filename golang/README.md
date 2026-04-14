@@ -1,3 +1,7 @@
+---
+title: Go语言
+---
+
 ## 相关资源
 
 - 官方下载：https://go.dev/dl/

@@ -282,6 +282,12 @@ git remote set-url <远程库名> <远程库地址>
 git remote -v
 ```
 
+## 示意图
+
+![gitflow](gitflow.png)
+
+----------
+
 > git 创建空分支 https://blog.csdn.net/linyichao1314/article/details/136956650
 > Git 实用技巧2——新建空白分支 | 重命名分支 | 回退到历史 commit https://blog.csdn.net/m0_49270962/article/details/137759940
 

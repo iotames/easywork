@@ -1,3 +1,7 @@
+---
+title: "PostgreSQL数据库"
+order: 5
+---
 ## 手动安装
 
 ### 下载源码包

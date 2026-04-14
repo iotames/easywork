@@ -1,5 +1,5 @@
 ---
-title: "C语言相关"
+title: "C语言"
 order: 3
 ---
 

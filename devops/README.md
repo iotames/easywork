@@ -1,3 +1,7 @@
+---
+title: "DevOps通用开发和运维"
+---
+
 ## 什么是DevOps
 
 DevOps 是一种软件开发方法，通过将软件开发 (Dev) 和 IT 运营 (Ops) 团队的工作相结合并实现自动化，加速交付应用程序和服务。
@@ -5,6 +9,15 @@ DevOps 是一种软件开发方法，通过将软件开发 (Dev) 和 IT 运营 (
 DevOps 的特点是持续集成和持续交付 (CI/CD)，它们支持更小、更快的软件更新。通过 CI/CD，一小部分新代码会频繁地合并到代码库中，然后自动集成、测试和准备部署到生产环境。
 
 - https://www.ibm.com/cn-zh/think/topics/devops
+
+
+## 目录
+
+- gitlab: [Gitlab主题](devops/gitlab/)
+- cicd.sh: [持续集成脚本](devops/cicd.sh)
+- gitlab-ci.yml: [Gitlab CI/CD流水线配置](devops/gitlab-ci.yml)
+- redis.md: [Redis相关](devops/redis.md)
+- setenv.md: [设置环境变量](devops/setenv.md)
 
 
 ## 项目管理
