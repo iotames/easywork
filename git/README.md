@@ -4,8 +4,8 @@ title: Git代码管理工具
 
 ## 目录
 
-- conf.sh: [常用Git配置](git/conf.sh)
-- gitflow.md: [Gitflow标准工作流](git/gitflow.md)
+- conf.sh: [常用Git配置](conf.sh)
+- gitflow.md: [Gitflow标准工作流](gitflow.md)
 
 
 ## 资源

@@ -10,7 +10,7 @@ order: 6
 
 ## 目录
 
-- windows_terminal: [Windows Terminal相关](desktop/windows_terminal/)
-- browser_run.sh: [从命令行运行浏览器](desktop/browser_run.sh)
-- browser_use_proxy.bat: [连接某个HTTP代理后打开浏览器](desktop/browser_use_proxy.bat)
-- set_dns.bat: [DNS一键设置工具](desktop/set_dns.bat)
+- windows_terminal: [Windows Terminal相关](windows_terminal/)
+- browser_run.sh: [从命令行运行浏览器](browser_run.sh)
+- browser_use_proxy.bat: [连接某个HTTP代理后打开浏览器](browser_use_proxy.bat)
+- set_dns.bat: [DNS一键设置工具](set_dns.bat)
