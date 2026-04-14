@@ -12,6 +12,7 @@ pnpm add -D vuepress@next vue
 
 # 安装打包工具和主题
 pnpm add -D @vuepress/bundler-vite@next
+
 # pnpm add -D vuepress-theme-hope@next
 pnpm add -D @vuepress/theme-default@next
 
@@ -82,16 +83,16 @@ export default defineUserConfig({
 # 启动开发服务器
 npm run docs:dev
 # 或者直接使用原始命令
-npx vuepress dev
 # 如果Markdown文件在docs子目录下，则添加docs参数
-npx vuepress dev docs
+# npx vuepress dev docs
+npx vuepress dev
 
 # 构建你的网站
 pnpm docs:build
 # 或者直接使用原始命令
-npx vuepress build
 # 如果Markdown文件在docs子目录下，则添加docs参数
-npx vuepress build docs
+# npx vuepress build docs
+npx vuepress build
 ```
 
 示例 `.gitignore` 文件
