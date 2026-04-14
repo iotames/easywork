@@ -284,7 +284,7 @@ git remote -v
 
 ## 示意图
 
-![gitflow](gitflow.png)
+![gitflow](./gitflow.png)
 
 ----------
 
