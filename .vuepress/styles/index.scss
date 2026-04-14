@@ -1,3 +1,31 @@
 :root {
     --content-width: 1080px;
 }
+
+.vp-catalog {
+  // 主标题保持默认即可，无需额外修饰
+
+  // 所有目录链接都沿用主题默认的 a 标签样式，这里只控制缩进
+  .vp-catalog-child-title,
+  .vp-catalog-sub-title,
+  .vp-sub-catalog-link {
+    display: block;
+  }
+
+  // 二级标题（文件夹内的子目录）左缩进
+  .vp-catalog-sub-title {
+    margin-left: 1.5rem;
+  }
+
+  // 文章链接左缩进更多，形成清晰的三级结构
+  .vp-sub-catalog-link {
+    margin-left: 3rem;
+  }
+
+  // 去掉默认列表的圆点和多余内边距
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -1,3 +1,10 @@
+---
+title: "AI人工智能"
+description: "AI学习使用笔记"
+tags: ["AI", "LLM"]
+order: 1
+---
+
 ## AI使用笔记
 
 创建智能体和Prompt提示词，AI使用的知识和笔记

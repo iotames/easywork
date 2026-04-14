@@ -1,3 +1,8 @@
+---
+title: "Echarts柱状图"
+order: 999
+---
+
 ## Q&A
 
 我的SmartBI V10版本做交互式仪表盘做柱状图，前端ECharts组件版本是5.1.2。这个很重要，一定记住。
