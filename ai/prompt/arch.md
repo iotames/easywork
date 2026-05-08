@@ -9,43 +9,22 @@
 
 [目标]
 
-设计大规模复杂的企业中台前端架构。技术栈无关，低耦合，高扩展。
-1. 技术栈无关：主框架不限制接入应用的技术栈。支持Web Components标准。方便后期业务扩展和组件库的引入。
-2. 领域驱动支持：新业务领域，支持独立开发和部署。支持以前端微服务方式接入新扩展的业务。
-3. 前端的逻辑与UI分离的设计。无头组件和无头框架。
-4. 灵活高效：页面支持传统代码编程与低代码快速渲染2种方式。
-5. 低代码：支持可视化的前端设计器。使用 baidu/amis 组件。可视化设计器参考：https://github.com/aisuda/amis-editor-demo
-6. 前端逻辑层：使用 TanStack Query React 或者基于它的 Refine。
-7. 灵活的导航菜单：使用统一的API接口动态获取菜单，路由，前端组件。保证登录后可根据角色定制菜单和页面。
-8. 主框架暂定React，Vue组件可按需集成。例如使用Veaury
-9. 为保证项目的生命周期能尽可能长，推荐遵循行业标准而不是深度绑定某个技术栈。
+大规模复杂的企业中台前端，采用标准原生架构。技术栈无关，高内聚，低耦合，组件化，高扩展。
+
+1. 标准原生架构：主框架技术栈无关，遵循行业标准，回归原生标准。骨架摆脱具体框架技术栈，但对接入的应用和模块则无任何限制。
+2. 组件化，高扩展：支持Web Components标准。方便后期业务扩展和组件库的引入。Vue组件可按需集成。例如使用Veaury
+3. 领域驱动支持：新业务领域，支持独立开发和部署。支持以前端微服务方式接入新扩展的业务。
+4. 前端的逻辑与UI分离的设计。支持无头组件和无头框架。
+5. 灵活高效：页面支持传统代码编程与低代码快速渲染2种方式。
+6. 低代码：支持可视化的前端设计器。使用 baidu/amis 组件。可视化设计器参考：https://github.com/aisuda/amis-editor-demo
+7. 前端逻辑层：支持 TanStack Query React 或者基于它的 Refine。
+8. 灵活的导航菜单：使用统一的API接口动态获取菜单，路由，前端组件。保证登录后可根据角色定制菜单和页面。
 
 [步骤]
 
-```bash
-mkdir your_project && cd your_project
-
-# 1. 创建项目主框架
-# npm create 实际调用：npx create-vite . --template react-ts
-# Use rolldown-vite (Experimental)? 选择 No，使用 Vite 默认的稳定构建流程（Rollup）
-# Install with npm and start now? 选择 Yes. 立即安装依赖并启动项目. 
-# 结束后，会在项目跟目录，新建node_modules文件夹，空间占用 102MB
-# 完成效果：http://localhost:5173/
-npm create vite@latest . -- --template react-ts
-
-# 2. 添加运行时依赖。至此，node_modules目录，空间占用 560MB
-npm install react-router-dom @tanstack/react-query axios amis amis-editor
-# 添加开发时依赖：为 React Query 提供可视化调试界面。
-npm install -D @tanstack/react-query-devtools
-# 添加开发时依赖：主框架使用react-ts，故在开发环境添加 TypeScript 类型提示。
-npm install -D @types/react-router-dom
-# 添加开发时依赖：开发环境使用mock数据查看效果。至此，node_modules目录，空间占用 591 MB
-npm install -D msw @mswjs/data
-```
-
 1. 合理使用mock数据服务。允许在开发环境下，能脱离服务端API接口的支持，独立运行调试，预览效果。
-2. 使用传统React组件做页面的Layout。并从统一的API接口，动态获取导航菜单，路由，前端组件。
-3. 做3个页面示例。用amis组件，通过API接口渲染出商品管理和用户管理2个页面，包含增删改查功能。用React传统组件，做一个用户登录页面。
+2. 使用原生标准做页面组件布局Layout。并从统一的API接口，动态获取导航菜单，路由，前端组件。
+3. 做3个页面示例。用amis组件，通过API接口渲染出部门管理和用户管理2个页面，包含增删改查功能。用原生标准组件，做一个用户登录页面。
 4. 帮我按照目标完成余下的步骤。
 
 [输出]
