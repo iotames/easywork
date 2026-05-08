@@ -1,0 +1,75 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8">
+  <diagram id="bpmn_data_collection" name="流程示例">
+    <mxGraphModel dx="1426" dy="875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pool" value="xxxx申请流程示例" style="swimlane;horizontal=1;startSize=40;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="900" height="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="lane1" value="申请人" style="swimlane;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=14;" parent="pool" vertex="1">
+          <mxGeometry width="260" height="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="start" value="开始" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fillColor=#ffffff;strokeColor=#000000;" parent="lane1" vertex="1">
+          <mxGeometry x="90" y="60" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="apply" value="申请表单的内容" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;strokeWidth=1.5;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" parent="lane1" vertex="1">
+          <mxGeometry x="27.5" y="160" width="175" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" value="上级是否为董事长？" style="rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" parent="lane1" vertex="1">
+          <mxGeometry x="60" y="480" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=1.5;" parent="lane1" source="start" target="apply" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=1.5;" parent="lane1" source="apply" target="gateway" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" value="部门审批" style="swimlane;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=14;" parent="pool" vertex="1">
+          <mxGeometry x="260" width="260" height="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="managerApprove" value="本部经理审批" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;strokeWidth=1.5;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" parent="lane2" vertex="1">
+          <mxGeometry x="50" y="490" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="directorApprove" value="经理上级审批" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;strokeWidth=1.5;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" parent="lane2" vertex="1">
+          <mxGeometry x="50" y="670" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" value="财务审批" style="swimlane;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=14;" parent="pool" vertex="1">
+          <mxGeometry x="520" width="220" height="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="techApprove" value="财务经理审批" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;strokeWidth=1.5;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" parent="lane3" vertex="1">
+          <mxGeometry x="50" y="860" width="130" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="desc" value="此处填写提示或备注" style="shape=note;whiteSpace=wrap;html=1;strokeColor=#999999;fillColor=#fff2cc;fontSize=12;align=left;spacingLeft=8;" parent="lane3" vertex="1">
+          <mxGeometry x="25" y="80" width="180" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="lane4" value="结束" style="swimlane;horizontal=1;startSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=14;" parent="pool" vertex="1">
+          <mxGeometry x="740" width="160" height="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="审批完成" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=3;fillColor=#ffffff;strokeColor=#000000;" parent="lane4" vertex="1">
+          <mxGeometry x="60" y="890" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" value="否" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=12;strokeWidth=1.5;" parent="pool" source="gateway" target="managerApprove" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=1.5;" parent="pool" source="managerApprove" target="directorApprove" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=1.5;" parent="pool" source="directorApprove" target="techApprove" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow6" value="是" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;fontSize=12;strokeWidth=1.5;" parent="pool" source="gateway" target="techApprove" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="115" y="920" />
+              <mxPoint x="625" y="920" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=1.5;" parent="pool" source="techApprove" target="end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

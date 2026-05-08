@@ -23,6 +23,7 @@ shopify theme pull --store=da3523-61.myshopify.com
 
 # 执行本地调试。
 # 执行命令后，按 t键。开启本地链接：http://127.0.0.1:9292
+# shopify theme dev --store da3523-61.myshopify.com
 shopify theme dev
 
 # 对代码进行静态分析
