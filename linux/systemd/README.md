@@ -33,15 +33,16 @@ systemctl enable|disable httpd.service
 
 ## systemd 配置文件目录
 
-1. 添加自定义服务： `/etc/systemd/system/`
-2. 修改系统服务：`/usr/lib/systemd/system/`
+1. 自定义服务（优先级最高）： `/etc/systemd/system/`
+2. 系统服务(不推荐修改)：`/usr/lib/systemd/system/`
 
-- `/usr/lib/systemd/system/`: 存放系统级脚本，开机不登录就能运行。启动脚本的配置主要放这，类似 `/etc/init.d/`
-- `/lib/systemd/system/`: 文件从 `/usr/lib/systemd/system/` 拷贝而来，故存放文件基本相同。
-- `/etc/systemd/system/`: 存放文件和目录最少，为 `/lib/systemd/system/` 目录下的软连接。优先级最高。
+- `/etc/systemd/system/`: 管理员 `自定义` 和服务覆盖配置的核心目录，优先级最高。部分为指向低优先级服务文件的软链接，用于定义开机启动。
+- `/usr/lib/systemd/system/`: 存放系统服务 `默认配置`，不应直接修改它。类似 `/etc/init.d/`。
+- `/lib/systemd/system/`: 提供指向 `/usr/lib/systemd/system/` 的符号链接，目的是兼容旧路径。
 
-- `/run/systemd/system/`：保存系统执行产生的服务脚本，优先级比 `/usr/lib/systemd/system/` 高。
-- `/usr/lib/systemd/user/`: 存放用户级脚本，登录后才可运行
+
+- `/run/systemd/system/`：保存系统运行产生的动态配置，优先级比 `/usr/lib/systemd/system/` 高。
+- `/usr/lib/systemd/user/`: 存放用户级脚本的默认配置，登录后才可运行
 - `~/.config/systemd/user/`:仅当前用户可用。
 
 
