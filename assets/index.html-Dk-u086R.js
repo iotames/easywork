@@ -1,0 +1,1 @@
+import{A as e,D as t,F as n,I as r,f as i}from"./app-BvUU5elJ.js";var a=JSON.parse(`{"path":"/ruby/","title":"Ruby","lang":"zh-CN","frontmatter":{"title":"Ruby"},"git":{},"filePathRelative":null}`),o={name:`index.html.vue`};function s(i,a,o,s,c,l){let u=r(`Catalog`);return n(),t(`div`,null,[e(u)])}var c=i(o,[[`render`,s]]);export{a as _pageData,c as default};
