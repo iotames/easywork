@@ -6,7 +6,7 @@ ClaudeCode 是 Claude AI 的编程智能助手。
 npm install -g @anthropic-ai/claude-code
 claude --version
 
-# 安装指定版本
+# 卸载并安装指定版本
 npm uninstall -g @anthropic-ai/claude-code
 npm install -g @anthropic-ai/claude-code@2.1.153
 ```
@@ -65,9 +65,18 @@ export CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash
 export DISABLE_AUTOUPDATER="1"
 ```
 
-Windows 用户执行：
+Windows 用户：
+
+**方式一：PowerShell 命令脚本**
+
+新建脚本文件 `C:\scripts\SetClaudeEnv.ps1`
 
 ```powershell
+# 以管理员身份运行 PowerShell，输入以下命令启用  ps1 脚本执行
+# Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+# 禁用 ps1 脚本执行
+# Set-ExecutionPolicy Restricted -Scope CurrentUser 
+
 $env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
 $env:ANTHROPIC_AUTH_TOKEN="<你的 DeepSeek API Key>"
 # $env:ANTHROPIC_MODEL="deepseek-v4-pro[1m]" 默认模型pro太费token了我这改了
@@ -82,5 +91,44 @@ $env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
 $env:DISABLE_AUTOUPDATER="1"
 
 # 设置中文编码
-# chcp 65001
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 ```
+
+运行脚本文件：
+
+```powershell
+powershell -NoExit -File "C:\scripts\SetClaudeEnv.ps1"
+```
+
+**方式二：cmd 命令脚本**
+
+新建脚本文件 `C:\scripts\SetClaudeEnv.bat`
+
+```bash
+@echo off
+
+set ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic
+set ANTHROPIC_AUTH_TOKEN=<你的 DeepSeek API Key>
+# set ANTHROPIC_MODEL=deepseek-v4-pro[1m] 默认模型pro太费token了我这改了
+set ANTHROPIC_MODEL=deepseek-v4-flash
+set ANTHROPIC_DEFAULT_OPUS_MODEL=deepseek-v4-pro[1m]
+set ANTHROPIC_DEFAULT_SONNET_MODEL=deepseek-v4-pro[1m]
+set ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash
+set CLAUDE_CODE_SUBAGENT_MODEL=deepseek-v4-flash
+# 取消思考级别设置
+# set CLAUDE_CODE_EFFORT_LEVEL=max
+# 禁用更新
+set DISABLE_AUTOUPDATER=1
+
+# 设置中文编码
+chcp 65001 >nul
+```
+
+运行脚本文件：
+
+```bash
+# /k ：执行完引号内的命令后，保持 CMD 窗口打开（进入交互模式）。
+# /c ：执行完后立即关闭窗口（不符合需求）。
+cmd /k "C:\scripts\SetClaudeEnv.bat"
+```
+
