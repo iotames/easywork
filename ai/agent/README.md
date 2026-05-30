@@ -12,7 +12,7 @@ order: 1
 | 类别 | 典型代表框架 |
 | :--- | :--- |
 | **工作流编排** | LangGraph |
-| **多智能体协作** | CrewAI, MetaGPT, AutoGen |
+| **多智能体协作** | CrewAI, AutoGen, MetaGPT |
 | **可视化低代码平台** | Dify |
 | **自主进化/自优化** | EvoMap, EvoAgentX |
 | **全能模块化开发框架** | LangChain |
