@@ -130,8 +130,10 @@ opencode
 
 ### 配置自建模型
 
+1. 注入环境变量：`echo "export OPENAI_API_KEY=sk-gSNAgxxxxxxxx" >> ~/.bashrc`
+2. 在配置文件：`~/.config/opencode/opencode.jsonc` 添加新的 `provider`
+
 ```bash
-# 使用 /connect 命令连接输入模型密钥后，被保存在 ~/.local/share/opencode/auth.json 中。还需要在opencode.jsonc配置才能用。
 cat ~/.config/opencode/opencode.jsonc
 ```
 
@@ -146,7 +148,8 @@ cat ~/.config/opencode/opencode.jsonc
       "npm": "@ai-sdk/openai-compatible",
       "name": "Hankin",
       "options": {
-        "baseURL": "https://hankin.mysite.com:666/v1"
+        "baseURL": "https://hankin.mysite.com:666/v1",
+        "apiKey": "{env:OPENAI_API_KEY}"
       },
       "models": {
         "deepseek-v4-flash": {
@@ -157,6 +160,8 @@ cat ~/.config/opencode/opencode.jsonc
   }
 }
 ```
+
+注：如使用 `/connect` 命令，输入密钥连接模型，会在 `~/.local/share/opencode` 路径生成两个文件：`account.json` 和 `auth.json`。密钥被保存在 `auth.json` 文件中。还需要在 `opencode.jsonc` 配置 `provider` 才能用。
 
 ### 快捷键
 
