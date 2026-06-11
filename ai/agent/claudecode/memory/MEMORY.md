@@ -1,3 +1,4 @@
 - [语言偏好](language_preference.md) — 所有回答、注释、文档必须使用中文
 - [工作流程规则](workflow_rules.md) — 提交确认、文档同步、先问再写、禁止AI标记
 - [记忆编写标准](memory-writing-standard.md) — 标题短、正文精、去冗余
+- [Markdown转PDF流程](feedback_md_to_pdf.md) — Windows下用Python markdown + Edge headless，避免npm方案
