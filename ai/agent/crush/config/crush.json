@@ -1,0 +1,19 @@
+{
+  "$schema": "https://charm.land/crush.json",
+    "options": {
+    "disable_provider_auto_update": true
+  },
+  "providers": {
+    "myoneapi": {
+      "type": "openai-compat",
+      "base_url": "https://api.mysite.com:666/v1",
+      "api_key": "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "models": [
+        {
+          "id": "deepseek-v4-flash",
+          "name": "DeepSeek智能体"
+        }
+      ]
+    }
+  }
+}

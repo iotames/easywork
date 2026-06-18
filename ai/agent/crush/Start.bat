@@ -1,0 +1,17 @@
+@echo off
+chcp 65001 >nul
+
+set "BASE=%~dp0"
+set "BASE=%BASE:~0,-1%"
+set "CRUSH_SKILLS_DIR=%BASE%\skills"
+
+set "CRUSH_GLOBAL_CONFIG=%BASE%\config"
+set "CRUSH_GLOBAL_DATA=%BASE%\data"
+
+echo 设置环境变量：
+echo BASE=%BASE%
+echo CRUSH_SKILLS_DIR=%CRUSH_SKILLS_DIR%
+echo CRUSH_GLOBAL_CONFIG=%CRUSH_GLOBAL_CONFIG%
+echo CRUSH_GLOBAL_DATA=%CRUSH_GLOBAL_DATA%
+
+crush.exe

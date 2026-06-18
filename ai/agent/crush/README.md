@@ -7,8 +7,8 @@ Crush 是 Charm 开发的终端 AI Agent 工具，它把本地命令行、代码
 
 ## 下载
 
-- Windows：https://github.com/charmbracelet/crush/releases/download/v0.75.0/crush_0.75.0_Windows_x86_64.zip
-- Linux：https://github.com/charmbracelet/crush/releases/download/v0.75.0/crush_0.75.0_Linux_x86_64.tar.gz
+- Windows：https://github.com/charmbracelet/crush/releases/download/v0.77.0/crush_0.77.0_Windows_x86_64.zip
+- Linux：https://github.com/charmbracelet/crush/releases/download/v0.77.0/crush_0.77.0_Linux_x86_64.tar.gz
 
 ```bash
 # Go语言命令直接安装
