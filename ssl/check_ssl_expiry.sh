@@ -2,6 +2,11 @@
 
 # 检查HTTPS证书的有效期
 
+# 每周三早上 9:10 执行 https网站证书是否即将过期的监控。
+# DOMAINS_FILE="/etc/ssl_monitor/domains.txt"   # 域名列表文件：跳过空行和注释行
+# LOG_FILE="/var/log/ssl_monitor.log"           # 日志文件
+# 10 9 * * 3 /usr/local/bin/check_ssl_expiry.sh
+
 # ==================== 配置区 ====================
 
 # 改为环境变量注入
