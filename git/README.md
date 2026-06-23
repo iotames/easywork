@@ -90,3 +90,8 @@ git config --global user.email john@example.com
 # 对最近一次commit进行修改
 git commit --amend
 ```
+
+
+## 常见问题
+
+1. `NFS` 网络共享盘，不适合作为 Git bare 仓库的存储后端。git push 推送后，可能意外断开连接，报错：`Connection to 192.168.2.102 closed by remote host`

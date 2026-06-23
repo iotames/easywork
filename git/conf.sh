@@ -19,5 +19,17 @@ git config --global core.safecrlf warn
 # 忽略文件权限检查
 git config --global core.filemode false
 
+# 设置仓库默认分支为 master
+git config --global init.defaultBranch master
+
 # 查看全局设置
 git config --global --list
+
+# 输出示例
+core.autocrlf=input
+core.safecrlf=warn
+core.filemode=false
+user.name=Hankin
+user.email=hankin@catmes.com
+color.ui=true
+init.defaultbranch=main
