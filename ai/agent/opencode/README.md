@@ -187,12 +187,12 @@ OpenCode 的大多数快捷键使用 `leader`（前导键）。
 
 为每个技能名称创建一个文件夹，并在其中放入 SKILL.md。 OpenCode 会搜索以下位置：
 
-- 项目配置：.opencode/skills/<name>/SKILL.md
-- 全局配置：~/.config/opencode/skills/<name>/SKILL.md
-- 项目 Claude 兼容：.claude/skills/<name>/SKILL.md
-- 全局 Claude 兼容：~/.claude/skills/<name>/SKILL.md
-- 项目代理兼容：.agents/skills/<name>/SKILL.md
-- 全局代理兼容：~/.agents/skills/<name>/SKILL.md
+- 项目配置：`.opencode/skills/<name>/SKILL.md`
+- 全局配置：`~/.config/opencode/skills/<name>/SKILL.md`
+- 项目 Claude 兼容：`.claude/skills/<name>/SKILL.md`
+- 全局 Claude 兼容：`~/.claude/skills/<name>/SKILL.md`
+- 项目代理兼容：`.agents/skills/<name>/SKILL.md`
+- 全局代理兼容：`~/.agents/skills/<name>/SKILL.md`
 
 ### 下载技能
 
