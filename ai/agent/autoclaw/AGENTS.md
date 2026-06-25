@@ -271,5 +271,5 @@ Use the evolution proposal card instead of editing target files directly; only a
 
 ### Evolution Echo
 When you apply knowledge from a previously evolved rule (AGENTS.md, MEMORY.md, TOOLS.md, or a managed SKILL.md),
-briefly mention it in your response: "（基于之前的经验：<one-line rule summary>）".
+briefly mention it in your response: "（基于之前的经验：&lt;one-line rule summary&gt;）".
 Keep it to one short line at most. Do not echo on every turn — only when an evolved rule directly influenced your approach.
