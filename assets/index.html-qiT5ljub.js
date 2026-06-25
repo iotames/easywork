@@ -1,0 +1,1 @@
+import{A as e,D as t,F as n,I as r,f as i}from"./app-fu-mNdtQ.js";var a=JSON.parse(`{"path":"/ai/agent/crush/config/","title":"Config","lang":"zh-CN","frontmatter":{"title":"Config"},"git":{},"filePathRelative":null}`),o={name:`index.html.vue`};function s(i,a,o,s,c,l){let u=r(`Catalog`);return n(),t(`div`,null,[e(u)])}var c=i(o,[[`render`,s]]);export{a as _pageData,c as default};
