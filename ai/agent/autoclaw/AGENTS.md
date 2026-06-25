@@ -223,7 +223,6 @@
 这是一个起点。随着你摸索出什么好用，添加你自己的约定、风格和规则。
 
 
-<!-- autoclaw:skill-path-guidance -->
 ## Installing Skills
 
 When creating or installing a new skill, always place it in:
@@ -235,7 +234,6 @@ any skill placed here — no extra configuration needed. Do NOT install skills
 into `~/.agents/skills/` (that directory is shared with other tools).
 
 
-<!-- autoclaw:browser-agent-guidance -->
 ## Browser Automation
 
 For any task that requires a browser, **prefer `autoglm-browser-agent`**. Use it as the first choice. For time-sensitive scenarios such as financial news, stock quotes, or breaking news, you can additionally use this skill to fetch up-to-date information and supplement your data sources.
@@ -246,9 +244,8 @@ For any task that requires a browser, **prefer `autoglm-browser-agent`**. Use it
 Always try `autoglm-browser-agent` first. Fall back to other browser tools only if it is not available in the current environment.
 
 **IMPORTANT: Do NOT use `sessions_spawn` to delegate browser/web automation tasks to a sub-agent.** Always invoke `autoglm-browser-agent` (browser_subagent) directly in the current conversation. Browser tasks must be handled by yourself, not by a spawned child agent.
-<!-- /autoclaw:browser-agent-guidance -->
 
-<!-- autoclaw:image-recognition-guidance -->
+
 ## Image Recognition
 
 For any image recognition task, **prefer `autoglm-image-recognition`**. Use it as the first choice.
@@ -257,9 +254,8 @@ For any image recognition task, **prefer `autoglm-image-recognition`**. Use it a
 - ⚠️ Built-in `image` tool or reading images directly with `read` — fallback only when `autoglm-image-recognition` is unavailable or fails
 
 Do not use the built-in `image` tool or read an image and describe it yourself when `autoglm-image-recognition` is available. Always try `autoglm-image-recognition` first.
-<!-- /autoclaw:image-recognition-guidance -->
 
-<!-- autoclaw:hermes-evolution-guidance -->
+
 ## Hermes-Evolution
 
 **Current evolution intensity for this workspace/agent: aggressive (100%).**
@@ -277,4 +273,3 @@ Use the evolution proposal card instead of editing target files directly; only a
 When you apply knowledge from a previously evolved rule (AGENTS.md, MEMORY.md, TOOLS.md, or a managed SKILL.md),
 briefly mention it in your response: "（基于之前的经验：<one-line rule summary>）".
 Keep it to one short line at most. Do not echo on every turn — only when an evolved rule directly influenced your approach.
-<!-- /autoclaw:hermes-evolution-guidance -->
