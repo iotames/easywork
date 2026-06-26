@@ -17,7 +17,7 @@ systemctl restart systemd-journald
 
 ## 常见命令
 
-```
+```bash
 # 查看服务的日志
 journalctl -u cdnguard.service
 
