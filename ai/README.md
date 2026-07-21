@@ -30,6 +30,11 @@ Hugging Face 是一个 `开源AI社区和平台`，专注于自然语言处理�
 
 - prompt: [AI提示工程](prompt/README.md)
 
+## 开发框架
+
+- https://www.cloudwego.io/zh/docs/eino/: Eino 是基于 Golang 的 AI 应用开发框架
+- 
+
 
 ## TODO
 
