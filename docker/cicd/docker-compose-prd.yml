@@ -1,0 +1,14 @@
+services:
+  payload_prd:
+    image: santic-revamp-cms:${IMAGE_TAG:-latest}
+    ports:
+      - '3001:3000'
+
+    env_file:
+      - .env
+
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
