@@ -9,6 +9,7 @@ metadata:
 
 1. **使用简体中文**：所有回答、注释、文档、commit message 必须使用中文。代码标识符保持工程化英文惯例。
 2. **简洁明确**：回答必须务实、简洁、精准。不扩展未询问的内容。
+3. **交互式对话确认**：先问再做，优先使用交互式对话，明确用户需求。
 
 ## 记忆文件（上下文注入文件）
 
@@ -33,4 +34,13 @@ metadata:
 
 ## Windows Markdown 转 PDF 流程
 
-Python `markdown` 库转 HTML → Edge headless 打印为 PDF。不要用 npm/puppeteer/weasyprint/pandoc（此机器 npm 有 EBUSY 问题，weasyprint 缺 GTK 系统库）。
+1. Python `markdown` 库转 HTML → Edge headless 打印为 PDF。不要用 npm/puppeteer/weasyprint/pandoc（此机器 npm 有 EBUSY 问题，weasyprint 缺 GTK 系统库）。
+2. Edge 参数必带 `--print-to-pdf-no-header --no-margins` 以禁止默认页头页脚（时间戳、文件路径）。
+3. 隐私要求：转换后用 pypdf 剥离元数据（`writer.metadata = None`），页头页脚绝不能包含时间、文件路径等隐私信息。页头仅保留文件名，页脚仅保留页码。
+4. CSS 限制须知：`@page` margin boxes 不生效，`position: fixed` 被 Edge headless 剥离。页头/页脚需用独立 Edge 实例逐页生成（`position: absolute` + mm 坐标定位），再用 pypdf `merge_page(over=True)` 合并。
+5. fpdf2 与 pypdf 合并时 TrueType 字体会触发 `MERG NOT subset` 警告，导致水印文字丢失。改用 Edge 生成水印页可避免此问题。
+6. 用 Python `subprocess` 调 Edge 时，路径为 `C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe`，HTML 路径需转换为 `file:///` URL。
+
+**Why:** 网络拓扑图.html 用 mermaid.js 渲染,图较大(3241×806px),需整图单页、1:1 分辨率输出,PDF 查看器内可缩放/上下滚动。
+
+**How to apply:** jsdelivr 被墙,须把 mermaid.min.js 从 npmmirror 下载本地化;此机器 Edge headless 的 `--dump-dom`、`--print-to-pdf` 配 `--virtual-time-budget` 或中文路径 `--user-data-dir` 均静默失败,需走 CDP(webSocket 连接,启动参数加 `--remote-allow-origins=*`);`Page.printToPDF` 按 SVG 尺寸+20px 缓冲设纸张,单页输出;最后 pypdf 置 `metadata=None` 剥隐私。
