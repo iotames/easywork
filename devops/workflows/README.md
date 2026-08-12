@@ -1,3 +1,10 @@
+---
+title: "GitHub Workflows"
+description: "GitHub Actions 自动化工作流：CI/CD 构建、测试与部署"
+tags: ["DevOps", "GitHub Actions", "CI/CD"]
+order: 5
+---
+
 ## 简介
 
 Workflow​​ 是GitHub提供的自动化工作流服务。常用于自动化软件构建、测试和部署等流程。
@@ -89,4 +96,3 @@ act --version
 - `-j`：直接指定触发 Job；
 - `g`：图形化的方式来展示 Action 的流程；
 - `-e`：可以编写一个 JSON 文件来描述 Github 事件，例如一个 PR：
-

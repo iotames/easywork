@@ -2,7 +2,7 @@
 title: "AI人工智能"
 description: "AI学习使用笔记"
 tags: ["AI", "LLM"]
-order: 1
+order: 2
 ---
 
 ## AI使用笔记

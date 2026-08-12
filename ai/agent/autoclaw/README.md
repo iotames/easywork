@@ -1,3 +1,10 @@
+---
+title: "AutoClaw介绍"
+description: "智谱 AutoClaw：IM 入口的 AI 智能体，自主调用工具执行任务"
+tags: ["AI", "AI Agent", "AutoClaw"]
+order: 2
+---
+
 ## AutoClaw简介
 
 智谱 AutoClaw：替你干活的 AI 搭档，将 Agent 执行力装进一个 IM 入口。一键激活 AI 智能体分身，自主调用专业工具，让复杂任务在对话框中自动达成。

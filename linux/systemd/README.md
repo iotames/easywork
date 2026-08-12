@@ -1,3 +1,10 @@
+---
+title: "Systemd与Systemctl"
+description: "systemd 初始化系统与 systemctl 服务管理命令"
+tags: ["Linux", "systemd", "systemctl"]
+order: 2
+---
+
 ## systemctl和systemd简介
 
 - https://github.com/systemd/systemd

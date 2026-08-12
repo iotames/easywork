@@ -1,3 +1,10 @@
+---
+title: "ClaudeCode介绍"
+description: "Claude Code 编程助手：安装、禁用更新、切换 DeepSeek 模型"
+tags: ["AI", "AI Agent", "ClaudeCode"]
+order: 3
+---
+
 ## 简介
 
 ClaudeCode 是 Claude AI 的编程智能助手。
@@ -131,4 +138,3 @@ chcp 65001 >nul
 # /c ：执行完后立即关闭窗口（不符合需求）。
 cmd /k "C:\scripts\SetClaudeEnv.bat"
 ```
-

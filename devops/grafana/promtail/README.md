@@ -1,3 +1,10 @@
+---
+title: "Promtail日志采集"
+description: "Grafana Loki 的日志采集 Agent：安装与配置"
+tags: ["DevOps", "Grafana", "Promtail", "日志"]
+order: 1
+---
+
 ## Promtail简介
 
 `Promtail` 是 Grafana Labs 专为 `Loki` 打造的 `Log Agent`，主要任务是收集、处理 `Log` 並將之送至 `Loki`。

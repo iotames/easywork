@@ -1,3 +1,10 @@
+---
+title: "Harbor镜像仓库"
+description: "Harbor 私有镜像仓库离线安装与配置"
+tags: ["Docker", "Harbor", "镜像仓库"]
+order: 2
+---
+
 ## 安装Harbor
 
 - [Harbor离线包](https://github.com/goharbor/harbor/releases)：https://github.com/goharbor/harbor/releases

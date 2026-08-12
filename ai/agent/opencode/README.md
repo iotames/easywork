@@ -1,3 +1,10 @@
+---
+title: "OpenCode介绍"
+description: "开源 AI 编码代理：安装、容器沙箱、配置与 Skills 技能"
+tags: ["AI", "AI Agent", "OpenCode"]
+order: 6
+---
+
 ## 简介
 
 OpenCode 是一个开源的 AI 编码代理。它提供终端界面、桌面应用和 IDE 扩展等多种使用方式。

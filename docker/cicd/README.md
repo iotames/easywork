@@ -1,3 +1,10 @@
+---
+title: "Docker CI/CD"
+description: "基于 Docker 的持续集成与持续部署参考实现（多阶段构建、Compose 多环境）"
+tags: ["Docker", "CI/CD", "DevOps"]
+order: 1
+---
+
 # CI/CD — Docker 容器化持续集成与持续部署
 
 ## 概述

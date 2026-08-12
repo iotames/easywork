@@ -1,3 +1,10 @@
+---
+title: "Kestra"
+description: "开源工作流自动化平台：Docker 安装与生产环境配置"
+tags: ["DevOps", "Kestra", "工作流"]
+order: 3
+---
+
 ## 官方资源
 
 - 项目主页：https://github.com/kestra-io/kestra

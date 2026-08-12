@@ -1,3 +1,10 @@
+---
+title: "GitLab"
+description: "自托管 Git 仓库管理：版本控制、代码审查、CI/CD"
+tags: ["DevOps", "GitLab", "Git"]
+order: 1
+---
+
 ## GitLab简介
 
 ‌GitLab是一个基于Git的开源项目，旨在帮助团队更高效地合作和开发软件。‌它使用Ruby on Rails框架构建，提供了一个自托管的Git仓库管理工具，支持版本控制、代码审查、持续集成和持续部署等功能。‌

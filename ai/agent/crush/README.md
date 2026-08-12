@@ -1,3 +1,10 @@
+---
+title: "Crush介绍"
+description: "Charm 终端 AI Agent：多模型切换、LSP 增强、MCP 插件"
+tags: ["AI", "AI Agent", "Crush"]
+order: 4
+---
+
 ## 简介
 
 Crush 是 Charm 开发的终端 AI Agent 工具，它把本地命令行、代码上下文和 LLM 提供商连接起来，支持多模型切换、会话上下文、LSP 增强和可扩展 MCP 插件。

@@ -1,5 +1,6 @@
 ---
 title: Nginx
+order: 17
 ---
 
 ## 安装
