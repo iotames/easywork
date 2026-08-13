@@ -32,8 +32,8 @@
       }
     </script>
     <title>Promtail日志采集 | 沙滩星空的博客</title><meta name="description" content="Grafana Loki 的日志采集 Agent：安装与配置">
-    <link rel="preload" href="/easywork/assets/style-CAAc_Ka8.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-CAAc_Ka8.css">
-    <link rel="modulepreload" href="/easywork/assets/app-By77jtL8.js"><link rel="modulepreload" href="/easywork/assets/README-BOAnkCC7.js">
+    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
+    <link rel="modulepreload" href="/easywork/assets/app-uaayYDl-.js"><link rel="modulepreload" href="/easywork/assets/README-CvB6kQPn.js">
     
   </head>
   <body>
@@ -123,6 +123,6 @@
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如果非容器环境，在宿主机直接运行 Promtail ，日志轮转通过 ​​logrotate 的 postrotate 脚本发送 HUP 信号​​通知 Promtail 刷新文件句柄：<code>pkill -HUP promtail</code></p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># 检查Promtail状态</span></span>
 <span class="line"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> promtail <span class="token function">wc</span> <span class="token parameter variable">-l</span> /var/log/positions.yaml</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><hr><blockquote><p>Promtail — Loki 御用 Log 收集器 https://ithelp.ithome.com.tw/articles/10331661</p></blockquote></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2026-08-12T07:38:39.000Z" data-allow-mismatch>2026/8/12 07:38</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: whq78164@gmail.com">Hankin</span><!--[-->, <!--]--><!--]--><!--[--><span class="contributor" title="email: 554553400@qq.com">吴汉青</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-By77jtL8.js" defer></script>
+    <script type="module" src="/easywork/assets/app-uaayYDl-.js" defer></script>
   </body>
 </html>

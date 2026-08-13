@@ -32,8 +32,8 @@
       }
     </script>
     <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
-    <link rel="preload" href="/easywork/assets/style-CAAc_Ka8.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-CAAc_Ka8.css">
-    <link rel="modulepreload" href="/easywork/assets/app-By77jtL8.js"><link rel="modulepreload" href="/easywork/assets/conf-9gEr6BdJ.js">
+    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
+    <link rel="modulepreload" href="/easywork/assets/app-uaayYDl-.js"><link rel="modulepreload" href="/easywork/assets/conf-DUEhuD67.js">
     
   </head>
   <body>
@@ -67,6 +67,6 @@
 <span class="line"><span class="token function">java</span> <span class="token parameter variable">-jar</span> app.jar</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="命令参数注入-优先级最高" tabindex="-1"><a class="header-anchor" href="#命令参数注入-优先级最高"><span>命令参数注入（优先级最高）</span></a></h3><ol><li>在源码中读取：Spring Boot 中直接通过 <code>@Value(&quot;${spring.datasource.url}&quot;)</code> 注入。</li><li>启动时，通过命令参数 <code>--key=value </code> 传入。如：<code>--server.port=8081</code></li></ol><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">java</span> <span class="token parameter variable">-jar</span> app.jar <span class="token parameter variable">--spring.datasource.url</span><span class="token operator">=</span>jdbc:mysql://test-db:3306/app <span class="token parameter variable">--server.port</span><span class="token operator">=</span><span class="token number">8081</span></span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2025-12-29T08:01:06.000Z" data-allow-mismatch>2025/12/29 08:01</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: hankin@catmes.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-By77jtL8.js" defer></script>
+    <script type="module" src="/easywork/assets/app-uaayYDl-.js" defer></script>
   </body>
 </html>
