@@ -33,7 +33,7 @@
     </script>
     <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
     <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
-    <link rel="modulepreload" href="/easywork/assets/app-uaayYDl-.js"><link rel="modulepreload" href="/easywork/assets/xxd-BmF-tGVe.js">
+    <link rel="modulepreload" href="/easywork/assets/app-CLNwLC8N.js"><link rel="modulepreload" href="/easywork/assets/xxd-CLUvdD6X.js">
     
   </head>
   <body>
@@ -41,6 +41,6 @@
 <span class="line">xxd filename</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><table><thead><tr><th>场景</th><th>命令示例</th><th>说明</th></tr></thead><tbody><tr><td>查看二进制文件</td><td>xxd filename.bin</td><td>默认格式显示，包含偏移量、十六进制和ASCII。</td></tr><tr><td>生成纯十六进制文本文件 -plain</td><td>xxd -p filename.bin &gt; hexdump.txt</td><td>适用于需要连续十六进制字符串的场景。</td></tr><tr><td>将十六进制文件还原为二进制 -reverse</td><td>xxd -r hexdump.txt output.bin</td><td>还原标准格式（三列）的转储文件。</td></tr><tr><td>将纯十六进制文本文件还原为二进制</td><td>xxd -r -p plain_hex.txt output.bin</td><td>还原连续的十六进制字符串（无偏移量和ASCII码）。</td></tr><tr><td>从文件指定位置开始查看 -seek</td><td>xxd -s 0x100 filename.bin</td><td>从文件偏移256字节（0x100）处开始显示。</td></tr><tr><td>限制查看的长度 -len</td><td>xxd -l 64 filename.bin</td><td>只显示文件的前64个字节。</td></tr><tr><td>更改每行显示的字节数 -cols</td><td>xxd -c 8 filename.bin</td><td>每行显示8字节十六进制内容。</td></tr></tbody></table><p><code>默认</code>每行显示16字节：16进制字符，每字节2个，每组2个字节4个16进制字符。共8组。如下所示：</p><div class="language-h line-numbers-mode" data-highlighter="prismjs" data-ext="h"><pre><code class="language-h"><span class="line">000002c0: 0000 0000 4000 40c0 2e74 6c73 0000 0000  ....@.@..tls....</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><h2 id="参数说明" tabindex="-1"><a class="header-anchor" href="#参数说明"><span>参数说明</span></a></h2><p>短参数 英文全称/描述 功能解释</p><p>-r -reverse 反向操作：将十六进制转储转换回二进制文件。</p><p>-p -plain 或 -postscript 纯十六进制输出：生成连续的十六进制字符串，不显示偏移量和ASCII码。</p><p>-c -cols 设置每行显示的列数（字节数）。默认16字节。</p><p>-l -len 限制输出或转换的长度（字节数）。</p><p>-s -seek 从指定的偏移量开始处理文件。</p><p>-g -groupsize 设置分组大小：每多少个字节为一组，用空格隔开。默认2字节。</p><p>-a -autoskip 自动跳过全为零的行，用单个*代替。</p><p>-u -uppercase 十六进制字母使用大写形式。</p><p>-i -include 以C语言头文件格式输出。</p></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2025-10-30T07:21:12.000Z" data-allow-mismatch>2025/10/30 07:21</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-uaayYDl-.js" defer></script>
+    <script type="module" src="/easywork/assets/app-CLNwLC8N.js" defer></script>
   </body>
 </html>

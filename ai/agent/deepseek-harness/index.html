@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.31" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <title>DeepSeek Harness (dsh) 介绍 | 沙滩星空的博客</title><meta name="description" content="DeepSeek AI 开源智能体框架：一切皆插件，基于 Cordis，Web UI 开发预览版">
+    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
+    <link rel="modulepreload" href="/easywork/assets/app-CLNwLC8N.js"><link rel="modulepreload" href="/easywork/assets/README-BXCUIglA.js">
+    
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/easywork/"><!----><span class="vp-site-name" aria-hidden="true">沙滩星空的博客</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!--[--><button type="button" class="slimsearch-button" aria-label="搜索"><svg xmlns="http://www.w3.org/2000/svg" class="icon search-icon" viewBox="0 0 1024 1024" fill="currentColor" aria-label="search icon"><path d="M192 480a256 256 0 1 1 512 0 256 256 0 0 1-512 0m631.776 362.496-143.2-143.168A318.464 318.464 0 0 0 768 480c0-176.736-143.264-320-320-320S128 303.264 128 480s143.264 320 320 320a318.016 318.016 0 0 0 184.16-58.592l146.336 146.368c12.512 12.48 32.768 12.48 45.28 0 12.48-12.512 12.48-32.768 0-45.28"></path></svg><div class="slimsearch-placeholder">搜索</div><div class="slimsearch-key-hints"><kbd class="slimsearch-key">Ctrl</kbd><kbd class="slimsearch-key">K</kbd></div></button><!--]--></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><p tabindex="0" class="vp-sidebar-item vp-sidebar-heading">DeepSeek Harness (dsh) 介绍 <!----></p><!----></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div id="content"><h2 id="简介" tabindex="-1"><a class="header-anchor" href="#简介"><span>简介</span></a></h2><p>DeepSeek Harness（<code>dsh</code>）是 <a href="https://deepseek.com" target="_blank" rel="noopener noreferrer">DeepSeek AI</a> 开发的开源 agent harness（智能体框架）。它采用<strong>一切皆插件</strong>（Everything is a Plugin）的架构，由 <a href="https://github.com/cordiverse/cordis" target="_blank" rel="noopener noreferrer">Cordis</a> 驱动。</p><ul><li>开源主页：https://github.com/deepseek-ai/deepseek-harness</li><li>官网文档：https://deepseek.com/harness</li><li>定位：<strong>开发者预览版</strong>，正在快速迭代，<strong>未来会出现破坏兼容性的变更</strong></li></ul><h2 id="架构理念" tabindex="-1"><a class="header-anchor" href="#架构理念"><span>架构理念</span></a></h2><p>DSH 的核心思想是 <strong>Everything is a Plugin</strong>：几乎所有能力都以插件形式提供，通过 Cordis 组合起来。设计理论可参考论文 <a href="https://github.com/cordiverse/paper" target="_blank" rel="noopener noreferrer"><em>A Programming Paradigm for Spatiotemporal Composability</em></a>。</p><blockquote><p>本目录下的 <code>whaleui/</code>（鲸鱼喷泉装饰）即以「插件 + 皮肤」身份挂载到 DSH Web UI 的 <code>shell.overlay</code> 浮动层，是其插件化架构的一个实例。</p></blockquote><h2 id="安装与运行" tabindex="-1"><a class="header-anchor" href="#安装与运行"><span>安装与运行</span></a></h2><p>前置依赖：<code>Node.js</code>。</p><h3 id="方式一-直接通过-npm-运行-推荐" tabindex="-1"><a class="header-anchor" href="#方式一-直接通过-npm-运行-推荐"><span>方式一：直接通过 npm 运行（推荐）</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># 一行启动 Web UI，默认地址 http://127.0.0.1:3080</span></span>
+<span class="line">npx @deepseek-ai/dsh web</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="方式二-从源码运行" tabindex="-1"><a class="header-anchor" href="#方式二-从源码运行"><span>方式二：从源码运行</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">git</span> clone https://github.com/deepseek-ai/deepseek-harness.git</span>
+<span class="line"><span class="token builtin class-name">cd</span> deepseek-harness</span>
+<span class="line"><span class="token function">pnpm</span> <span class="token function">install</span></span>
+<span class="line"><span class="token function">pnpm</span> run build</span>
+<span class="line"><span class="token function">pnpm</span> dsh web</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="核心特性" tabindex="-1"><a class="header-anchor" href="#核心特性"><span>核心特性</span></a></h2><table><thead><tr><th>特性</th><th>说明</th></tr></thead><tbody><tr><td><strong>一切皆插件</strong></td><td>工具、皮肤、扩展均以插件形式接入，可组合、可插拔</td></tr><tr><td><strong>Cordis 内核</strong></td><td>基于 Cordis 的模块化/生命周期管理</td></tr><tr><td><strong>Web UI</strong></td><td>开箱自带 Web 界面，默认端口 <code>3080</code></td></tr><tr><td><strong>多模型 provider</strong></td><td>支持配置自定义模型与 providers</td></tr><tr><td><strong>Python SDK</strong></td><td>提供 Python SDK，便于编程集成</td></tr></tbody></table><h2 id="插件生态" tabindex="-1"><a class="header-anchor" href="#插件生态"><span>插件生态</span></a></h2><table><thead><tr><th>类别</th><th>说明</th></tr></thead><tbody><tr><td><strong>dsh-plugin 话题</strong></td><td>官方维护的插件发现分类，见 https://github.com/topics/dsh-plugin</td></tr><tr><td><strong>awesome-dsh-plugin</strong></td><td>社区精选插件列表（任务看板、Git 图、宠物、皮肤中心等）</td></tr></tbody></table><p>发布插件时给仓库打上 <code>dsh-plugin</code> 话题便于被检索。</p><h2 id="社区与支持" tabindex="-1"><a class="header-anchor" href="#社区与支持"><span>社区与支持</span></a></h2><ul><li>反馈 / bug 报告：https://github.com/deepseek-ai/deepseek-harness/discussions</li><li>Discord 社区：https://discord.gg/Ycq5dCaS4</li><li>开发者预览阶段，文档见仓库 <code>docs/</code>：Web UI 指南、开发指南、架构文档</li></ul><h2 id="本目录内容" tabindex="-1"><a class="header-anchor" href="#本目录内容"><span>本目录内容</span></a></h2><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">ai/agent/deepseek-harness/</span>
+<span class="line">└── whaleui/               # 一个 dsh 插件实例：Web UI 浮层的鲸鱼喷泉装饰</span>
+<span class="line">    ├── WHALE.md           # 插件使用文档</span>
+<span class="line">    ├── WhaleOverlay.tsx</span>
+<span class="line">    ├── WhaleOverlay.module.css</span>
+<span class="line">    ├── FishLogo.tsx</span>
+<span class="line">    ├── icons/props.ts</span>
+<span class="line">    └── env.d.ts</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="许可证" tabindex="-1"><a class="header-anchor" href="#许可证"><span>许可证</span></a></h2><p><a href="LICENSE">MIT</a>，第三方依赖许可见 <code>THIRD_PARTY_NOTICES.md</code>。</p></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2026-08-14T07:19:54.000Z" data-allow-mismatch>2026/8/14 07:19</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
+    <script type="module" src="/easywork/assets/app-CLNwLC8N.js" defer></script>
+  </body>
+</html>
