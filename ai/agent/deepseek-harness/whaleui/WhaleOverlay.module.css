@@ -1,0 +1,358 @@
+/* Decorative brand whale floating at the frame's bottom edge. The shell.overlay
+   layer is the frame's own top layer, so the whale floats above every column
+   without joining any scroll container; the layer stays click-through but the
+   whale box opts back into pointer events so it can react. It patrols the two
+   side edges only and never renders over the central work area: on each side
+   it slides in from off-screen, makes one in-edge excursion of
+   --sway-distance, slides back, then drifts past the browser edge while fading
+   out, then the side switch happens while hidden so the middle stays free. A
+   hover pauses the patrol; a click fires a one-shot leap-and-spout. All motion
+   pauses under prefers-reduced-motion. */
+
+.root {
+  position: absolute;
+  bottom: var(--bottom-offset);
+  left: calc(100vw - var(--whale-size) - var(--edge-offset));
+  width: var(--whale-size);
+  height: var(--whale-size);
+  pointer-events: auto;
+  color: var(--dsw-static-deepseek-500);
+  opacity: var(--base-opacity);
+  animation: whale-patrol var(--patrol-duration) var(--ds-ease-in-out) infinite;
+  /* ---------------------------------------------------------------
+     Configuration — every pixel, color and duration in this file derives
+     from the variables below. Change them in one place.
+     --------------------------------------------------------------- */
+
+  /* ---- Whale (frame placement + swim) ---- */
+  --whale-size: 96px; /* whale bound-box side; must match the FishLogo size passed in the markup */
+  --edge-offset: 20px; /* resting gap from the browser edge while the whale is inside it */
+  --bottom-offset: 16px; /* whale's vertical placement above the frame's bottom edge */
+  --base-opacity: 0.9; /* whale's resting opacity (applied when the patrol is paused, e.g. reduced motion) */
+  --sway-distance: 500px; /* one-way excursion length along each edge */
+  --exit-distance: calc(var(--whale-size) + var(--edge-offset)); /* how far past the edge the whale travels while fading out */
+  --patrol-duration: 16s; /* one full right-edge + left-edge patrol cycle */
+
+  /* ---- Spout (leap-and-spout one-shot) ---- */
+  --spout-duration: 2s; /* length of the whole leap-and-spout animation */
+  --spout-ratio: 1.5; /* main column total height as a multiple of --whale-size (here: 1.5 × whale height) */
+  --spout-top-width: 48px; /* column width at its fullest (the bulging middle); the mouth narrows from there */
+  --spout-font-narrow: 36%; /* mouth half-width at the whale as a % of width; smaller = sharper join */
+  --spout-side-ratio: 0.72; /* side jets' height as a multiple of the main column height */
+  --spout-side-width: 20px; /* side jets' full width */
+  --spout-color-light: #c9e6ff; /* light-blue band of the water (mid column / base of the plume) */
+  --spout-color-deep: #2f86c4; /* deep-blue peak of the water (top of the column) */
+  --spout-burst-ratio: 2; /* plume width as a multiple of --whale-size; well above 1 reads as a real splash */
+  --spout-mist-ratio: 2.4; /* soft halo around the plume as a multiple of --whale-size */
+  --spout-droplet: 14px; /* individual splash droplet diameter */
+}
+
+/* Hover or an active spout parks the patrol mid-motion; the swim resumes when
+   the pointer leaves or the spout finishes. */
+.root[data-paused],
+.root[data-spouting] {
+  animation-play-state: paused;
+}
+
+.fish {
+  display: block;
+}
+
+/* While spurting the whale leaps once up and back over the spout. */
+.root[data-spouting] .fish {
+  animation: whale-leap var(--spout-duration) var(--ds-ease-in-out) forwards;
+}
+
+/* ---- Fountain (leap-and-spout one-shot) ---- */
+/* The main water column: a tapered, bottle-shaped jet whose waist narrows at
+   the whale (--spout-font-narrow), swells full at the middle (--spout-top-width),
+   then re-narrows near the top before breaking into the plume. It runs
+   transparent → light blue → deep blue upward. */
+.spout {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--whale-size) - 6px);
+  width: var(--spout-top-width);
+  height: 0;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    color-mix(in srgb, var(--spout-color-light) 60%, transparent) 42%,
+    var(--spout-color-deep) 96%
+  );
+  clip-path: polygon(
+    46% 100%,
+    54% 100%,
+    52% 70%,
+    100% 38%,
+    92% 6%,
+    58% 2%,
+    50% 0%,
+    42% 2%,
+    8% 6%,
+    0% 38%,
+    48% 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+.root[data-spouting] .spout {
+  animation: spout-rise var(--spout-duration) ease-out forwards;
+}
+
+/* Left side jet: a shorter, slimmer column leaning outward-and-up. */
+.spout::before {
+  content: '';
+  position: absolute;
+  left: -46%;
+  bottom: 0;
+  width: var(--spout-side-width);
+  height: 0;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    color-mix(in srgb, var(--spout-color-light) 55%, transparent) 50%,
+    color-mix(in srgb, var(--spout-color-deep) 70%, transparent) 100%
+  );
+  border-radius: calc(var(--spout-side-width) / 2);
+  opacity: 0;
+}
+.root[data-spouting] .spout::before {
+  animation: spout-side-left var(--spout-duration) ease-out forwards;
+}
+
+/* Right side jet: mirror of the left. */
+.spout::after {
+  content: '';
+  position: absolute;
+  left: 146%;
+  bottom: 0;
+  width: var(--spout-side-width);
+  height: 0;
+  transform: translateX(-50%);
+  transform-origin: bottom;
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    color-mix(in srgb, var(--spout-color-light) 55%, transparent) 50%,
+    color-mix(in srgb, var(--spout-color-deep) 70%, transparent) 100%
+  );
+  border-radius: calc(var(--spout-side-width) / 2);
+  opacity: 0;
+}
+.root[data-spouting] .spout::after {
+  animation: spout-side-right var(--spout-duration) ease-out forwards;
+}
+
+/* ---- Top plume (`.spray`), the fountain's payoff ---- */
+/* A wide, layered splash bursting where the column peaks. The disc itself
+   carries several water-radius dots read as separate droplets; its own
+   ::before is a soft mist halo that gives the whole top mass, and ::after is
+   a pair of droplets spraying off each side. */
+.spray {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--whale-size) + var(--spout-top-width) * 1.2 - 6px); /* sits just above the column's peak */
+  width: calc(var(--whale-size) * var(--spout-burst-ratio));
+  height: calc(var(--whale-size) * var(--spout-burst-ratio));
+  transform: translateX(-50%) scale(0);
+  background:
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--spout-color-light) 95%, transparent) 30%, transparent 32%),
+    radial-gradient(circle at 38% 60%, color-mix(in srgb, var(--spout-color-light) 80%, transparent) 14%, transparent 15%),
+    radial-gradient(circle at 62% 58%, color-mix(in srgb, var(--spout-color-light) 80%, transparent) 12%, transparent 13%),
+    radial-gradient(circle at 45% 72%, color-mix(in srgb, var(--spout-color-deep) 70%, transparent) 10%, transparent 11%),
+    radial-gradient(circle at 58% 70%, color-mix(in srgb, var(--spout-color-deep) 70%, transparent) 9%, transparent 10%),
+    radial-gradient(closest-side, transparent 38%, color-mix(in srgb, var(--spout-color-deep) 25%, transparent) 100%);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.root[data-spouting] .spray {
+  animation: spray-out var(--spout-duration) ease-out forwards;
+}
+
+/* Soft light-blue halo wrapping the plume for volume. */
+.spray::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--whale-size) * var(--spout-mist-ratio));
+  height: calc(var(--whale-size) * var(--spout-mist-ratio));
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--spout-color-light) 45%, transparent), transparent 72%);
+  border-radius: 50%;
+  opacity: 0;
+}
+.root[data-spouting] .spray::before {
+  animation: spray-mist var(--spout-duration) ease-out forwards;
+}
+
+/* A droplet spraying away to each side, half-arc and fall. */
+.spray::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--spout-droplet);
+  height: var(--spout-droplet);
+  transform: translate(-50%, -50%) scale(0);
+  color: var(--spout-color-light);
+  background: radial-gradient(circle at 35% 30%, white, var(--spout-color-light) 55%, transparent 70%);
+  border-radius: 50%;
+  box-shadow:
+    calc(var(--spout-droplet) * -3.4) calc(var(--spout-droplet) * 1.2) 0 0 var(--spout-color-light),
+    calc(var(--spout-droplet) * 3.4) calc(var(--spout-droplet) * 0.9) 0 0 var(--spout-color-light),
+    calc(var(--spout-droplet) * -4.6) calc(var(--spout-droplet) * -0.8) 0 0 color-mix(in srgb, var(--spout-color-deep) 60%, transparent),
+    calc(var(--spout-droplet) * 4.6) calc(var(--spout-droplet) * -1.2) 0 0 color-mix(in srgb, var(--spout-color-deep) 60%, transparent);
+  opacity: 0;
+}
+.root[data-spouting] .spray::after {
+  animation: spray-droplets var(--spout-duration) ease-out forwards;
+}
+
+/* ---- Patrol keyframes ---- */
+/* One cycle covers the right-edge visit (0%–50%) and the mirrored left-edge
+   visit (50%–100%). Each visit reuses the same four-beat: slide in from
+   off-screen, excursion toward the center-line edge interior, slide back, then
+   keep drifting past its own browser edge while opacity eases to 0. The
+   side-to-side hop happens at 50.1% while opacity is 0, so the whale never
+   renders mid-frame. All numbers are percentages of --patrol-duration; left
+   anchors the edge (right = viewport width minus size and offset, left = the
+   offset), translateX does the in-edge slide (negative drifts left). */
+@keyframes whale-patrol {
+  /* Right edge */
+  0% {
+    left: calc(100vw - var(--whale-size) - var(--edge-offset));
+    transform: translateX(var(--exit-distance));
+    opacity: 0;
+  }
+  6% {
+    left: calc(100vw - var(--whale-size) - var(--edge-offset));
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    left: calc(100vw - var(--whale-size) - var(--edge-offset));
+    transform: translateX(calc(var(--sway-distance) * -1));
+    opacity: 1;
+  }
+  44% {
+    left: calc(100vw - var(--whale-size) - var(--edge-offset));
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    left: calc(100vw - var(--whale-size) - var(--edge-offset));
+    transform: translateX(var(--exit-distance));
+    opacity: 0;
+  }
+  /* Side switch — hidden, off-screen at the left edge */
+  50.1% {
+    left: var(--edge-offset);
+    transform: translateX(calc(var(--exit-distance) * -1));
+    opacity: 0;
+  }
+  /* Left edge */
+  56% {
+    left: var(--edge-offset);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80% {
+    left: var(--edge-offset);
+    transform: translateX(var(--sway-distance));
+    opacity: 1;
+  }
+  94% {
+    left: var(--edge-offset);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    left: var(--edge-offset);
+    transform: translateX(calc(var(--exit-distance) * -1));
+    opacity: 0;
+  }
+}
+
+@keyframes whale-leap {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(calc(var(--whale-size) * -0.5)); }
+  70% { transform: translateY(calc(var(--whale-size) * -0.3)); }
+  100% { transform: translateY(0); }
+}
+
+/* Main column: grows from zero to --spout-ratio × whale height. */
+@keyframes spout-rise {
+  0% { height: 0; opacity: 0; }
+  12% { opacity: 1; }
+  55% { height: calc(var(--whale-size) * var(--spout-ratio)); opacity: 1; }
+  100% { height: calc(var(--whale-size) * var(--spout-ratio)); opacity: 0; }
+}
+
+/* Left jet: shares the main rise but slimmer and a touch shorter, tilting
+   outward-up so the three jets read as one fountain. */
+@keyframes spout-side-left {
+  0% { height: 0; opacity: 0; }
+  12% { opacity: 1; }
+  55% { height: calc(var(--whale-size) * var(--spout-ratio) * var(--spout-side-ratio)); opacity: 1; }
+  100% { height: calc(var(--whale-size) * var(--spout-ratio) * var(--spout-side-ratio)); opacity: 0; }
+}
+
+@keyframes spout-side-right {
+  /* right jet same profile, mirrored position handled by ::after's left offset */
+  0% { height: 0; opacity: 0; }
+  12% { opacity: 1; }
+  55% { height: calc(var(--whale-size) * var(--spout-ratio) * var(--spout-side-ratio)); opacity: 1; }
+  100% { height: calc(var(--whale-size) * var(--spout-ratio) * var(--spout-side-ratio)); opacity: 0; }
+}
+
+/* Plume: bursts open to full burst size, lingers, then scatters away. */
+@keyframes spray-out {
+  0% { transform: translateX(-50%) scale(0.2); opacity: 0; }
+  18% { transform: translateX(-50%) scale(1); opacity: 1; }
+  55% { transform: translateX(-50%) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(0.9); opacity: 0; }
+}
+
+/* Mist halo blooms more slowly and wider than the plume for volume. */
+@keyframes spray-mist {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+  22% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+  60% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0; }
+}
+
+/* Droplets whip outward to both sides, peaking on the beat the plume
+   reaches full size, then fall away. */
+@keyframes spray-droplets {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  20% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  55% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--spout-droplet) * 8), calc(-50% + var(--spout-droplet) * 2)) scale(0.6); opacity: 0; box-shadow: none; }
+}
+
+::global(body[data-ds-dark-theme]) .root {
+  color: var(--dsw-static-deepseek-450);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    animation: none;
+  }
+  .root[data-spouting] .fish,
+  .root[data-spouting] .spout,
+  .root[data-spouting] .spout::before,
+  .root[data-spouting] .spout::after,
+  .root[data-spouting] .spray,
+  .root[data-spouting] .spray::before,
+  .root[data-spouting] .spray::after {
+    animation: none;
+  }
+}
