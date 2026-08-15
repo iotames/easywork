@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Boot Analyze Record
+Comment=Record boot time to history log after login (async, 30s delay)
+Exec=/usr/local/bin/boot-analyze-record.sh
+Terminal=false
+X-GNOME-Autostart-enabled=true
+Hidden=false
