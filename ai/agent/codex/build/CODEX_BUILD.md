@@ -359,6 +359,29 @@ cargo build > /tmp/codex-build.log 2>&1
 - debug 版 1.3 GB 更大，因为 V8 与 codex 都带调试符号；
 - 想再压缩，方向在 V8 构建选项（裁剪 feature）或上游调整，本地空间有限。
 
+## 16. 从官方 CI 学到的（.github/workflows 对照）
+
+对照官方工作流（`rust-release.yml` / `rust-ci.yml` /
+`rusty-v8-release.yml`）后的确认与补充：
+
+1. **官方发布版构建 = 普通 `cargo build --release` + 构建后 strip**：
+   - `rust-release.yml` 里就是 `cargo build --release --timings`，**没有开 LTO**；
+   - 官方先把符号归档（脚本 `archive-release-symbols-and-strip-binaries.sh`），
+     再 strip 二进制，最终 247 MB；
+   - 印证我们本地 strip 到 249 MB 的做法与官方一致，**LTO 不必再试**。
+2. **官方 CI 的缓存路径**（`actions/cache`）：
+   - `~/.cargo/registry/index`、`~/.cargo/registry/cache`、`~/.cargo/git/db`；
+   - 缓存 key 含 `Cargo.lock` 哈希；
+   - 印证附录 D：Docker 挂载/预置这三处 + `target/`，
+     就是官方缓存策略的本地版。
+3. **工具链锁定 1.95.0**：CI 用 `dtolnay/rust-toolchain` 1.95.0，
+   与 `rust-toolchain.toml` 一致；Docker 镜像预装 1.95.0 即可。
+4. **平台矩阵**：官方构建 linux gnu/musl、macos、windows 多目标；
+   本地 Docker 只需 `x86_64-unknown-linux-gnu`。若以后要静态版可用 musl，
+   需对应 V8 资产（`v8-canary.yml` 有完整构建矩阵）。
+5. **权衡**：官方发布构建显式 `use-cache: false`（可复现优先）；
+   我们本地 Docker 反过来追求缓存加速，取向不同，属可接受的取舍。
+
 ## 附录 A：踩坑速查表
 
 | 现象 | 原因 | 解决 |
