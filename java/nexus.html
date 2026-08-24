@@ -32,8 +32,8 @@
       }
     </script>
     <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
-    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
-    <link rel="modulepreload" href="/easywork/assets/app-Ct5f9ZAD.js"><link rel="modulepreload" href="/easywork/assets/nexus-LCHLQoHW.js">
+    <link rel="preload" href="/easywork/assets/style-DM-B7VUb.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-DM-B7VUb.css">
+    <link rel="modulepreload" href="/easywork/assets/app-DZ36ZdMk.js"><link rel="modulepreload" href="/easywork/assets/nexus-omElGUBw.js">
     
   </head>
   <body>
@@ -78,6 +78,6 @@
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p>日志：</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># 查看启动日志</span></span>
 <span class="line"><span class="token function">tail</span> <span class="token parameter variable">-f</span> /opt/nexus/log/nexus.log</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><ol><li>端口冲突：若端口 8081 被占用，修改 etc/nexus-default.properties 中的 application-port 属性。</li><li>内存不足：编辑 bin/nexus.vmoptions 调整 JVM 参数（如 -Xms512m -Xmx1024m）</li><li>权限问题：确保 Nexus 用户对 <code>sonatype-work</code> 目录有读写权限</li></ol><h2 id="登录访问" tabindex="-1"><a class="header-anchor" href="#登录访问"><span>登录访问</span></a></h2><p>默认端口为 <code>8081</code>，打开浏览器访问：http://localhost:8081</p><p>默认管理员账号：<code>admin</code> 初始密码：在 <code>sonatype-work/nexus3/admin.password</code> 文件中查找。</p><h3 id="仓库类型" tabindex="-1"><a class="header-anchor" href="#仓库类型"><span>仓库类型</span></a></h3><ol><li>Hosted Repository（存储私有 Jar 包）</li><li>Proxy Repository（代理 Maven Central）</li><li>Repository Group（聚合仓库，包含以上2种类型的多个仓库，可以调整优先级）</li></ol><p><code>/#admin/repository/repositories</code> 路径下已存在的​​maven仓库有4个：</p><ol><li>​​maven-public​​ (group)：只读，用于客户端下载依赖（聚合了central、releases、snapshots） ​​2. maven-releases​​ (hosted)：可写，用于部署正式版本 ​​3. maven-snapshots​​ (hosted)：可写，用于部署快照版本 ​​4. maven-central​​ (proxy)：只读，代理Maven中央仓库</li></ol><p>创建仓库：</p><ol><li>进入 Repository → Repositories → Create repository。</li><li>选择类型为 maven2 (group)。</li><li>填写名称（如 maven-public）和存储空间（Blob Store）。</li><li>在 Group 选项卡中，从左侧可用仓库列表中选择需要聚合的仓库（如 maven-releases、maven-snapshots、maven-central），添加到右侧的成员列表。</li><li>通过上下箭头调整仓库顺序（顺序影响依赖查找优先级）。</li></ol><p>定期备份仓库数据和配置文件（如 sonatype-work 目录）。</p></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2025-10-11T16:03:11.000Z" data-allow-mismatch>2025/10/11 16:03</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-Ct5f9ZAD.js" defer></script>
+    <script type="module" src="/easywork/assets/app-DZ36ZdMk.js" defer></script>
   </body>
 </html>

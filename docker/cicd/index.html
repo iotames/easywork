@@ -32,8 +32,8 @@
       }
     </script>
     <title>Docker CI/CD | 沙滩星空的博客</title><meta name="description" content="基于 Docker 的持续集成与持续部署参考实现（多阶段构建、Compose 多环境）">
-    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
-    <link rel="modulepreload" href="/easywork/assets/app-Ct5f9ZAD.js"><link rel="modulepreload" href="/easywork/assets/README-GeoH8xE6.js">
+    <link rel="preload" href="/easywork/assets/style-DM-B7VUb.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-DM-B7VUb.css">
+    <link rel="modulepreload" href="/easywork/assets/app-DZ36ZdMk.js"><link rel="modulepreload" href="/easywork/assets/README-BNWr3Evj.js">
     
   </head>
   <body>
@@ -70,6 +70,6 @@
 <span class="line"><span class="token comment"># 停止环境</span></span>
 <span class="line"><span class="token function">docker</span> compose <span class="token parameter variable">-p</span> santic-revamp-cms <span class="token parameter variable">-f</span> docker-compose-uat.yml down</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="最佳实践" tabindex="-1"><a class="header-anchor" href="#最佳实践"><span>最佳实践</span></a></h2><ol><li><strong>镜像标签策略</strong>：使用 <code>sha-&lt;git-commit&gt;</code> 作为唯一标识，<code>latest</code> 作为便捷入口，确保每次部署可追溯</li><li><strong>多环境复用镜像</strong>：同一镜像通过不同 env_file 区分配置，避免环境间镜像不一致</li><li><strong>日志轮转</strong>：所有容器必须配置 <code>max-size</code> 和 <code>max-file</code>，防止磁盘写满</li><li><strong>镜像清理</strong>：定期清理旧版本镜像，保留最近 3-5 个版本以便快速回滚</li><li><strong>固定项目名</strong>：在 <code>docker compose</code> 命令中始终使用 <code>-p</code> 参数指定项目名，避免路径问题导致的容器管理混乱</li></ol><h2 id="注意事项" tabindex="-1"><a class="header-anchor" href="#注意事项"><span>注意事项</span></a></h2><ul><li>构建时需确保 Dockerfile 与项目根目录的 <code>.next</code> 输出配置一致</li><li><code>.env.uat</code> 和 <code>.env</code> 文件需提前在服务器上准备好，不纳入版本控制</li><li>本方案适用于单机部署场景；多节点场景建议配合 Harbor 私有镜像仓库实现拉取部署</li><li>私有镜像仓库配置可参考 <code>../harbor/README.md</code></li></ul></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2026-08-12T07:38:39.000Z" data-allow-mismatch>2026/8/12 07:38</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">吴汉青</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-Ct5f9ZAD.js" defer></script>
+    <script type="module" src="/easywork/assets/app-DZ36ZdMk.js" defer></script>
   </body>
 </html>

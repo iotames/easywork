@@ -32,8 +32,8 @@
       }
     </script>
     <title>沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
-    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
-    <link rel="modulepreload" href="/easywork/assets/app-Ct5f9ZAD.js"><link rel="modulepreload" href="/easywork/assets/kettle_issue-3yePVz2p.js">
+    <link rel="preload" href="/easywork/assets/style-DM-B7VUb.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-DM-B7VUb.css">
+    <link rel="modulepreload" href="/easywork/assets/app-DZ36ZdMk.js"><link rel="modulepreload" href="/easywork/assets/kettle_issue-C994RwTz.js">
     
   </head>
   <body>
@@ -44,6 +44,6 @@
 <span class="line">org.gjt.mm.mysql.Driver</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><p>缺少MySQL驱动。</p><h3 id="解决方法-1" tabindex="-1"><a class="header-anchor" href="#解决方法-1"><span>解决方法</span></a></h3><p>进入：https://downloads.mysql.com/archives/c-j/ -&gt; <code>Operating System:</code> 下拉框选择：<code>Platform Independent</code> -&gt; 选择 <code>Platform Independent (Architecture Independent), ZIP Archive</code> 下载.</p><ul><li>例： 下载 https://cdn.mysql.com/archives/mysql-connector-java-9.2/mysql-connector-j-9.2.0.zip 然后解压缩，复制文件 <code>mysql-connector-j-9.2.0.jar</code> 到 Kettle 的 <code>lib</code> 目录下。然后重启 Kettle。</li></ul><h2 id="数据表字段类型错误" tabindex="-1"><a class="header-anchor" href="#数据表字段类型错误"><span>数据表字段类型错误</span></a></h2><p>Kettle会自作聪明地把MySQL来源数据表的tinyint(1)类型字段，转换成boolean类型。导致写入到目标表时，因数据类型对不上而报错。</p><p>MySQL JDBC驱动将tinyint(1)特殊映射为Java的Boolean类型（仅支持0/1），而非Integer。</p><p>在Kettle中配置MySQL数据库连接时，在​​“连接”标签页的“选项”标签卡​​中，添加以下连接参数：</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token assign-left variable">tinyInt1isBit</span><span class="token operator">=</span>false</span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2026-02-03T07:14:08.000Z" data-allow-mismatch>2026/2/3 07:14</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: hankin@catmes.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-Ct5f9ZAD.js" defer></script>
+    <script type="module" src="/easywork/assets/app-DZ36ZdMk.js" defer></script>
   </body>
 </html>

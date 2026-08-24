@@ -32,8 +32,8 @@
       }
     </script>
     <title>boot-analyze 开机耗时分析工具 | 沙滩星空的博客</title><meta name="description" content="金于沙里得，玉向石中求。个人博客主要是工作和学习的备忘笔记，包含开发与运维的提效脚本工具。">
-    <link rel="preload" href="/easywork/assets/style-BBY2zA3A.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-BBY2zA3A.css">
-    <link rel="modulepreload" href="/easywork/assets/app-Ct5f9ZAD.js"><link rel="modulepreload" href="/easywork/assets/README-BctL8hum.js">
+    <link rel="preload" href="/easywork/assets/style-DM-B7VUb.css" as="style"><link rel="stylesheet" href="/easywork/assets/style-DM-B7VUb.css">
+    <link rel="modulepreload" href="/easywork/assets/app-DZ36ZdMk.js"><link rel="modulepreload" href="/easywork/assets/README-67fyVnZI.js">
     
   </head>
   <body>
@@ -70,6 +70,6 @@
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="查看原始数据" tabindex="-1"><a class="header-anchor" href="#查看原始数据"><span>查看原始数据</span></a></h3><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">cat</span> ~/logs/boot-history.log     <span class="token comment"># 趋势数据(总耗时)</span></span>
 <span class="line"><span class="token function">cat</span> ~/logs/boot-timeline.log    <span class="token comment"># 完整生命周期原始数据</span></span>
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="设计要点" tabindex="-1"><a class="header-anchor" href="#设计要点"><span>设计要点</span></a></h2><ul><li><strong>不阻塞开机</strong>：记录脚本由图形登录后 autostart 触发，异步后台执行，不影响开机速度和启动链路。</li><li><strong>双数据分离</strong>：轻量趋势日志给曲线图；完整生命周期原始日志给深入分析，各司其职不混淆。</li><li><strong>零丢数据</strong>：登录后 <code>systemd-analyze</code> 数据必定已就绪，避免开机早期数据缺失问题。</li></ul><h2 id="常见问题" tabindex="-1"><a class="header-anchor" href="#常见问题"><span>常见问题</span></a></h2><p><strong>Q: 开机变慢时记录脚本会不会拖慢开机？</strong> A: 不会。脚本是登录后异步后台运行，完全在开机完成之后执行。</p><p><strong>Q: 曲线图为什么打不开浏览器？</strong> A: 若系统缺少 GUI 浏览器，脚本会提示 HTML 路径，可手动打开： <code>~/logs/boot-history-plot.html</code></p></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新: </span><time class="meta-item-info" datetime="2026-08-15T15:49:20.000Z" data-allow-mismatch>2026/8/15 15:49</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 554553400@qq.com">Hankin</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!----><!--]--><!--]--></div>
-    <script type="module" src="/easywork/assets/app-Ct5f9ZAD.js" defer></script>
+    <script type="module" src="/easywork/assets/app-DZ36ZdMk.js" defer></script>
   </body>
 </html>
