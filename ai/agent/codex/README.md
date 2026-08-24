@@ -1,6 +1,6 @@
 ---
 title: "Codex介绍"
-description: "OpenAI Codex 编程智能助手：安装、全局配置、OTel 可观测性设置心得"
+description: "OpenAI Codex 编程智能助手：安装、全局配置、多模型供应商配置、视觉模型调度、多智能体角色团队配置、OTel 可观测性设置心得"
 tags: ["AI", "AI Agent", "Codex"]
 order: 1
 ---
@@ -11,12 +11,14 @@ Codex 是 OpenAI 的编程智能助手，支持终端（CLI）和桌面应用。
 
 - 官方文档：https://developers.openai.com/codex/
 
+
 ## 安装
 
 ```bash
 codex --version
 # 官方安装方式：npm install -g @openai/codex
 ```
+
 
 ## 全局配置
 
@@ -37,6 +39,28 @@ codex --version
 Copy-Item ~/.codex/config.toml config.toml.bak-$(Get-Date -Format yyyyMMdd-HHmmss)
 ```
 
+
+## 多模型供应商配置
+
+Codex 用「供应商 + 模型」两层选择模型：`[model_providers.<id>]` 定义供应商（base_url、认证、协议），`model_provider` 选择供应商，`model` 选择该供应商下的模型。一个供应商可配多个模型，切换只改 `model`。
+
+内置供应商（`openai`、`ollama`/`lmstudio`、`amazon-bedrock`）ID 保留不可覆盖；自定义供应商需在用户级 `~/.codex/config.toml` 定义。
+
+完整内容（配置示例、Profile 切换、字段参考、注意事项）：[model-providers.md](model-providers.md)
+
+
+## 视觉模型调度（纯文本模型看图）
+
+多数模型为纯文本，无法直接识别图片。Codex 支持配置自定义视觉 Agent（绑定支持图片输入的模型），让主模型遇到图片时 spawn 子代理用 `view_image` 读图并返回文字描述。
+
+配置步骤与替代方案：[vision-agent.md](vision-agent.md)
+
+
+## 多智能体角色团队配置
+
+Codex 支持并行子代理与多智能体角色团队：内置 `default` / `worker` / `explorer`，自定义角色放 `~/.codex/agents/*.toml`，全局 `[agents]` 控制并发与默认模型。实验性 V2 后端（`features.multi_agent_v2`）引入正式角色与 `spawn_agent` / `wait_agent` 工具，且优先于 `agents.enabled`。
+
+完整配置（角色文件、`[agents.<role>]` 覆盖、V2 角色字段、团队示例、开关优先级）：[agents.md](agents.md)
 ## 可观测性配置（OTel）
 
 痛点：Working/思考过程不可观测。Codex 原生支持 OpenTelemetry（OTel）遥测（官方定位：审计使用、问题调查、合规要求），默认关闭，需在全局配置显式开启。开启后把 traces/metrics 导出到 OTLP 兼容后端，即可将工作过程（工具调用、token、执行轨迹）可视化为 trace 时间线。
@@ -88,6 +112,7 @@ codex features list -c 'otel.trace_exporter="otlp-http"'
 ```
 
 配置写入后验证加载：`codex features list` 无 Error 即正常。
+
 
 ## 会话记录与日志
 

@@ -320,7 +320,7 @@ StandardOutput=file:/root/qddns/output.log
 
 2. journalctl 命令
 
-```
+```bash
 # 查看某服务的日志
 journalctl -u nginx.service
 
