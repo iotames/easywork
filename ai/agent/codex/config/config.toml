@@ -1,0 +1,39 @@
+# === 权限模式（Codex 对话窗口）===
+# 档位说明：
+#   sandbox_mode   : read-only | workspace-write | danger-full-access
+#   approval_policy: untrusted | on-request | never
+# 切换示例：
+#   只读      -> sandbox_mode = "read-only",  approval_policy = "untrusted"
+#   询问(默认)-> sandbox_mode = "workspace-write", approval_policy = "untrusted"
+#   完全放开  -> sandbox_mode = "danger-full-access", approval_policy = "never"
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+
+forced_login_method = "api"
+model_reasoning_effort = "low"
+model_catalog_json = "~/.codex/models.json"
+
+# model_provider = "ZAI"
+# model = "glm-5.3-flash"
+# model_provider = "DeepSeek"
+# model = "deepseek-flash"
+model_provider = "Qwen"
+model = "qwen3.8-flash"
+
+[model_providers.Qwen]
+name = "Qwen"
+base_url = "https://token-plan.maas.qianwenaiapi.com/compatible-mode/v1"
+env_key = "QWEN_API_KEY"
+wire_api = "responses"
+
+[model_providers.DeepSeek]
+name = "DeepSeek"
+base_url = "https://api.deepseek.com/"
+wire_api = "responses"
+env_key = "DEEPSEEK_API_KEY"
+
+[model_providers.ZAI]
+name = "ZAI"
+base_url = "https://open.bigmodel.cn/api/v1"
+env_key = "ZAI_API_KEY"
+wire_api = "responses"
