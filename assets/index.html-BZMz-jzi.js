@@ -1,0 +1,1 @@
+import{O as e,S as t,T as n,f as r,k as i}from"./app-Dz47kXnf.js";var a=JSON.parse(`{"path":"/python/","title":"Python","lang":"zh-CN","frontmatter":{"title":"Python"},"git":{},"filePathRelative":null}`),o={name:`index.html.vue`};function s(r,a,o,s,c,l){let u=i(`Catalog`);return e(),t(`div`,null,[n(u)])}var c=r(o,[[`render`,s]]);export{a as _pageData,c as default};
