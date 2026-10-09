@@ -39,6 +39,8 @@ codex --version
 Copy-Item ~/.codex/config.toml config.toml.bak-$(Get-Date -Format yyyyMMdd-HHmmss)
 ```
 
+代码模式（Code Mode）要按需开启（`codex -p code-mode`，profile 文件为 [config/code-mode.config.toml](config/code-mode.config.toml)）；**不要写进全局 `config.toml`**——全局开启会让不支持 `exec` 自定义工具的供应商（如 DeepSeek）整轮请求 400 失败。配置方式、各模型实测结论与回退方法见 [model-providers.md](model-providers.md) 的「代码模式（Code Mode）与 tool_mode」。
+
 
 ## 多模型供应商配置
 
