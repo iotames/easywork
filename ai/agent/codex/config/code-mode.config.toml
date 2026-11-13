@@ -1,0 +1,20 @@
+# Codex 配置 Profile：代码模式（Code Mode）
+#
+# 用法：codex -p code-mode
+#      该文件按 $CODEX_HOME/<name>.config.toml 约定叠加在 ~/.codex/config.toml 之上，
+#      不加 -p 时不生效。
+#
+# 为什么不做成全局开关：
+#   开启后 codex 会向模型下发名为 exec 的自定义工具（代码单元入口）。
+#   供应商 API 若不支持该自定义工具类型，会直接 400 拒绝整轮请求 ——
+#   实测 DeepSeek responses 接口报 "Unsupported custom tool: 'exec'.
+#   Only 'apply_patch' is supported."，会话完全不可用。
+#   因此代码模式按需开启，不要写进全局 config.toml。
+#
+# 兼容性（2026-10-09 于 codex 0.162.0 实测）：
+#   qwen3.8-flash  可用于代码模式（tool_mode 声明 code_mode_only 时确实产出代码单元）
+#   glm-5.3-flash  未实测（本机无 ZAI_API_KEY）
+#   deepseek-flash 不支持，会 400
+
+[features]
+code_mode = true

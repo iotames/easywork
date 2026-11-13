@@ -103,6 +103,30 @@ codex exec --profile proxy-code "review this change"
 - 自定义供应商不能使用保留 ID（`openai`/`ollama`/`lmstudio`）。
 - 想自定义 UI 里可选的模型清单，可配 `model_catalog_json` 指向模型目录 JSON（可选）。
 
+### 代码模式（Code Mode）与 tool_mode
+
+Code Mode 让模型把多步操作写成一段可执行代码单元（cell），交给独立宿主进程执行，再经嵌套工具调用触达真实工具；该宿主就是 codex 包内的 `codex-code-mode-host`（特性开关 `code_mode_host` 为 stable 且默认开启，无需手写）。
+
+**不要写进全局 `config.toml`。** 开启后会向**所有**模型下发名为 `exec` 的自定义工具（代码单元入口），供应商 API 不支持该工具类型时会直接 400 拒绝整轮请求：DeepSeek 实测报 `Unsupported custom tool: 'exec'. Only 'apply_patch' is supported.`，会话完全不可用。按需开启：
+
+```bash
+codex -p code-mode        # 推荐：用 config/code-mode.config.toml 这个 profile
+codex --enable code_mode  # 单次会话临时开
+```
+
+`~/.codex/<name>.config.toml` 会叠加在全局配置之上，只有 `-p <name>` 时生效，默认会话不受影响。
+
+模型侧声明在 `models.json` 的 `tool_mode` 字段：`code_mode`（代码模式与直接工具同时暴露，模型可能仍选直接工具）、`code_mode_only`（只走代码模式）、`null`（不参与，回退直接工具）。未声明而全局开了 `code_mode` 时，codex 会告警 "Code Mode is enabled in configuration, but model xxx does not advertise Code Mode support."。
+
+兼容性（2026-10-09，codex 0.162.0 实测）：
+
+| 模型 | 声明 | 实测结果 |
+| --- | --- | --- |
+| OpenAI 自带目录 gpt-6.x / 5.6.x | `code_mode_only` | 官方目录即如此声明，Code Mode 是这些模型的默认工作方式（本机无 OpenAI 凭证，未实跑） |
+| `qwen3.8-flash` | `code_mode` | 可用：声明为 `code_mode_only` 时确实产出代码单元并算出正确结果，但首次调用参数写错、多花一轮往返（input 约 5.2 万 token vs 直接工具约 1.4 万） |
+| `glm-5.3-flash` | `code_mode` | 未实测（本机无 `ZAI_API_KEY`） |
+| `deepseek-flash` | `null` | **不支持**：请求被 400 拒绝，必须保持 `null` |
+
 ### 参考
 
 - 高级配置：https://developers.openai.com/codex/config-advanced
